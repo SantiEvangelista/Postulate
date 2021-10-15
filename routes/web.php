@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 Route::get('/', function () {
-    return view('index-05');
+    return view('index');
+});
+Route::get('/form', function () {
+    return view('elements-forms');
+});
+Route::get('/form2', function () {
+    return view('stepper.step1');
 });
