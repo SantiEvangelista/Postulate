@@ -162,4 +162,14 @@
     </div>
     <!-- End Page Wrap -->
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.0.7/imask.min.js" integrity="sha512-qCt/OTd55ilhuXLRNAp/G8uONXUrpFoDWsXDtyjV4wMbvh46dOEjvHZyWkvnffc6I2g/WHSKsaFUCm0RISxnzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        var phoneMask = IMask(
+            document.getElementById("phone"),
+            {
+                mask: "+{000}-(000)-0000000",
+            }
+        );
+    </script>
+
 @endsection
