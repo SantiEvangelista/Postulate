@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Generador extends Model
 {
     use HasFactory;
+    protected $fillable=['name','surname','birthday','adress','email','phone','imagen'];
+
 }

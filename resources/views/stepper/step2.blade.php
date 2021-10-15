@@ -85,11 +85,11 @@
                                             <th></th>
                                         </tr>
                                         <tr style="padding-bottom: 20em;">
-                                            <td><input style="width: 25rem;margin-right: 5px;" type="text" name="addMoreInputFields[0][nombre]" class="form-control" /></td>
-                                            <td><input style="width: 15rem;margin-right: 5px;" type="text" name="addMoreInputFields[0][cargo]" class="form-control" /></td>
-                                            <td><input style="width: 15rem;margin-right: 5px;" type="date" name="fecha_inicio" id="fecha_inicio[0][fecha_inicio]" class="input-md round form-control"></td>
-                                            <td><input style="width: 15rem" type="date" name="fecha_fin" id="fecha_fin[0][fecha_fin]" class="input-md round form-control"></td>
-                                            <td><button type="button" name="add" id="dynamic-ar" style="border-color:#32a8a6 ;color: #32a8a6" class="btn btn-outline-primary">+</button></td>
+                                            <td style="padding-bottom: 5px"><input style="width: 25rem;margin-right: 5px;" type="text" name="addMoreInputFields[0][nombre]" class="form-control" /></td>
+                                            <td style="padding-bottom: 5px"><input style="width: 15rem;margin-right: 5px;" type="text" name="addMoreInputFields[0][cargo]" class="form-control" /></td>
+                                            <td style="padding-bottom: 5px"><input style="width: 15rem;margin-right: 5px;" type="date" name="fecha_inicio" id="fecha_inicio[0][fecha_inicio]" class="input-md round form-control"></td>
+                                            <td style="padding-bottom: 5px"><input style="width: 15rem" type="date" name="fecha_fin" id="fecha_fin[0][fecha_fin]" class="input-md round form-control"></td>
+                                            <td style="padding-bottom: 5px"><button type="button" name="add" id="dynamic-ar" style="border-color:#32a8a6 ;color: #32a8a6" class="btn btn-outline-primary">+</button></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -148,6 +148,8 @@
                     <!-- End Row -->
                     <div>
                         <button>Siguiente paso</button>
+                        
+                        <a href="{{ route('generador.paso1.create') }}">Volver</a>
                     </div>
                 </div>
             </form>
@@ -168,7 +170,7 @@
         var i = 0;
         $("#dynamic-ar").click(function () {
             ++i;
-            $("#dynamicAddRemove").append('<tr style="padding-bottom: 20rem;"><td><input style="width: 25rem;margin-right: 5px" type="text" name="addMoreInputFields[' + i +'][nombre]" class="form-control" /></td><td><input style="width: 15rem;margin-right: 5px;" type="text" name="addMoreInputFields[' + i +'][cargo]" class="form-control" /></td><td><input style="width: 15rem;margin-right: 5px;" type="date" name="fecha_inicio" id="fecha_inicio[' + i +'][fecha_inicio]" class="input-md round form-control"></td><td><input style="width: 15rem" type="date" name="fecha_fin" id="fecha_fin[' + i +'][fecha_fin]" class="input-md round form-control"></td><td><button type="button" class="btn btn-outline-danger remove-input-field">Quitar</button></td></tr>');});
+            $("#dynamicAddRemove").append('<tr style="padding-bottom: 20rem;"><td style="padding-bottom: 5px"><input style="width: 25rem;margin-right: 5px" type="text" name="addMoreInputFields[' + i +'][nombre]" class="form-control" /></td><td style="padding-bottom: 5px"><input style="width: 15rem;margin-right: 5px;" type="text" name="addMoreInputFields[' + i +'][cargo]" class="form-control" /></td><td style="padding-bottom: 5px"><input style="width: 15rem;margin-right: 5px;" type="date" name="fecha_inicio" id="fecha_inicio[' + i +'][fecha_inicio]" class="input-md round form-control"></td><td style="padding-bottom: 5px"><input style="width: 15rem" type="date" name="fecha_fin" id="fecha_fin[' + i +'][fecha_fin]" class="input-md round form-control"></td><td style="padding-bottom: 5px"><button type="button" class="btn btn-outline-danger remove-input-field">Quitar</button></td></tr>');});
         $(document).on('click', '.remove-input-field', function () {
             $(this).parents('tr').remove();
         });

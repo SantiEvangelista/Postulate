@@ -15,6 +15,14 @@ class CreateGeneradorsTable extends Migration
     {
         Schema::create('generadors', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('surname');
+            $table->date('birthday');
+            $table->string('adress');
+            $table->string('email');
+            $table->string('phone');
+            $table->string('imagen')->nullable();
+            
             $table->timestamps();
         });
     }

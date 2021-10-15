@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GeneradorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', function () {return view('index');})->name('index');
 
-Route::get('/generarCV/paso1', function () {
-    return view('stepper.step1');
-})->name('generador.paso1.create');
+// Vistas GET
+Route::get('/generarCV/paso/1', [GeneradorController::class, 'create_paso1'])->name('generador.paso1.create');
+Route::get('/generarCV/paso/2', [GeneradorController::class, 'create_paso2'])->name('generador.paso2.create');
 
-Route::get('/generarCV/paso2', function () {
-    return view('stepper.step2');
-})->name('generador.paso2.create');
+// Vistas POST
+Route::post('/generarCV/paso/1', [GeneradorController::class, 'post_paso1'])->name('generador.paso1.store');

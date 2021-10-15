@@ -53,7 +53,8 @@
 
             <!-- Section -->
             <section class="page-section bg-dark light-content">
-                <form action="{{ route('generador.paso2.create') }}" method="get" enctype="multipart/form-data">
+                <form action="{{ route('generador.paso1.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="container relative">
 
                     <div class="text-center mb-80 mb-sm-50">
@@ -64,12 +65,17 @@
                     <div class="row">
 
                         <!-- Col -->
+                        @if ($errors->any())
+                            <div style="color: #32a8a6 ;background-color: black" class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
                         <div class="col-sm-4 mb-40">
-
-                            
-                            
-
                                 <h3>Informacion personal basica</h3>
                                 <div class="mb-20 mb-md-10">
                                     <!-- Name -->
@@ -86,9 +92,9 @@
                                 </div>
 
                                 <div class="mb-20 mb-md-10">
-                                    <label for="fecha_nacimiento">Fecha de nacimiento</label>
+                                    <label for="birthday">Fecha de nacimiento</label>
                                     <!-- Date-->
-                                    <input type="date" name="fecha_nacimiento" id="fecha_nacimiento"
+                                    <input type="date" name="birthday" id="birthday"
                                         class="input-md round form-control">
                                 </div>
 

@@ -17,69 +17,47 @@ class GeneradorController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    // vistas GET
+    public function create_paso1()
     {
-        //
+        return view('stepper.step1');
+    }
+    
+    public function create_paso2()
+    {
+        return view('stepper.step2');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function create_paso3()
     {
-        //
+        # code...
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Generador  $generador
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Generador $generador)
+    // vistas POST
+    public function post_paso1(Request $request)
     {
-        //
+        $validated = $request->validate(['name' => 'required','surname' => 'required',
+            'birthday' => 'required','adress' => 'required','email' => 'required',
+            'phone' => 'required']);
+
+            if($request->file('imagen')){
+                $fileName = time().'_'.$request->imagen->getClientOriginalName();
+                $filePath = $request->file('imagen')->storeAs('uploads', $fileName, 'public');
+                $validated['image'] = $filePath;
+            }
+
+        if(empty($request->session()->get('cv'))){
+            $cv = new Generador($validated);
+            $request->session()->put(['cv'=>$cv]);
+
+        }else{
+            $cv = $request->session()->get('cv');
+            $request->session()->put(['cv'=>$cv]);
+        }
+
+        return redirect()->route('generador.paso2.create');
+
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Generador  $generador
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Generador $generador)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Generador  $generador
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Generador $generador)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Generador  $generador
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Generador $generador)
-    {
-        //
-    }
 }
