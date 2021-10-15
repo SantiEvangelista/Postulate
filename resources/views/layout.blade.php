@@ -11,16 +11,16 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
         <!-- Favicons -->
-        <link rel="shortcut icon" href="images/favicon.png">
+        <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}">
 
         <!-- CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/style-responsive.css">
-        <link rel="stylesheet" href="css/animate.min.css">
-        <link rel="stylesheet" href="css/vertical-rhythm.min.css">
-        <link rel="stylesheet" href="css/owl.carousel.css">
-        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }} ">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+        <link rel="stylesheet" href="{{ asset('css/style-responsive.css') }} ">
+        <link rel="stylesheet" href="{{ asset('css/animate.min.css') }} ">
+        <link rel="stylesheet" href="{{ asset('css/vertical-rhythm.min.css') }} ">
+        <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }} ">
+        <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }} ">
     </head>
     <body class="appear-animate">
         
@@ -30,7 +30,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                             <!-- Logo ( * your text or image into link tag *) -->
                             <div class="nav-logo-wrap local-scroll">
                                 <a href="#top" class="logo">
-                                    <img src="images/logo-white.png" alt="Company logo" />
+                                    <img src="{{ asset('images/logo-white.png') }}" alt="Company logo" />
                                 </a>
                             </div>
                             <div class="mobile-nav" role="button" tabindex="0">
@@ -41,7 +41,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                             <div class="inner-nav desktop-nav">
                                 <ul class="clearlist scroll-nav local-scroll">
                                     <li class="active"><a href="#home">Home</a></li>
-                                    <li><a href="#contact">Servicio</a></li>
+                                    <li><a href="{{ route('generador.paso1.create') }}">Servicio</a></li>
                                     <li><a href="#contact">Contacto</a></li>
                                     <li><a href="#about">Acerca de </a></li>
                                 </ul>
@@ -57,7 +57,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
 
                     <!-- Footer Logo -->
                     <div class="local-scroll mb-30 wow fadeInUp" data-wow-duration="1.2s">
-                        <a href="#top"><img src="images/logo-footer.png" width="78" height="36" alt="Company logo" /><span class="sr-only">Scroll to the top of the page</span></a>
+                        <a href="#top"><img src="{{ asset('images/logo-footer.png') }}" width="78" height="36" alt="Company logo" /><span class="sr-only">Scroll to the top of the page</span></a>
                     </div>
                     <!-- End Footer Logo -->
                     
@@ -99,29 +99,29 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             </footer>
             <!-- End Foter -->        
         <!-- JS -->
-        <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
-        <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-        <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>        
-        <script type="text/javascript" src="js/SmoothScroll.js"></script>
-        <script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
-        <script type="text/javascript" src="js/jquery.localScroll.min.js"></script>
-        <script type="text/javascript" src="js/jquery.viewport.mini.js"></script>
-        <script type="text/javascript" src="js/jquery.countTo.js"></script>
-        <script type="text/javascript" src="js/jquery.appear.js"></script>
-        <script type="text/javascript" src="js/jquery.sticky.js"></script>
-        <script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
-        <script type="text/javascript" src="js/jquery.fitvids.js"></script>
-        <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-        <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
-        <script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
-        <script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
-        <script type="text/javascript" src="js/wow.min.js"></script>
-        <script type="text/javascript" src="js/masonry.pkgd.min.js"></script>
-        <script type="text/javascript" src="js/morphext.js"></script>
-        <script type="text/javascript" src="js/jquery.lazyload.min.js"></script>
-        <script type="text/javascript" src="js/all.js"></script>
-        <script type="text/javascript" src="js/contact-form.js"></script>
-        <script type="text/javascript" src="js/jquery.ajaxchimp.min.js"></script>        
+        <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>        
+        <script type="text/javascript" src="{{ asset('js/SmoothScroll.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.localScroll.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.viewport.mini.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.countTo.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.appear.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.sticky.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.parallax-1.1.3.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.fitvids.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/owl.carousel.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/imagesloaded.pkgd.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/wow.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/morphext.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.lazyload.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/all.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/contact-form.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script>        
         
         @yield('scripts')
     </body>

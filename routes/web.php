@@ -15,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
-Route::get('/form', function () {
-    return view('elements-forms');
-});
-Route::get('/form2', function () {
+})->name('index');
+
+Route::get('/generarCV/paso1', function () {
     return view('stepper.step1');
-});
+})->name('generador.paso1.create');
+
+Route::get('/generarCV/paso2', function () {
+    return view('stepper.step2');
+})->name('generador.paso2.create');
