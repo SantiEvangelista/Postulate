@@ -19,7 +19,7 @@
             <main id="main">
             
                 <!-- Home Section -->
-                <section class="home-section bg-dark-alfa-30 parallax-2" data-background="images/full-width-images/section-bg-9.jpg" id="home">
+                <section class="home-section bg-dark-alfa-30 parallax-2" style="background-image: url('https://media.ambito.com/p/ef042a145e6877ddeb3c4c4c7a5aa24f/adjuntos/239/imagenes/029/742/0029742636/los-desafios-inmediatos-los-recursos-humanos.jpg')" id="home">
                     <div class="js-height-full">
                         
                         <!-- Hero Content -->
@@ -66,41 +66,41 @@
                                 <div class="col-md-4">
                                     <blockquote>
                                         <p>
-                                        Design is&nbsp;not making beauty, beauty emerges from selection, affinities, integration, love.
+                                        Diseña tu propio curriculum vitae en 3 simples pasos.
                                         </p>
-                                        <footer>
-                                            Louis Kahn
-                                        </footer>
+
                                     </blockquote>
                                 </div>
                                 
                                 <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In maximus ligula semper metus pellentesque mattis. Maecenas  volutpat, diam enim sagittis quam, id porta quam. Sed id dolor consectetur fermentum nibh volutpat, accumsan purus. 
+                                    Nuestra mision es ayudarte de manera sencilla e intuitiva de crear un curriculum vitae.   
                                 </div>
                                 
                                 <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                                    Etiam sit amet fringilla lacus. Pellentesque suscippiteme ante at ullamcorper pulvinar neque porttitor. Integer lectus. Praesent sed nisi eleifend, fermentum orci amet, iaculis libero. Donec vel ultricies purus. Nam dictum sem, eu aliquam.
+                                    Por eso diseñamos un mecanismo donde podras, mediante plantillas pre-diseñadas por expertos en RR.HH, crear tu CV de la manera mas profesional posible y con solo 3 simple pasos.
                                 </div>
                                 
                             </div>
                         </div>
                         
                         <div class="row">
-                            
+                            <h2 class="section-title font-alt align-left mb-70 mb-sm-40">
+                                Desarrolladores
+                            </h2>
                             <!-- Team item -->
                             <div class="col-sm-4 mb-xs-30 wow fadeInUp">
                                 <div class="team-item">
                                     
                                     <div class="team-item-image">
                                         
-                                        <img src="images/team/team-1.jpg" alt="" />
+                                        <img src="images/team/Santiago.png" alt="" />
                                         
                                         <div class="team-item-detail">
                                             
                                             <h4 class="font-alt normal">Hello & Welcome!</h4>
                                             
                                             <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a&nbsp;iaculis diam. 
+                                                Para el diseño web utilizamos el framework Laravel, debido a mi gran conocimiento sobre el. 
                                             </p>
                                             
                                             <div class="team-social-links">
@@ -115,11 +115,11 @@
                                     <div class="team-item-descr font-alt">
                                         
                                         <div class="team-item-name">
-                                            Thomas Rhythm 
+                                            Evangelista Santiago 
                                         </div>
                                         
                                         <div class="team-item-role">
-                                            Art Director
+                                            Developer
                                         </div>
                                         
                                     </div>
@@ -134,14 +134,14 @@
                                     
                                     <div class="team-item-image">
                                         
-                                        <img src="images/team/team-2.jpg" alt="" />
+                                        <img src="images/team/Matias.jpg" alt="" />
                                         
                                         <div class="team-item-detail">
                                             
                                             <h4 class="font-alt normal">Nice to meet!</h4>
                                             
                                             <p>
-                                                Curabitur augue, nec finibus mauris pretium eu. Duis placerat ex gravida nibh tristique porta.
+                                                Soy el encargado de programar las funcionalidades de la pagina.
                                             </p>
                                             
                                             <div class="team-social-links">
@@ -156,11 +156,11 @@
                                     <div class="team-item-descr font-alt">
                                         
                                         <div class="team-item-name">
-                                            Marta Laning
+                                            Morales Matias Nicolas
                                         </div>
                                         
                                         <div class="team-item-role">
-                                            Web engineer
+                                            Web Design
                                         </div>
                                         
                                     </div>
@@ -175,14 +175,14 @@
                                     
                                     <div class="team-item-image">
                                         
-                                        <img src="images/team/team-3.jpg" alt="" />
+                                        <img src="images/team/Fernando.jfif" alt="" />
                                         
                                         <div class="team-item-detail">
                                             
                                             <h4 class="font-alt normal">Whats Up!</h4>
                                             
                                             <p>
-                                                Adipiscing elit curabitur eu&nbsp;adipiscing lacus eu&nbsp;adipiscing lacus, a&nbsp;iaculis diam. 
+                                                Mi rol se emplea con respecto al diseño e implementacion de la base de datos. 
                                             </p>
                                             
                                             <div class="team-social-links">
@@ -197,11 +197,11 @@
                                     <div class="team-item-descr font-alt">
                                         
                                         <div class="team-item-name">
-                                            Steve ANDERS
+                                            Nougues Fernando
                                         </div>
                                         
                                         <div class="team-item-role">
-                                            Developer
+                                            Database Developer
                                         </div>
                                         
                                     </div>
