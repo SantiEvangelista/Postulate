@@ -31,7 +31,7 @@ class GeneradorController extends Controller
 
     public function create_paso3()
     {
-        # code...
+        return view('stepper.step3');
     }
 
     // vistas POST
@@ -61,10 +61,12 @@ class GeneradorController extends Controller
 
     public function post_paso2(Request $request)
     {
-        // $validated = $request->validate([
-        //     'secundario' => 'required',
-        //     'orientacion' => 'required',
-        //     'fecha_inicio_secundario' => 'required']);
+        $cv = $request->session()->get('cv');
+
+        $validated = $request->validate([
+            'secundario' => 'required',
+            'orientacion' => 'required',
+            'fecha_inicio_secundario' => 'required']);
             
         if($request->addMoreInputFields[0]['nombre']!=null and $request->addMoreInputFields[0]['cargo']!=null){
             foreach ($request->addMoreInputFields as $puestos) {
@@ -75,13 +77,15 @@ class GeneradorController extends Controller
                    'end_date' => $puestos['fecha_fin']
                 ]);
             }
-            dd("cargado");
         }
 
-        
-
-        
-
+        $cv->secundario=$request->secundario;
+        $cv->orientacion=$request->orientacion;
+        $cv->fecha_inicio_secundario=$request->fecha_inicio_secundario;
+        $cv->fecha_fin_secundario=$request->fecha_fin_secundario;
+    
+        $request->session()->put(['cv'=>$cv]);
+        return redirect()->route('generador.paso3.create');
 
     }
 

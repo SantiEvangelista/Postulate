@@ -22,6 +22,12 @@ class CreateGeneradorsTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('imagen')->nullable();
+            $table->string('secundario');
+            $table->string('orientacion');
+            $table->string('fecha_inicio_secundario');
+            $table->string('fecha_fin_secundario');
+
+
             
             $table->timestamps();
         });

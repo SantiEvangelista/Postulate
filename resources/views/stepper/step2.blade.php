@@ -116,12 +116,12 @@
                                     <div style="display:flex;flex-direction: row" class="mb-20 mb-md-10">
                                         <div style="padding-right: 2%">
                                             <label for="secundario">Educacion Secundaria</label>
-                                            <input type="text" autocomplete="off" name="secundario" id="secundario"
+                                            <input value="Aconquija" type="text" autocomplete="off" name="secundario" id="secundario"
                                                 class="input-md round form-control" maxlength="100">
                                         </div>
                                         <div style="padding-right: 2%">
                                             <label for="orientacion">Orientacion</label>
-                                            <input type="text" autocomplete="off" name="orientacion" id="orientacion"
+                                            <input value="Humanidades" type="text" autocomplete="off" name="orientacion" id="orientacion"
                                                 class="input-md round form-control" maxlength="100">
                                         </div>
                                         <div style="padding-right: 2%">

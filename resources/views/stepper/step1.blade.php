@@ -80,28 +80,28 @@
                                 <div class="mb-20 mb-md-10">
                                     <!-- Name -->
                                     <label for="name">Nombre completo</label>
-                                    <input type="text" autocomplete="off" name="name" id="name"
+                                    <input value="Santiago" type="text" autocomplete="off" name="name" id="name"
                                         class="input-md round form-control" maxlength="100">
                                 </div>
 
                                 <div class="mb-20 mb-md-10">
                                     <!-- Surname -->
                                     <label for="surname">Apellido</label>
-                                    <input type="text" autocomplete="off" name="surname" id="surname"
+                                    <input value="Evangelista" type="text" autocomplete="off" name="surname" id="surname"
                                         class="input-md round form-control" maxlength="100">
                                 </div>
 
                                 <div class="mb-20 mb-md-10">
                                     <label for="birthday">Fecha de nacimiento</label>
                                     <!-- Date-->
-                                    <input type="date" name="birthday" id="birthday"
+                                    <input value="1998-06-16" type="date" name="birthday" id="birthday"
                                         class="input-md round form-control">
                                 </div>
 
                                 <div class="mb-20 mb-md-10">
                                     <label for="adress">Direccion</label>
                                     <!-- Date-->
-                                    <input type="text" autocomplete="off" name="adress" id="adress"
+                                    <input value="Mendoza 2300" type="text" autocomplete="off" name="adress" id="adress"
                                         class="input-md round form-control" maxlength="100">
                                 </div>
                         </div>
@@ -116,7 +116,7 @@
                             <div class="mb-20 mb-md-10">
                                 <!-- Email -->
                                 <label for="email">Email</label>
-                                <input type="email" autocomplete="off" name="email" id="email"
+                                <input value="d@gmail.com" type="email" autocomplete="off" name="email" id="email"
                                     class="input-md round form-control" maxlength="100">
                             </div>
 

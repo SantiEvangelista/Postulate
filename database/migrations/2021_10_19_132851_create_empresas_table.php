@@ -20,7 +20,7 @@ class CreateEmpresasTable extends Migration
             $table->date('start_date');
             $table->date('end_date');
             
-            $table->foreignId('generador_id')->references('id')->on('generadors')->constrained()->cascadeOnDelete()->nullable();
+            $table->foreignId('generador_id')->nullable()->references('id')->on('generadors')->constrained()->cascadeOnDelete();
             
             $table->timestamps();
         });
