@@ -10,4 +10,10 @@ class Generador extends Model
     use HasFactory;
     protected $fillable=['name','surname','birthday','adress','email','phone','imagen'];
 
+
+    public function empresas()
+    {
+        return $this->hasMany(Empresas::class);
+    }
+
 }

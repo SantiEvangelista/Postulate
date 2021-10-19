@@ -54,107 +54,118 @@
             <!-- Section -->
             <section class="page-section bg-dark light-content">
                 <form action="" method="post" enctype="multipart/form-data">
-                <div class="container relative">
-
-                    <div class="text-center mb-80 mb-sm-50">
-                        <h2 class="section-title">Experiencias laborales</h2>
-                    </div>
-
-                    <!-- Row -->
-                    <div class="row">
-
-                        <!-- Col -->
-
-                        <div class="col-md-10 mb-40">
-
-                            <!-- Form -->
-                            <form method="post" action="#" id="form" class="form">
-
-                                <h3>Experiencias previas</h3>
-                                <div class="mb-20 mb-md-10">
-                                    <div id="pregunta">
-                                        <input style="margin-right: 5px;" type="checkbox" id="tieneExp">
-                                        <label for="tieneExp">Tienes experiencia laboral?</label>
-                                    </div>
-                                    <table style="visibility: hidden;border-spacing:0 10px;" id="dynamicAddRemove">
-                                        <tr>
-                                            <th>Nombre de la empresa</th>
-                                            <th>Cargo</th>
-                                            <th>Fecha de inicio</th>
-                                            <th>Fecha de fin</th>
-                                            <th></th>
-                                        </tr>
-                                        <tr style="padding-bottom: 20em;">
-                                            <td style="padding-bottom: 5px"><input style="width: 25rem;margin-right: 5px;" type="text" name="addMoreInputFields[0][nombre]" class="form-control" /></td>
-                                            <td style="padding-bottom: 5px"><input style="width: 15rem;margin-right: 5px;" type="text" name="addMoreInputFields[0][cargo]" class="form-control" /></td>
-                                            <td style="padding-bottom: 5px"><input style="width: 15rem;margin-right: 5px;" type="date" name="fecha_inicio" id="fecha_inicio[0][fecha_inicio]" class="input-md round form-control"></td>
-                                            <td style="padding-bottom: 5px"><input style="width: 15rem" type="date" name="fecha_fin" id="fecha_fin[0][fecha_fin]" class="input-md round form-control"></td>
-                                            <td style="padding-bottom: 5px"><button type="button" name="add" id="dynamic-ar" style="border-color:#32a8a6 ;color: #32a8a6" class="btn btn-outline-primary">+</button></td>
-                                        </tr>
-                                    </table>
-                                </div>
-
-                                <div class="mb-20 mb-md-10 col-md-4">
-                                    <div>
-                                        <!-- Name -->
-                                        <label for="secundario">Educacion Secundaria</label>
-                                        <input type="text" autocomplete="off" name="secundario" id="secundario" class="input-md round form-control" maxlength="100">
-
-                                    </div>
-
-                                    <label for="orientacion">Orientacion</label>
-                                    <input type="text" autocomplete="off" name="orientacion" id="orientacion" class="input-md round form-control" maxlength="100">
-                                </div>
-
-                                <div class="mb-20 mb-md-10">
-                                    <!-- Surname -->
-                                    <label for="surname">Apellido</label>
-                                    <input type="text" autocomplete="off" name="surname" id="surname"
-                                        class="input-md round form-control" maxlength="100">
-                                </div>
-
-                                <div class="mb-20 mb-md-10">
-                                    <label for="fecha_nacimiento">Fecha de nacimiento</label>
-                                    <!-- Date-->
-                                    <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="input-md round form-control">
-                                </div>
-
-                                <div class="mb-20 mb-md-10">
-                                    <label for="adress">Direccion</label>
-                                    <!-- Date-->
-                                    <input type="text" autocomplete="off" name="adress" id="adress"
-                                        class="input-md round form-control" maxlength="100">
-                                </div>
-
-                            </form>
-                            <!-- End Form -->
-
+                    <div class="container relative">
+                        @if ($errors->any())
+                            <div style="color: #32a8a6 ;background-color: black" class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <div class="text-center mb-80 mb-sm-50">
+                            <h2 class="section-title">Experiencias laborales</h2>
                         </div>
 
-                        <!-- End Col -->
+                        <!-- Row -->
+                        <div class="row">
 
-                        <!-- Col -->
+                            <!-- Col -->
 
-                        <div class="col-sm-4 mb-40"></div>
+                            <div class="col-md-10 mb-40">
 
-                        <!-- End Col -->
+                                <!-- Form -->
+                                <form method="post" action="{{ route('generador.paso2.store') }}" id="form" class="form">
+                                    @csrf
+                                    <h3>Experiencias previas</h3>
+                                    <div class="mb-20 mb-md-10">
+                                        <div id="pregunta">
+                                            <input style="margin-right: 5px;" type="checkbox" id="tieneExp">
+                                            <label for="tieneExp">Tienes experiencia laboral?</label>
+                                        </div>
+                                        <table style="visibility: hidden;border-spacing:0 10px;" id="dynamicAddRemove">
+                                            <tr>
+                                                <th>Nombre de la empresa</th>
+                                                <th>Cargo</th>
+                                                <th>Fecha de inicio</th>
+                                                <th>Fecha de fin</th>
+                                                <th></th>
+                                            </tr>
+                                            <tr style="padding-bottom: 20em;">
+                                                <td style="padding-bottom: 5px"><input
+                                                        style="width: 25rem;margin-right: 5px;" type="text"
+                                                        name="addMoreInputFields[0][nombre]" class="form-control" /></td>
+                                                <td style="padding-bottom: 5px"><input
+                                                        style="width: 15rem;margin-right: 5px;" type="text"
+                                                        name="addMoreInputFields[0][cargo]" class="form-control" /></td>
+                                                <td style="padding-bottom: 5px"><input
+                                                        style="width: 15rem;margin-right: 5px;" type="date"
+                                                        name="addMoreInputFields[0][fecha_inicio]" id="fecha_inicio[0][fecha_inicio]"
+                                                        class="input-md round form-control"></td>
+                                                <td style="padding-bottom: 5px"><input style="width: 15rem" type="date"
+                                                        name="addMoreInputFields[0][fecha_fin]" id="fecha_fin[0][fecha_fin]"
+                                                        class="input-md round form-control"></td>
+                                                <td style="padding-bottom: 5px"><button type="button" name="add"
+                                                        id="dynamic-ar" style="border-color:#32a8a6 ;color: #32a8a6"
+                                                        class="btn btn-outline-primary">+</button></td>
+                                            </tr>
+                                        </table>
+                                    </div>
 
-                        <!-- Col -->
-                        <div style="padding-left:20px ;background-image: url('https://cdn.pixabay.com/photo/2017/07/25/14/54/rain-2538429_960_720.jpg')"
-                            class="col-sm-4 mb-40"></div>
-                        <!-- End Col -->
+                                    <div style="display:flex;flex-direction: row" class="mb-20 mb-md-10">
+                                        <div style="padding-right: 2%">
+                                            <label for="secundario">Educacion Secundaria</label>
+                                            <input type="text" autocomplete="off" name="secundario" id="secundario"
+                                                class="input-md round form-control" maxlength="100">
+                                        </div>
+                                        <div style="padding-right: 2%">
+                                            <label for="orientacion">Orientacion</label>
+                                            <input type="text" autocomplete="off" name="orientacion" id="orientacion"
+                                                class="input-md round form-control" maxlength="100">
+                                        </div>
+                                        <div style="padding-right: 2%">
+                                            <label for="orientacion">Fecha de Inicio</label>
+                                            <input type="date" min='1930-01-01' name="fecha_inicio_secundario" id="fecha_inicio_secundario"
+                                                class="input-md round form-control">
+                                        </div>
+                                        <div style="padding-right: 2%">
+                                            <label for="orientacion">Fecha de Fin</label>
+                                            <input type="date" min="1930-01-01" name="fecha_fin_secundario" id="fecha_fin_secundario"
+                                                class="input-md round form-control">
+                                        </div>
+                                        <input style="margin-right: 5px;" type="checkbox" id="tieneExpSecundario">
+                                        <label for="tieneExp">Aun no termine el secundario</label>
+                                    </div>
 
+
+                                </form>
+                                <!-- End Form -->
+
+                            </div>
+
+                            <!-- End Col -->
+
+                            <!-- Col -->
+
+                            <div class="col-sm-4 mb-40"></div>
+
+                            <!-- End Col -->
+
+                            <!-- Col -->
+                            <!-- End Col -->
+
+                        </div>
+                        <!-- End Row -->
+                        <div>
+                            <button>Siguiente paso</button>
+
+                            <a href="{{ route('generador.paso1.create') }}">Volver</a>
+                        </div>
                     </div>
-                    <!-- End Row -->
-                    <div>
-                        <button>Siguiente paso</button>
-                        
-                        <a href="{{ route('generador.paso1.create') }}">Volver</a>
-                    </div>
-                </div>
-            </form>
+                </form>
 
-            
+
             </section>
             <!-- End Section -->
 
@@ -168,22 +179,63 @@
 
     <script type="text/javascript">
         var i = 0;
-        $("#dynamic-ar").click(function () {
+        $("#dynamic-ar").click(function() {
             ++i;
-            $("#dynamicAddRemove").append('<tr style="padding-bottom: 20rem;"><td style="padding-bottom: 5px"><input style="width: 25rem;margin-right: 5px" type="text" name="addMoreInputFields[' + i +'][nombre]" class="form-control" /></td><td style="padding-bottom: 5px"><input style="width: 15rem;margin-right: 5px;" type="text" name="addMoreInputFields[' + i +'][cargo]" class="form-control" /></td><td style="padding-bottom: 5px"><input style="width: 15rem;margin-right: 5px;" type="date" name="fecha_inicio" id="fecha_inicio[' + i +'][fecha_inicio]" class="input-md round form-control"></td><td style="padding-bottom: 5px"><input style="width: 15rem" type="date" name="fecha_fin" id="fecha_fin[' + i +'][fecha_fin]" class="input-md round form-control"></td><td style="padding-bottom: 5px"><button type="button" class="btn btn-outline-danger remove-input-field">Quitar</button></td></tr>');});
-        $(document).on('click', '.remove-input-field', function () {
+            $("#dynamicAddRemove").append(
+                '<tr style="padding-bottom: 20rem;"><td style="padding-bottom: 5px"><input style="width: 25rem;margin-right: 5px" type="text" name="addMoreInputFields[' +
+                i +
+                '][nombre]" class="form-control" /></td><td style="padding-bottom: 5px"><input style="width: 15rem;margin-right: 5px;" type="text" name="addMoreInputFields[' +
+                i +
+                '][cargo]" class="form-control" /></td><td style="padding-bottom: 5px"><input style="width: 15rem;margin-right: 5px;" type="date" name="addMoreInputFields[' +i +'][fecha_inicio]" id="fecha_inicio[' +
+                i +
+                '][fecha_inicio]" class="input-md round form-control"></td><td style="padding-bottom: 5px"><input style="width: 15rem" type="date" name="addMoreInputFields[' +i +'][fecha_fin]" id="fecha_fin[' +
+                i +
+                '][fecha_fin]" class="input-md round form-control"></td><td style="padding-bottom: 5px"><button type="button" class="btn btn-outline-danger remove-input-field">Quitar</button></td></tr>'
+                );
+        });
+        
+        $(document).on('click', '.remove-input-field', function() {
             $(this).parents('tr').remove();
         });
 
-        $("#tieneExp").click(function () {
+        $("#tieneExp").click(function() {
 
             if ($('#tieneExp').is(':checked')) {
-                $("#dynamicAddRemove").css({ 'visibility' : 'visible'});
-                }
-            else{
-                $("#dynamicAddRemove").css({ 'visibility' : 'hidden'});
+                $("#dynamicAddRemove").css({
+                    'visibility': 'visible'
+                });
+            } else {
+                $("#dynamicAddRemove").css({
+                    'visibility': 'hidden'
+                });
             }
-            });
+        });
+
+        $("#tieneExpSecundario").click(function() {
+
+            if ($('#tieneExpSecundario').is(':checked')) {
+                $("#fecha_fin_secundario").prop('disabled', true);
+            } else {
+                $("#fecha_fin_secundario").prop('disabled', false);
+            }
+        });
+
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+
+        today = yyyy + '-' + mm + '-' + dd;
+        document.getElementById("fecha_inicio_secundario").setAttribute("max", today);
+        document.getElementById("fecha_fin_secundario").setAttribute("max", today);
     </script>
 
 @endsection
