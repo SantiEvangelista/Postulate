@@ -62,3 +62,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+Instalar los paquetes para manipular PDF
+composer require setasign/fpdf
+composer require setasign/fpdi
