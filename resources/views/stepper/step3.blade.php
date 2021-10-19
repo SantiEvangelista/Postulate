@@ -132,7 +132,10 @@
                                     </div>
                             </div>
                             <div>
-                                <button>Generar CV</button>
+                                <div style="width: 100%;text-align: center">
+                                    <button type="button" class="btn btn-outline-secondary">Generar CV</button>
+                                </div>
+                                
 
                                 <a href="{{ route('generador.paso2.create') }}">Volver</a>
                             </div>

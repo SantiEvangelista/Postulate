@@ -148,7 +148,9 @@
                     </div>
                     <!-- End Row -->
                     <div>
-                        <button>Siguiente paso</button>
+                        <div style="width: 100%;text-align: center">
+                            <button type="button" class="btn btn-outline-secondary">Siguiente paso</button>
+                        </div>
                     </div>
                 </div>
             </form>
