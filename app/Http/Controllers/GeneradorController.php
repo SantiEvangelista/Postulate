@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Empresas;
 use App\Models\Generador;
+use App\Models\Lenguaje;
+use App\Models\Rasgo;
 use Illuminate\Http\Request;
 
 class GeneradorController extends Controller
@@ -85,6 +87,28 @@ class GeneradorController extends Controller
         $cv->fecha_fin_secundario=$request->fecha_fin_secundario;
     
         $request->session()->put(['cv'=>$cv]);
+        return redirect()->route('generador.paso3.create');
+
+    }
+
+    public function post_paso3(Request $request)
+    {
+        $cv = $request->session()->get('cv');
+
+        $validated = $request->validate([
+            'objetivo_profesional' => 'required',
+            'lenguajes' => 'required',
+            'rasgos' => 'required']);
+
+        foreach ($request->lenguajes as $lenguaje) {
+            Lenguaje::firstOrCreate(['nombre' => $lenguaje['nombre']]);
+        }
+
+        foreach ($request->rasgos as $rasgo) {
+            Rasgo::firstOrCreate(['nombre' => $rasgo['nombre']]);
+        }
+        
+        dd(Rasgo::all());
         return redirect()->route('generador.paso3.create');
 
     }
