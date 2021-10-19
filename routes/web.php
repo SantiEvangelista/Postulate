@@ -25,6 +25,8 @@ Route::get('/generarCV/paso/1', [GeneradorController::class, 'create_paso1'])->n
 Route::get('/generarCV/paso/2', [GeneradorController::class, 'create_paso2'])->name('generador.paso2.create');
 Route::get('/generarCV/paso/3', [GeneradorController::class, 'create_paso3'])->name('generador.paso3.create');
 
+Route::get('/generarCV/fin', [GeneradorController::class, 'success'])->name('generador.success');
+
 // Vistas POST
 Route::post('/generarCV/paso/1', [GeneradorController::class, 'post_paso1'])->name('generador.paso1.store');
 Route::post('/generarCV/paso/2', [GeneradorController::class, 'post_paso2'])->name('generador.paso2.store');

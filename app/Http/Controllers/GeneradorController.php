@@ -36,6 +36,12 @@ class GeneradorController extends Controller
         return view('stepper.step3');
     }
 
+    public function success(Request $request)
+    {
+        $cv = $request->session()->get('cv');
+        return view('sucess',['cv' => $cv]);
+    }
+
     // vistas POST
     public function post_paso1(Request $request)
     {
@@ -108,8 +114,10 @@ class GeneradorController extends Controller
             Rasgo::firstOrCreate(['nombre' => $rasgo['nombre']]);
         }
         
-        dd(Rasgo::all());
-        return redirect()->route('generador.paso3.create');
+        $cv->objetivo_profesional=$request->objetivo_profesional;
+        $request->session()->put(['cv'=>$cv]);
+
+        return redirect()->route('generador.success');
 
     }
 

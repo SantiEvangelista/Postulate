@@ -29,9 +29,12 @@ class FillPDFController extends Controller
        // use the imported page and place it at point 10,10 with a width of 100 mm
        $pdf->useTemplate($tplId, null, null, null, 210, true);
    
-       $pdf->SetXY(20, 10);
-       $pdf->Write(0.2,"Santiago Evangelista");
+       $pdf->SetXY(1, 10);
+       $pdf->Write(0.2,"MAtias Morales");
    
+       $pdf->SetXY(10, 20);
+       $pdf->Write(0.2,"03814234234234");
+
    // Preview PDF
        $pdf->Output('I',"Curriculum-Generado.pdf");
 

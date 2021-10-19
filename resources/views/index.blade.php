@@ -19,7 +19,7 @@
             <main id="main">
             
                 <!-- Home Section -->
-                <section class="home-section bg-dark-alfa-30 parallax-2" style="background-image: url('https://media.ambito.com/p/ef042a145e6877ddeb3c4c4c7a5aa24f/adjuntos/239/imagenes/029/742/0029742636/los-desafios-inmediatos-los-recursos-humanos.jpg')" id="home">
+                <section class="home-section bg-dark-alfa-30 parallax-2" style="background-color: black;" id="home">
                     <div class="js-height-full">
                         
                         <!-- Hero Content -->
@@ -197,7 +197,7 @@
                                     <div class="team-item-descr font-alt">
                                         
                                         <div class="team-item-name">
-                                            Nougues Fernando
+                                            Nogues Fernando
                                         </div>
                                         
                                         <div class="team-item-role">
