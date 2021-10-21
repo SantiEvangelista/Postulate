@@ -94,6 +94,9 @@
                                                                     <option value="Ingles">Ingles</option>
                                                                     <option value="Espanol">Español</option>
                                                                     <option value="Portuges">Portuges</option>
+                                                                    <option value="Frances">Frances</option>
+                                                                    <option value="Chino">Chino</option>
+                                                                    <option value="Aleman">Aleman</option>
                                                                 </select>
                                                             </td>
                                                             <td style="padding-bottom: 5px">
@@ -115,8 +118,13 @@
                                                     <tr style="padding-bottom: 20em;">
                                                         <td style="padding-bottom: 5px">
                                                             <select style="width: -webkit-fill-available;height: 2rem;"
-                                                                name="rasgos[0][nombre]" id="rasgos[0]">
+                                                                name="rasgos[i][nombre]" id="rasgos[i]">
                                                                 <option value="Extrovertido">Extrovertido</option>
+                                                                <option value="Introvertido">Introvertido</option>
+                                                                <option value="Amable">Amable</option>
+                                                                <option value="Sensible">Sensible</option>
+                                                                <option value="Amistoso">Amistoso</option>
+                                                                <option value="Inteligente">Inteligente</option>
                                                             </select>
                                                         </td>
                                                         <td style="padding-bottom: 5px">
