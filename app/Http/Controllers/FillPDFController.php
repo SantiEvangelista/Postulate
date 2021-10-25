@@ -31,7 +31,9 @@ class FillPDFController extends Controller
    
        $pdf->SetXY(10, 10); // Nombre y apellido
        $pdf->Write(0.2,"Matias Morales");
+
        $pdf->SetFont('Arial','',8);
+       
        $pdf->SetXY(35, 25); // Telefono
        $pdf->Write(0.2,"03814234234");
 
