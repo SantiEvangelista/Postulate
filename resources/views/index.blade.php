@@ -134,7 +134,7 @@
                                     
                                     <div class="team-item-image">
                                         
-                                        <img src="images/team/Matias.jpg" alt="" />
+                                        <img src="images/team/Matias.JPG" alt="" />
                                         
                                         <div class="team-item-detail">
                                             
