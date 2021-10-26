@@ -52,17 +52,17 @@ class GeneradorController extends Controller
             if($request->file('imagen')){
                 $fileName = time().'_'.$request->imagen[0]->getClientOriginalName();
                 $filePath = $request->imagen[0]->storeAs('uploads', $fileName, 'public');
-                $validated['image'] = $filePath;
                 
+                $validated=$validated+[$filePath];
             }
 
         if(empty($request->session()->get('cv'))){
-            $cv = new Generador($validated+['imagen'=>$filePath]);
+            $cv = new Generador($validated);
             $request->session()->put(['cv'=>$cv]);
 
         }else{
             $request->session()->flush();
-            $cv = new Generador($validated+['imagen'=>$filePath]);
+            $cv = new Generador($validated);
             $request->session()->put(['cv'=>$cv]);
         }
 
@@ -112,9 +112,7 @@ class GeneradorController extends Controller
             'rasgos' => 'required']);
 
 
-        foreach ($request->rasgos as $rasgo) {
-            Rasgo::firstOrCreate(['nombre' => $rasgo['nombre']]);
-        }
+
         
         try {
             DB::transaction(function () use ($cv,$request,$collection_empresas) {
@@ -130,7 +128,13 @@ class GeneradorController extends Controller
                     Lenguaje::firstOrCreate(
                         ['nombre' => $lenguaje['nombre'],
                         ['generador_id'=>$cv->id]
-                ]);
+                    ]);
+                }
+                foreach ($request->rasgos as $rasgo) {
+                    Rasgo::firstOrCreate(
+                        ['nombre' => $rasgo['nombre'],
+                        ['generador_id'=>$cv->id]
+                    ]);
                 }
             });
                 return redirect()->route('generador.success');
