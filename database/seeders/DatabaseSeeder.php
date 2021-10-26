@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        Rasgo::factory()->create()->create();
+        Rasgo::factory()->create();
         Rasgo::factory(['nombre'=>'Introvertido'])->create();
         Rasgo::factory(['nombre'=>'Amable'])->create();
         Rasgo::factory(['nombre'=>'Sensible'])->create();
