@@ -141,7 +141,7 @@
                             </div>
                             <div>
                                 <div style="width: 100%;text-align: center">
-                                    <button type="button" class="btn btn-outline-secondary">Generar CV</button>
+                                    <button class="btn btn-outline-secondary">Generar CV</button>
                                 </div>
                                 
 

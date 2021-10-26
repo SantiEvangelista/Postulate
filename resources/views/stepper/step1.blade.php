@@ -1,5 +1,10 @@
 @extends('layout')
 
+<head>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/image-uploader.css') }}">
+</head>
+
 @section('contenido')
 
     <!-- Page Loader -->
@@ -133,8 +138,9 @@
                                 <label style="font-size: medium" for="imagen">Imagen <small
                                         style="color: #32a8a6">*opcional</small></label>
                                 <br>
-                                <input type="file" id="imagen" name="imagen">
-
+                                <div>
+                                    <div class="imagenPersonal" style="padding-top: .5rem;"></div>
+                                </div>
                             </div>
                         </div>
 
@@ -149,9 +155,7 @@
                     <!-- End Row -->
                     <div>
                         <div style="width: 100%;text-align: center">
-                            <a href="{{ route('generador.paso2.create') }}">
-                                <button type="button" class="btn btn-outline-secondary">Siguiente paso</button>
-                            </a>
+                            <button class="btn btn-outline-secondary">Siguiente paso</button>
                         </div>
                     </div>
                 </div>
@@ -165,9 +169,19 @@
 
     </div>
     <!-- End Page Wrap -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
+
+    <script type="text/javascript" src="{{ asset('js/image-uploader.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.0.7/imask.min.js" integrity="sha512-qCt/OTd55ilhuXLRNAp/G8uONXUrpFoDWsXDtyjV4wMbvh46dOEjvHZyWkvnffc6I2g/WHSKsaFUCm0RISxnzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+
+$('.imagenPersonal').imageUploader({
+    label: 'Arrastra o hace click para cargar tu imagen de perfil',
+    imagesInputName: 'imagen',
+    maxFiles:1,
+});
+
         var phoneMask = IMask(
             document.getElementById("phone"),
             {

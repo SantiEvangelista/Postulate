@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {return view('index');})->name('index');
 
 //Vista PDF
-Route::get('/generatePDF',[FillPDFController::class,'Addtopdf']);
+Route::get('/generatedPDF/{generador}',[FillPDFController::class,'Addtopdf'])->name('resultado.pdf');;
 
 // Vistas GET
 Route::get('/generarCV/paso/1', [GeneradorController::class, 'create_paso1'])->name('generador.paso1.create');

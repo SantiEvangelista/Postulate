@@ -159,9 +159,7 @@
                         <!-- End Row -->
                         <div>
                             <div style="width: 100%;text-align: center">
-                                <a href="{{ route('generador.paso3.create') }}">
-                                    <button type="button" class="btn btn-outline-secondary">Siguiente paso</button>
-                                </a>
+                                <button class="btn btn-outline-secondary">Siguiente paso</button>
                             </div>
 
                             <a href="{{ route('generador.paso1.create') }}">Volver</a>
