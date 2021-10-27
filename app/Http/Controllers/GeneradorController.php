@@ -84,7 +84,7 @@ class GeneradorController extends Controller
                    'company_name' => $puestos['nombre'],
                    'charge' => $puestos['cargo'],
                    'start_date' => $puestos['fecha_inicio'],
-                   'end_date' => $puestos['fecha_fin']
+                   'end_date' => $puestos['fecha_fin'],
                 ]);
                 $collection_empresas=$collection_empresas->push($empresas);
             }

@@ -11,6 +11,7 @@ class FillPDFController extends Controller
 {
     public function Addtopdf(Request $request)
     {
+        $empresas = $request->session()->get('empresas');
 
         $pdf = new Fpdi();
 
@@ -19,7 +20,8 @@ class FillPDFController extends Controller
         $pdf->SetFont('Arial', 'B', 14);
         $cv = $request->session()->get('cv');
         // set the source file
-        if (count($cv->empresas) > 1) {
+        
+        if (count($empresas) >= 2) {
             $path = public_path("Pdf/CV-2_Experiencias.pdf");
 
             $pdf->setSourceFile($path);
@@ -33,7 +35,6 @@ class FillPDFController extends Controller
 
             $pdf->SetXY(10, 10); // Nombre y apellido
 
-            $empresas = $request->session()->get('empresas');
             $rasgos = $request->session()->get('rasgos');
             $lenguajes = $request->session()->get('lenguajes');
 
@@ -60,23 +61,23 @@ class FillPDFController extends Controller
                 $pdf->SetXY(18, 65); // Formacion Academica
                 $pdf->Write(0.2, $cv->secundario . '-' . $cv->orientacion);
 
-                if (count($cv->empresas) > 1) {
+                
                     $pdf->SetXY(35, 107); //Experiencias Laborales
-                    $pdf->Write(0.2, $cv->empresas[0]->start_date . '-' . $cv->empresas[0]->end_date . '  -  ' . $cv->empresas[0]->company_name);
+                    $pdf->Write(0.2, $empresas[0]->start_date . '-' . $empresas[0]->end_date . '  -  ' . $empresas[0]->company_name);
 
                     $pdf->SetXY(72, 112.5);
-                    $pdf->Write(0.2, $cv->empresas[0]->charge);
+                    $pdf->Write(0.2, $empresas[0]->charge);
 
                     $pdf->SetXY(35, 121);
-                    $pdf->Write(0.2, $cv->empresas[1]->start_date . '-' . $cv->empresas[1]->end_date . '  -  ' . $cv->empresas[1]->company_name);
+                    $pdf->Write(0.2, $empresas[1]->start_date . '-' . $empresas[1]->end_date . '  -  ' . $empresas[1]->company_name);
 
                     $pdf->SetXY(72, 127);
-                    $pdf->Write(0.2, $cv->empresas[1]->charge);
-                }
+                    $pdf->Write(0.2, $empresas[1]->charge);
+                
 
                 $pdf->SetXY(18, 162); // Idiomas
 
-                foreach ($cv->lenguajes as $idioma) {
+                foreach ($lenguajes as $idioma) {
                     $pdf->Write(0.2, $idioma->nombre);
                     $pdf->SetXY(30, 162);
                 }
@@ -126,7 +127,7 @@ class FillPDFController extends Controller
 
             // Preview PDF
             $pdf->Output('I', "Curriculum-Generado.pdf");
-        } elseif (count($cv->empresas) > 0) {
+        } elseif (count($empresas) >= 1) {
 
             //CV CON SOLO 1 EXPERIENCIA
             //REVISAR LAS POSICIONES
