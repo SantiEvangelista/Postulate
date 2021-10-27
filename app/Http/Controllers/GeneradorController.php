@@ -54,12 +54,6 @@ class GeneradorController extends Controller
             'birthday' => 'required','adress' => 'required','email' => 'required',
             'phone' => 'required']);
 
-            if($request->file('imagen')){
-                $fileName = time().'_'.$request->imagen[0]->getClientOriginalName();
-                $filePath = $request->imagen[0]->storeAs('uploads', $fileName, 'public');
-                
-                $validated=$validated+[$filePath];
-            }
 
             $request->session()->flush();
         if(empty($request->session()->get('cv'))){
