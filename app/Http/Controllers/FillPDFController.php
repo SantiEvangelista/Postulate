@@ -9,7 +9,7 @@ use setasign\Fpdi\Fpdi;
  
 class FillPDFController extends Controller
 {
-    public function Addtopdf(Generador $generador=null,Request $request) {
+    public function Addtopdf(Request $request) {
 
         $pdf = new Fpdi();
            
