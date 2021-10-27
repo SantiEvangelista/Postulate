@@ -129,7 +129,7 @@ class GeneradorController extends Controller
                 
                 foreach ($collection_empresas as $empresa ) {
                     $empresa->generador_id=$cv->id;
-                    $empresa->save();
+                    
                 }
                 foreach ($request->lenguajes as $lenguaje) {
                     $lenguaje= new Lenguaje([
