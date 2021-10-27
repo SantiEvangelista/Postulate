@@ -7,6 +7,7 @@ use App\Models\Generador;
 use App\Models\Lenguaje;
 use App\Models\Rasgo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GeneradorController extends Controller
 {
@@ -36,10 +37,9 @@ class GeneradorController extends Controller
         return view('stepper.step3');
     }
 
-    public function success(Request $request)
+    public function success()
     {
-        $cv = $request->session()->get('cv');
-        return view('sucess',['cv' => $cv]);
+        return view('sucess',['cv' => Generador::latest()->first()]);
     }
 
     // vistas POST
@@ -50,9 +50,10 @@ class GeneradorController extends Controller
             'phone' => 'required']);
 
             if($request->file('imagen')){
-                $fileName = time().'_'.$request->imagen->getClientOriginalName();
-                $filePath = $request->file('imagen')->storeAs('uploads', $fileName, 'public');
-                $validated['image'] = $filePath;
+                $fileName = time().'_'.$request->imagen[0]->getClientOriginalName();
+                $filePath = $request->imagen[0]->storeAs('uploads', $fileName, 'public');
+                
+                $validated=$validated+[$filePath];
             }
 
         if(empty($request->session()->get('cv'))){
@@ -60,11 +61,12 @@ class GeneradorController extends Controller
             $request->session()->put(['cv'=>$cv]);
 
         }else{
-            $cv = $request->session()->get('cv');
+            $request->session()->flush();
+            $cv = new Generador($validated);
             $request->session()->put(['cv'=>$cv]);
         }
 
-        return redirect()->route('generador.paso2.create');
+        return redirect()->route('generador.paso2.create'); 
     }
 
     public function post_paso2(Request $request)
@@ -75,15 +77,16 @@ class GeneradorController extends Controller
             'secundario' => 'required',
             'orientacion' => 'required',
             'fecha_inicio_secundario' => 'required']);
-            
+        $collection_empresas=collect();
         if($request->addMoreInputFields[0]['nombre']!=null and $request->addMoreInputFields[0]['cargo']!=null){
             foreach ($request->addMoreInputFields as $puestos) {
-                Empresas::create([
+                $empresas=Empresas::new([
                    'company_name' => $puestos['nombre'],
                    'charge' => $puestos['cargo'],
                    'start_date' => $puestos['fecha_inicio'],
                    'end_date' => $puestos['fecha_fin']
                 ]);
+                $collection_empresas=$collection_empresas->push($empresas);
             }
         }
 
@@ -92,6 +95,7 @@ class GeneradorController extends Controller
         $cv->fecha_inicio_secundario=$request->fecha_inicio_secundario;
         $cv->fecha_fin_secundario=$request->fecha_fin_secundario;
     
+        $request->session()->put(['empresas'=>$collection_empresas]);
         $request->session()->put(['cv'=>$cv]);
         return redirect()->route('generador.paso3.create');
 
@@ -100,25 +104,43 @@ class GeneradorController extends Controller
     public function post_paso3(Request $request)
     {
         $cv = $request->session()->get('cv');
+        $collection_empresas = $request->session()->get('empresas');
 
         $validated = $request->validate([
             'objetivo_profesional' => 'required',
             'lenguajes' => 'required',
             'rasgos' => 'required']);
 
-        foreach ($request->lenguajes as $lenguaje) {
-            Lenguaje::firstOrCreate(['nombre' => $lenguaje['nombre']]);
-        }
 
-        foreach ($request->rasgos as $rasgo) {
-            Rasgo::firstOrCreate(['nombre' => $rasgo['nombre']]);
-        }
+
         
-        $cv->objetivo_profesional=$request->objetivo_profesional;
-        $request->session()->put(['cv'=>$cv]);
+        try {
+            DB::transaction(function () use ($cv,$request,$collection_empresas) {
+                if ($cv->fecha_fin_secundario == null) $cv->fecha_fin_secundario='Sin finalizar';
+                $cv->objetivo_profesional=$request->objetivo_profesional;
+                $cv->save();
 
-        return redirect()->route('generador.success');
-
+                foreach ($collection_empresas as $empresa ) {
+                    $empresa->generador_id=$cv->id;
+                    $empresa->save();
+                }
+                foreach ($request->lenguajes as $lenguaje) {
+                    Lenguaje::firstOrCreate(
+                        ['nombre' => $lenguaje['nombre'],
+                        ['generador_id'=>$cv->id]
+                    ]);
+                }
+                foreach ($request->rasgos as $rasgo) {
+                    Rasgo::firstOrCreate(
+                        ['nombre' => $rasgo['nombre'],
+                        ['generador_id'=>$cv->id]
+                    ]);
+                }
+            });
+                return redirect()->route('generador.success');
+        } catch (\Throwable $th) {
+            return $th;
+        }
     }
 
 }
