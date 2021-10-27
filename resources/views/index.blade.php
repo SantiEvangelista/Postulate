@@ -66,18 +66,18 @@
                                 <div class="col-md-4">
                                     <blockquote>
                                         <p>
-                                        Diseña tu propio curriculum vitae en 3 simples pasos.
+                                        Diseña tu propio CV con solo 3 simples pasos.
                                         </p>
 
                                     </blockquote>
                                 </div>
                                 
                                 <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                                    Nuestra mision es ayudarte de manera sencilla e intuitiva de crear un curriculum vitae.   
+                                    Sabemos la dificil tarea que es la realización de tu primer Curriculum Vitae. Por eso nuestra mision es ayudarte de manera sencilla e intuitiva en la creacion de tu propio CV.   
                                 </div>
                                 
                                 <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                                    Por eso diseñamos un mecanismo donde podras, mediante plantillas pre-diseñadas por expertos en RR.HH, crear tu CV de la manera mas profesional posible y con solo 3 simple pasos.
+                                    Diseñamos un mecanismo donde podras, mediante plantillas pre-diseñadas por expertos en Recursos Humanos, crear tu CV de la manera mas profesional posible y con tan solo 3 simple pasos.
                                 </div>
                                 
                             </div>
