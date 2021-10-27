@@ -9,7 +9,7 @@ use setasign\Fpdi\Fpdi;
  
 class FillPDFController extends Controller
 {
-    public function Addtopdf(Generador $generador=null) {
+    public function Addtopdf(Generador $generador=null,Request $request) {
 
         $pdf = new Fpdi();
            
@@ -29,48 +29,53 @@ class FillPDFController extends Controller
    
        // use the imported page and place it at point 10,10 with a width of 100 mm
        $pdf->useTemplate($tplId, null, null, null, 210, true);
-   
+
        $pdf->SetXY(10, 10); // Nombre y apellido
+       $cv=$request->session()->get('cv');
+       $empresas=$request->session()->get('empresas');
+       $rasgos=$request->session()->get('rasgos');
+       $lenguajes=$request->session()->get('lenguajes');
+
        
-    if ($generador != null) {
+    if ($cv != null) {
         
-        $pdf->Write(0.2,$generador->name.' '.$generador->surname);
+        $pdf->Write(0.2,$cv->name.' '.$cv->surname);
 
         $pdf->SetFont('Arial','',8);
         $pdf->SetXY(35, 25); // Telefono
-        $pdf->Write(0.2,$generador->phone);
+        $pdf->Write(0.2,$cv->phone);
         
         $pdf->SetXY(120, 10); // Nombre y apellido
         $pdf->Write(0.2,'imagen');
 
         $pdf->SetXY(35, 28); // Email
-        $pdf->Write(0.2,$generador->email);
+        $pdf->Write(0.2,$cv->email);
        
         $pdf->SetXY(35, 31); // Direccion
-        $pdf->Write(0.2,$generador->adress);
+        $pdf->Write(0.2,$cv->adress);
         $pdf->SetXY(18, 48); // objetivo Profesional
-        $pdf->Write(0.2,$generador->objetivo_profesional);
+        $pdf->Write(0.2,$cv->objetivo_profesional);
 
         $pdf->SetXY(18, 65); // Formacion Academica
-        $pdf->Write(0.2,$generador->secundario.'-'.$generador->orientacion);
+        $pdf->Write(0.2,$cv->secundario.'-'.$cv->orientacion);
 
-        if(count($generador->empresas)>1){
+        if(count($cv->empresas)>1){
             $pdf->SetXY(35, 107); //Experiencias Laborales
-            $pdf->Write(0.2,$generador->empresas[0]->start_date.'-'.$generador->empresas[0]->end_date.'  -  '.$generador->empresas[0]->company_name);
+            $pdf->Write(0.2,$cv->empresas[0]->start_date.'-'.$cv->empresas[0]->end_date.'  -  '.$cv->empresas[0]->company_name);
     
             $pdf->SetXY(72, 112.5);
-            $pdf->Write(0.2,$generador->empresas[0]->charge);
+            $pdf->Write(0.2,$cv->empresas[0]->charge);
     
             $pdf->SetXY(35, 121);
-            $pdf->Write(0.2,$generador->empresas[1]->start_date.'-'.$generador->empresas[1]->end_date.'  -  '.$generador->empresas[1]->company_name);
+            $pdf->Write(0.2,$cv->empresas[1]->start_date.'-'.$cv->empresas[1]->end_date.'  -  '.$cv->empresas[1]->company_name);
 
             $pdf->SetXY(72, 127);
-            $pdf->Write(0.2,$generador->empresas[1]->charge);
+            $pdf->Write(0.2,$cv->empresas[1]->charge);
            }
 
         $pdf->SetXY(18, 162); // Idiomas
         
-        foreach ($generador->lenguajes as $idioma) {
+        foreach ($cv->lenguajes as $idioma) {
             $pdf->Write(0.2,$idioma->nombre);
             $pdf->SetXY(30, 162);
             }
