@@ -39,7 +39,7 @@
             <section class="page-section bg-dark light-content">
                 <p style="font-size: 3rem;text-align: center;" class="hs-line-2 mb-20 mb-xs-2">Curriculum Generado correctamente!</p>
                 <div style="width: 100%;text-align: center">
-                    <button type="button" class="btn btn-outline-secondary">Click para ver el curriculum</button>
+                    <a href="{{ route('resultado.pdf',['generador'=>$cv]) }}" target="_blank" class="btn btn-outline-secondary">Toca para ver tu nuevo curriculum</a>
                 </div>
 
             </section>

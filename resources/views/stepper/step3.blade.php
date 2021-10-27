@@ -74,7 +74,7 @@
                                                     <label for="name">Objetivo Profesional</label>
                                                     <textarea name="objetivo_profesional" id="objetivo_profesional"
                                                         cols="30" rows="10"
-                                                        style="resize:none;width: -webkit-fill-available;">Formar los mejores profesionales</textarea>
+                                                        style="resize:none;width: -webkit-fill-available;"></textarea>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4 mb-40">
@@ -141,7 +141,7 @@
                             </div>
                             <div>
                                 <div style="width: 100%;text-align: center">
-                                    <button type="button" class="btn btn-outline-secondary">Generar CV</button>
+                                    <button class="btn btn-outline-secondary">Generar CV</button>
                                 </div>
                                 
 

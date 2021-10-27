@@ -1,5 +1,6 @@
 @extends('layout')
 
+
 @section('contenido')
 
     <!-- Page Loader -->
@@ -80,29 +81,29 @@
                                 <div class="mb-20 mb-md-10">
                                     <!-- Name -->
                                     <label for="name">Nombre completo</label>
-                                    <input value="Santiago" type="text" autocomplete="off" name="name" id="name"
-                                        class="input-md round form-control" maxlength="100">
+                                    <input type="text" autocomplete="off" name="name" id="name"
+                                        class="input-md round form-control" maxlength="30">
                                 </div>
 
                                 <div class="mb-20 mb-md-10">
                                     <!-- Surname -->
                                     <label for="surname">Apellido</label>
-                                    <input value="Evangelista" type="text" autocomplete="off" name="surname" id="surname"
-                                        class="input-md round form-control" maxlength="100">
+                                    <input type="text" autocomplete="off" name="surname" id="surname"
+                                        class="input-md round form-control" maxlength="30">
                                 </div>
 
                                 <div class="mb-20 mb-md-10">
                                     <label for="birthday">Fecha de nacimiento</label>
                                     <!-- Date-->
-                                    <input value="1998-06-16" type="date" name="birthday" id="birthday"
+                                    <input type="date" name="birthday" id="birthday"
                                         class="input-md round form-control">
                                 </div>
 
                                 <div class="mb-20 mb-md-10">
                                     <label for="adress">Direccion</label>
                                     <!-- Date-->
-                                    <input value="Mendoza 2300" type="text" autocomplete="off" name="adress" id="adress"
-                                        class="input-md round form-control" maxlength="100">
+                                    <input type="text" autocomplete="off" name="adress" id="adress"
+                                        class="input-md round form-control" maxlength="25">
                                 </div>
                         </div>
 
@@ -116,8 +117,8 @@
                             <div class="mb-20 mb-md-10">
                                 <!-- Email -->
                                 <label for="email">Email</label>
-                                <input value="d@gmail.com" type="email" autocomplete="off" name="email" id="email"
-                                    class="input-md round form-control" maxlength="100">
+                                <input  type="email" autocomplete="off" name="email" id="email"
+                                    class="input-md round form-control" maxlength="25">
                             </div>
 
 
@@ -129,13 +130,6 @@
                             </div>
 
                             <br>
-                            <div class="mb-20 mb-md-10">
-                                <label style="font-size: medium" for="imagen">Imagen <small
-                                        style="color: #32a8a6">*opcional</small></label>
-                                <br>
-                                <input type="file" id="imagen" name="imagen">
-
-                            </div>
                         </div>
 
                         <!-- End Col -->
@@ -149,9 +143,7 @@
                     <!-- End Row -->
                     <div>
                         <div style="width: 100%;text-align: center">
-                            <a href="{{ route('generador.paso2.create') }}">
-                                <button type="button" class="btn btn-outline-secondary">Siguiente paso</button>
-                            </a>
+                            <button class="btn btn-outline-secondary">Siguiente paso</button>
                         </div>
                     </div>
                 </div>
@@ -165,9 +157,12 @@
 
     </div>
     <!-- End Page Wrap -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.0.7/imask.min.js" integrity="sha512-qCt/OTd55ilhuXLRNAp/G8uONXUrpFoDWsXDtyjV4wMbvh46dOEjvHZyWkvnffc6I2g/WHSKsaFUCm0RISxnzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+
+
         var phoneMask = IMask(
             document.getElementById("phone"),
             {
