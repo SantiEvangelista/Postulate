@@ -126,10 +126,11 @@ class GeneradorController extends Controller
 
                 $lenguajes=collect();
                 $rasgos=collect();
+                $empresas=collect();
                 
                 foreach ($collection_empresas as $empresa ) {
                     $empresa->generador_id=$cv->id;
-                    
+                    $empresas=$empresas->push($empresa);
                 }
                 foreach ($request->lenguajes as $lenguaje) {
                     $lenguaje= new Lenguaje([
@@ -149,6 +150,7 @@ class GeneradorController extends Controller
                 $request->session()->put(['cv'=>$cv]);
                 $request->session()->put(['lenguajes'=>$lenguajes]);
                 $request->session()->put(['rasgos'=>$rasgos]);
+                $request->session()->put(['empresas'=>$empresas]);
 
                 return redirect()->route('generador.success');
         } catch (\Throwable $th) {
