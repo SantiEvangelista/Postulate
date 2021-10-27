@@ -44,8 +44,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
                                 <ul class="clearlist scroll-nav local-scroll">
                                     <li class="active"><a href="{{route('index')}}">Home</a></li>
                                     <li><a href="{{ route('generador.paso1.create') }}">Servicio</a></li>
-                                    <li><a href="#contact">Contacto</a></li>
-                                    <li><a href="#about">Acerca de </a></li>
+                                    
                                 </ul>
                             </div>
                         </div>

@@ -73,7 +73,12 @@
                                                     <!-- Name -->
                                                     <label for="name">Objetivo Profesional</label>
                                                     <textarea name="objetivo_profesional" id="objetivo_profesional"
-                                                        cols="30" rows="10"
+                                                        cols="30" rows="5"
+                                                        style="resize:none;width: -webkit-fill-available;"></textarea>
+                                                    
+                                                    <label for="name">Otros Datos de interes</label>
+                                                    <textarea name="datos_interes" id="datos_interes"
+                                                        cols="30" rows="5"
                                                         style="resize:none;width: -webkit-fill-available;"></textarea>
                                                 </div>
                                             </div>
@@ -136,6 +141,35 @@
                                                 </table>
                                                 <br>
                                             </div>
+
+                                            <h3>Otros Estudios</h3>
+                                                <div class="mb-20 mb-md-10">
+                                                    <table style="width:-webkit-fill-available;border-spacing:0 10px;"
+                                                        id="otros_estudios">
+                                                        <tr>
+                                                            <th>Otros Estudios</th>
+                                                            <th></th>
+                                                        </tr>
+                                                        <tr style="padding-bottom: 20em;">
+                                                            <td style="padding-bottom: 5px">
+                                                                <select style="width: -webkit-fill-available;height: 2rem;"
+                                                                    name="otros_estudios[0][nombre]" id="otros_estudios[0]">
+                                                                    <option value="Python">Python</option>
+                                                                    <option value="Excel">Excel</option>
+                                                                    <option value="PHP">PHP</option>
+                                                                    <option value="Laravel">Laravel</option>
+                                                                </select>
+
+                                                            </td>
+                                                            <td style="padding-bottom: 5px">
+                                                                <button type="button" name="add"
+                                                                    id="Agregar_otros_estudios_button"
+                                                                    style="border-color:#32a8a6 ;color: #32a8a6"
+                                                                    class="btn btn-outline-primary">+</button>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
                                         </div>
                                     </div>
                             </div>
@@ -181,6 +215,16 @@
                 ']"><option value="Ingles">Ingles</option><option value="Espanol">Español</option><option value="Portuges">Portuges</option></select></td></td><td style="padding-bottom: 5px"><button type="button" class="btn btn-outline-danger remove-input-field">Quitar</button></td></tr>'
             );
         });
+
+        var k = 0;
+        $("#Agregar_otros_estudios_button").click(function() {
+            ++k;
+            $("#otros_estudios").append(
+                '<tr style="padding-bottom: 20rem;"><td style="padding-bottom: 5px"><select style="width: -webkit-fill-available;height: 2rem;" name="otros_estudios[' +
+                 k + '][nombre]" id="otros_estudios[' + k +
+                 ']"><option value="Python">Python</option><option value="Excel">Excel</option><option value="PHP">PHP</option><option value="Laravel">Laravel</option></select></td></td><td style="padding-bottom: 5px"><button type="button" class="btn btn-outline-danger remove-input-field">Quitar</button></td></tr>'
+            );
+        }); 
 
         $(document).on('click', '.remove-input-field', function() {
             $(this).parents('tr').remove();

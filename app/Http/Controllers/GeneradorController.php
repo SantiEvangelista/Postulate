@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Empresas;
+use App\Models\Otros_estudios;
 use App\Models\Generador;
 use App\Models\Lenguaje;
 use App\Models\Rasgo;
@@ -109,18 +110,23 @@ class GeneradorController extends Controller
         $validated = $request->validate([
             'objetivo_profesional' => 'required',
             'lenguajes' => 'required',
+            'datos_interes' => 'required',
+            'otros_estudios' => 'required',
             'rasgos' => 'required']);
+            
         
         try {
             
                 if ($cv->fecha_fin_secundario == null) $cv->fecha_fin_secundario='Sin finalizar';
                 $cv->objetivo_profesional=$request->objetivo_profesional;
                 $cv->id=1;
+                $cv->datos_interes=$request->datos_interes;
                 
 
                 $lenguajes=collect();
                 $rasgos=collect();
                 $empresas=collect();
+                $otros_estudios=collect();
                 
                 foreach ($collection_empresas as $empresa ) {
                     $empresa->generador_id=$cv->id;
@@ -140,11 +146,21 @@ class GeneradorController extends Controller
                     ]);
                     $rasgos=$rasgos->push($rasgo);
                 }
+
+                foreach ($request->otros_estudios as $otro_estudio) {
+                    $otro_estudio=new Otros_estudios([
+                        'nombre' => $otro_estudio['nombre'],
+                        'generador_id'=>$cv->id
+                    ]);
+                    $otros_estudios=$otros_estudios->push($otro_estudio);
+                }
                 
                 $request->session()->put(['cv'=>$cv]);
                 $request->session()->put(['lenguajes'=>$lenguajes]);
                 $request->session()->put(['rasgos'=>$rasgos]);
                 $request->session()->put(['empresas'=>$empresas]);
+
+                $request->session()->put(['otros_estudios'=>$otros_estudios]);
 
                 return redirect()->route('generador.success');
         } catch (\Throwable $th) {
