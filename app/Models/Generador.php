@@ -9,8 +9,8 @@ class Generador extends Model
 {
     use HasFactory;
     protected $fillable = ['name', 'surname', 'birthday', 'adress', 'email', 'phone',
-     'imagen', 'secundario', 'orientacion', 'fecha_inicio_secundario', 
-     'fecha_fin_secundario', 'objetivo_profesional', 'datos_interes'];
+     'imagen', 'secundario', 'orientacion','terciaria','orientacion_terciaria', 'fecha_inicio_secundario', 'fecha_inicio_terciaria', 
+     'fecha_fin_secundario', 'fecha_fin_terciaria', 'objetivo_profesional', 'datos_interes'];
 
     public function empresas()
     {

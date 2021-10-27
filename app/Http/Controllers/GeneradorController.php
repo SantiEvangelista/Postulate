@@ -78,6 +78,10 @@ class GeneradorController extends Controller
             'secundario' => 'required',
             'orientacion' => 'required',
             'fecha_inicio_secundario' => 'required']);
+        $validated = $request->validate([
+            'terciaria' => 'required',
+            'orientacion_terciaria' => 'required',
+            'fecha_inicio_terciaria' => 'required']);
         $collection_empresas=collect();
         if($request->addMoreInputFields[0]['nombre']!=null and $request->addMoreInputFields[0]['cargo']!=null){
             foreach ($request->addMoreInputFields as $puestos) {
@@ -95,6 +99,12 @@ class GeneradorController extends Controller
         $cv->orientacion=$request->orientacion;
         $cv->fecha_inicio_secundario=$request->fecha_inicio_secundario;
         $cv->fecha_fin_secundario=$request->fecha_fin_secundario;
+
+            
+        $cv->terciaria=$request->terciaria;
+        $cv->orientacion_terciaria=$request->orientacion_terciaria;
+        $cv->fecha_inicio_terciaria=$request->fecha_inicio_terciaria;
+        $cv->fecha_fin_terciaria=$request->fecha_fin_terciaria;
     
         $request->session()->put(['empresas'=>$collection_empresas]);
         $request->session()->put(['cv'=>$cv]);

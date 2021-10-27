@@ -138,6 +138,31 @@
                                         <label for="tieneExp">Aun no termine el secundario</label>
                                     </div>
 
+                                    <div style="display:flex;flex-direction: row" class="mb-20 mb-md-10">
+                                        <div style="padding-right: 2%">
+                                            <label for="terciaria">Educacion Terciaria</label>
+                                            <input type="text" autocomplete="off" name="terciaria" id="terciaria"
+                                                class="input-md round form-control" maxlength="100">
+                                        </div>
+                                        <div style="padding-right: 2%">
+                                            <label for="orientacion">Orientacion</label>
+                                            <input type="text" autocomplete="off" name="orientacion_terciaria" id="orientacion_terciaria"
+                                                class="input-md round form-control" maxlength="100">
+                                        </div>
+                                        <div style="padding-right: 2%">
+                                            <label for="orientacion">Fecha de Inicio</label>
+                                            <input type="date" min='1930-01-01' name="fecha_inicio_terciaria" id="fecha_inicio_terciaria"
+                                                class="input-md round form-control">
+                                        </div>
+                                        <div style="padding-right: 2%">
+                                            <label for="orientacion">Fecha de Fin</label>
+                                            <input type="date" min="1930-01-01" name="fecha_fin_terciaria" id="fecha_fin_terciaria"
+                                                class="input-md round form-control">
+                                        </div>
+                                        <input style="margin-right: 5px;" type="checkbox" id="tieneExpterciariaTerciaria">
+                                        <label for="tieneExp">Aun no termine</label>
+                                    </div>
+
 
                                 </form>
                                 <!-- End Form -->
@@ -222,6 +247,15 @@
             }
         });
 
+        $("#tieneExpterciariaTerciaria").click(function() {
+
+            if ($('#tieneExpterciariaTerciaria').is(':checked')) {
+                $("#fecha_fin_terciaria").prop('disabled', true);
+            } else {
+                $("#fecha_fin_terciaria").prop('disabled', false);
+            }
+            });
+
         var today = new Date();
         var dd = today.getDate();
         var mm = today.getMonth() + 1; //January is 0!
@@ -238,6 +272,9 @@
         today = yyyy + '-' + mm + '-' + dd;
         document.getElementById("fecha_inicio_secundario").setAttribute("max", today);
         document.getElementById("fecha_fin_secundario").setAttribute("max", today);
+
+        document.getElementById("fecha_inicio_terciaria").setAttribute("max", today);
+        document.getElementById("fecha_fin_terciaria").setAttribute("max", today);
     </script>
 
 @endsection

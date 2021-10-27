@@ -26,6 +26,10 @@ class CreateGeneradorsTable extends Migration
             $table->string('orientacion');
             $table->string('fecha_inicio_secundario');
             $table->string('fecha_fin_secundario');
+            $table->string('terciaria');
+            $table->string('orientacion_terciaria');
+            $table->string('fecha_inicio_terciaria');
+            $table->string('fecha_fin_terciaria');
             $table->longText('objetivo_profesional');
 
 
