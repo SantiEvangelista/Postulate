@@ -73,11 +73,11 @@
                                 </div>
                                 
                                 <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                                    Sabemos la dificil tarea que es la realización de tu primer Curriculum Vitae. Por eso nuestra mision es ayudarte de manera sencilla e intuitiva en su creación.   
+                                    Sabemos la difícil tarea que es la realización de tu primer Curriculum Vitae. Por eso nuestra misión es ayudarte de manera sencilla e intuitiva en su creación.   
                                 </div>
                                 
                                 <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                                    Diseñamos un mecanismo donde podras, mediante plantillas pre-diseñadas por expertos en Recursos Humanos, crear tu CV de la manera mas profesional posible y con tan solo 3 simple pasos.
+                                Diseñamos un mecanismo donde podrás, mediante plantillas prediseñadas por expertos en Recursos Humanos, crear tu CV de la manera más profesional posible y con tan solo 3 simple pasos.
                                 </div>
                                 
                             </div>
@@ -146,7 +146,7 @@
                                             <h4 class="font-alt normal">Nice to meet!</h4>
                                             
                                             <p>
-                                                Soy el encargado de programar las funcionalidades de la pagina.
+                                                Soy el encargado de programar las funcionalidades de la página.
                                             </p>
                                             
                                             <div class="team-social-links">
@@ -187,7 +187,7 @@
                                             <h4 class="font-alt normal">Whats Up!</h4>
                                             
                                             <p>
-                                                Mi rol se emplea con respecto al diseño e implementacion de la base de datos. 
+                                                Mi rol se emplea con respecto al diseño e implementación de la base de datos. 
                                             </p>
                                             
                                             <div class="team-social-links">
@@ -243,7 +243,7 @@
                                         <span class="icon-strategy"></span>
                                     </div>
                                     
-                                    Rápido y facil
+                                    Rápido y fácil
                                 </a>
                             </li>
                             <li>
@@ -252,7 +252,7 @@
                                     <div class="alt-tabs-icon">
                                         <span class="icon-desktop"></span>
                                     </div>
-                                    Mayor oportunidades
+                                    Mayores oportunidades
                                 </a>
                             </li>
                             <li>
@@ -286,10 +286,10 @@
                                             </blockquote>
                                         </div>
                                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                                        Ingresa tus datos personales y luego comenzá a completar el contenido de tu CV. 
+                                        Ingresa tus datos personales y luego comienza a completar el contenido de tu CV. 
                                         </div>
                                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                                        Finalmente, deje que el sistema disponga del CV mas recomendable y descarguelo.
+                                        Finalmente, deje que el sistema disponga del CV más recomendable y descárguelo.
                                         </div>
                                     </div>
                                 </div>
@@ -554,7 +554,7 @@
                                     <div class="alt-features-icon">
                                         <span class="icon-hotairballoon"></span>
                                     </div>
-                                    <h3 class="alt-features-title font-alt">Tenemos Magia</h3>
+                                    <h3 class="alt-features-title font-alt">Tenemos Mágia</h3>
                                     
                                 </div>
                             </div>
@@ -616,7 +616,7 @@
                                     <div class="section-icon">
                                         <span class="icon-quote"></span>
                                     </div>
-                                    <!-- Section Title --><h3 class="small-title font-alt">¿Que dicen los expertos??</h3>
+                                    <!-- Section Title --><h3 class="small-title font-alt">¿Qué dicen los expertos?</h3>
                                     <blockquote class="testimonial white">
                                         <p>
                                             “Es la combinación entre el talento razonable y la capacidad de perseverar ante el fracaso lo que nos conduce al éxito”.

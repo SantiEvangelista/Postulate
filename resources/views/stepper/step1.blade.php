@@ -90,7 +90,7 @@
                                 </div>
 
                                 <div class="mb-20 mb-md-10">
-                                    <label for="adress">Direccion</label>
+                                    <label for="adress">Dirección</label>
                                     <!-- Date-->
                                     <input type="text" autocomplete="off" name="adress" id="adress"
                                         class="input-md round form-control" maxlength="25">
@@ -103,7 +103,7 @@
 
                         <div class="col-sm-4 mb-40">
 
-                            <h3>Informacion de Contacto</h3>
+                            <h3>Información de Contacto</h3>
                             <div class="mb-20 mb-md-10">
                                 <!-- Email -->
                                 <label for="email">Email</label>
@@ -114,7 +114,7 @@
 
                             <div class="mb-20 mb-md-10">
                                 <!-- Phone -->
-                                <label for="phone">Telefono</label>
+                                <label for="phone">Teléfono</label>
                                 <input type="text" name="phone" id="phone" class="input-md round form-control"
                                     maxlength="100">
                             </div>

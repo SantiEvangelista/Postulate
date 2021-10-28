@@ -70,7 +70,7 @@
                                     <div class="mb-20 mb-md-10">
                                         <div id="pregunta">
                                             <input style="margin-right: 5px;" type="checkbox" id="tieneExp">
-                                            <label for="tieneExp">Tienes experiencia laboral?</label>
+                                            <label for="tieneExp">¿Tienes experiencia laboral?</label>
                                         </div>
                                         <table style="visibility: hidden;border-spacing:0 10px;" id="dynamicAddRemove">
                                             <tr>
@@ -103,12 +103,12 @@
 
                                     <div style="display:flex;flex-direction: row" class="mb-20 mb-md-10">
                                         <div style="padding-right: 2%">
-                                            <label for="secundario">Educacion Secundaria</label>
+                                            <label for="secundario">Educación Secundaria</label>
                                             <input type="text" autocomplete="off" name="secundario" id="secundario"
                                                 class="input-md round form-control" maxlength="100">
                                         </div>
                                         <div style="padding-right: 2%">
-                                            <label for="orientacion">Orientacion</label>
+                                            <label for="orientacion">Orientación</label>
                                             <input type="text" autocomplete="off" name="orientacion" id="orientacion"
                                                 class="input-md round form-control" maxlength="100">
                                         </div>
@@ -128,12 +128,12 @@
 
                                     <div style="display:flex;flex-direction: row" class="mb-20 mb-md-10">
                                         <div style="padding-right: 2%">
-                                            <label for="terciaria">Educacion Terciaria</label>
+                                            <label for="terciaria">Educación Terciaria</label>
                                             <input type="text" autocomplete="off" name="terciaria" id="terciaria"
                                                 class="input-md round form-control" maxlength="100">
                                         </div>
                                         <div style="padding-right: 2%">
-                                            <label for="orientacion">Orientacion</label>
+                                            <label for="orientacion">Orientación</label>
                                             <input type="text" autocomplete="off" name="orientacion_terciaria" id="orientacion_terciaria"
                                                 class="input-md round form-control" maxlength="100">
                                         </div>
