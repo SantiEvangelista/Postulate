@@ -68,7 +68,7 @@
                                         <!-- Row -->
                                         <div class="row">                                           
                                             <div class="col-sm-4 mb-40">
-                                                <h3>Rasgos de personalidad </h3>
+                                                
                                                 <div class="mb-20 mb-md-10">
                                                     <!-- Name -->
                                                     <label for="name">Objetivo Profesional</label>
@@ -84,7 +84,7 @@
                                             </div>
                                             <div class="col-sm-4 mb-40">
 
-                                                <h3>Lenguajes que maneja</h3>
+                                                
                                                 <div class="mb-20 mb-md-10">
                                                     <table style="width:-webkit-fill-available;border-spacing:0 10px;"
                                                         id="Lenguajes">
@@ -198,7 +198,7 @@
             $("#Rasgos").append(
                 '<tr style="padding-bottom: 20rem;"><td style="padding-bottom: 5px"><select style="width: -webkit-fill-available;height: 2rem;" name="rasgos[' +
                 i + '][nombre]" id="rasgos[' + i +
-                ']"><option value="Extrovertido">Extrovertido</option></select></td></td><td style="padding-bottom: 5px"><button type="button" class="btn btn-outline-danger remove-input-field">Quitar</button></td></tr>'
+                ']"><option value="Extrovertido">Extrovertido</option><option value="Introvertido">Introvertido</option><option value="Amable">Amable</option><option value="Sensible">Sensible</option><option value="Amistoso">Amistoso</option><option value="Inteligente">Inteligente</option></select></td></td><td style="padding-bottom: 5px"><button type="button" class="btn btn-outline-danger remove-input-field">Quitar</button></td></tr>'
             );
         });
 
@@ -212,7 +212,7 @@
             $("#Lenguajes").append(
                 '<tr style="padding-bottom: 20rem;"><td style="padding-bottom: 5px"><select style="width: -webkit-fill-available;height: 2rem;" name="lenguajes[' +
                 j + '][nombre]" id="lenguajes[' + j +
-                ']"><option value="Ingles">Ingles</option><option value="Espanol">Español</option><option value="Portuges">Portuges</option></select></td></td><td style="padding-bottom: 5px"><button type="button" class="btn btn-outline-danger remove-input-field">Quitar</button></td></tr>'
+                ']"><option value="Ingles">Ingles</option><option value="Espanol">Español</option><option value="Portuges">Portuges</option><option value="Frances">Frances</option><option value="Chino">Chino</option><option value="Aleman">Aleman</option></select></td></td><td style="padding-bottom: 5px"><button type="button" class="btn btn-outline-danger remove-input-field">Quitar</button></td></tr>'
             );
         });
 

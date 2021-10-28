@@ -29,19 +29,7 @@
                             <div class="wow fadeInUpShort" data-wow-delay=".1s">
                                 <h1 class="hs-line-7 mb-20 mb-xs-10">Paso 2</h1>
                             </div>
-                            <div class="wow fadeInUpShort" data-wow-delay=".2s">
-                                <p class="hs-line-6 opacity-075 mb-20 mb-xs-0">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
-                            <div class="mod-breadcrumbs text-end">
-                                <a href="#">Home</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a
-                                    href="#">Elements</a>&nbsp;<span
-                                    class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Forms</span>
-                            </div>
+                           
                         </div>
 
                     </div>
@@ -159,8 +147,10 @@
                                             <input type="date" min="1930-01-01" name="fecha_fin_terciaria" id="fecha_fin_terciaria"
                                                 class="input-md round form-control">
                                         </div>
-                                        <input style="margin-right: 5px;" type="checkbox" id="tieneExpterciariaTerciaria">
-                                        <label for="tieneExp">Aun no termine</label>
+                                        
+                                                <input style="margin-right: 5px;" type="checkbox" id="tieneExpterciariaTerciaria">
+                                                <label for="tieneExp"> Aun no termine </label>
+                                        
                                     </div>
 
 

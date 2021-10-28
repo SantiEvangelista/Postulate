@@ -31,17 +31,7 @@
                                 <h1 class="hs-line-7 mb-20 mb-xs-10">Paso 1</h1>
                             </div>
                             <div class="wow fadeInUpShort" data-wow-delay=".2s">
-                                <p class="hs-line-6 opacity-075 mb-20 mb-xs-0">
-                                    Lorem ipsum dolor sit amet consectetur
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 mt-30 wow fadeInUpShort" data-wow-delay=".1s">
-                            <div class="mod-breadcrumbs text-end">
-                                <a href="#">Home</a>&nbsp;<span class="mod-breadcrumbs-slash">•</span>&nbsp;<a
-                                    href="#">Elements</a>&nbsp;<span
-                                    class="mod-breadcrumbs-slash">•</span>&nbsp;<span>Forms</span>
+                                
                             </div>
                         </div>
 

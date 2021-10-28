@@ -105,7 +105,7 @@
                                             <h4 class="font-alt normal">Hello & Welcome!</h4>
                                             
                                             <p>
-                                                Para el diseño web utilizamos el framework Laravel, debido a mi gran conocimiento sobre el. 
+                                                Para el diseño web utilizamos el framework Laravel, debido a mi gran conocimiento sobre el tema. 
                                             </p>
                                             
                                             <div class="team-social-links">
@@ -231,7 +231,7 @@
                     <div class="container relative">
                         
                         <h2 class="section-title font-alt mb-70 mb-sm-40">
-                            Services
+                            Servicios
                         </h2>
                         
                         <!-- Nav tabs -->
@@ -280,16 +280,16 @@
                                         <div class="col-md-4 mb-md-40 mb-xs-30">
                                             <blockquote class="mb-0">
                                                 <p>
-                                                Con nuestro creador de CV en línea es fácil para todos crear rápidamente un CV profesional. 
+                                                Con nuestro creador en línea es fácil para todos crear rápidamente un CV profesional. 
                                                 </p>
                                                 
                                             </blockquote>
                                         </div>
                                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                                        Usted ingresa sus datos personales y luego comienza a completar el contenido de su CV. 
+                                        Ingresa tus datos personales y luego comenzá a completar el contenido de tu CV. 
                                         </div>
                                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                                        Finalmente, deje que el sistema disponga del CV mas recomendable para usted y descarguelo.
+                                        Finalmente, deje que el sistema disponga del CV mas recomendable y descarguelo.
                                         </div>
                                     </div>
                                 </div>
@@ -305,16 +305,16 @@
                                         <div class="col-md-4 mb-md-40 mb-xs-30">
                                             <blockquote class="mb-0">
                                                 <p>
-                                                Es más probable que consiga un trabajo.
+                                                Es más probable que consigas un trabajo.
                                                 </p>
                                                 
                                             </blockquote>
                                         </div>
                                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                                        Con un curriculum vitae representativo y profesional usted se destacará entre otros solicitantes. 
+                                        Con un curriculum vitae representativo y profesional, se destacará entre otros solicitantes. 
                                         </div>
                                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                                        También tiene hasta un 65% más de probabilidades de ser invitado a una entrevista.
+                                        Hasta un 65% más de probabilidades de ser invitado a una entrevista.
                                         </div>
                                     </div>
                                 </div>
@@ -330,13 +330,13 @@
                                         <div class="col-md-4 mb-md-40 mb-xs-30">
                                             <blockquote class="mb-0">
                                                 <p>
-                                                A menudo, es importante poder ajustar los CV en función del trabajo que está solicitando.
+                                                Es importante poder ajustar los CV en función del trabajo que estes solicitando.
                                                 </p>
                                     
                                             </blockquote>
                                         </div>
                                         <div class="col-md-4 col-sm-6 mb-sm-50 mb-xs-30">
-                                        Con el creador de CV, puede crear y administrar varios CV de forma organizada en su propio entorno de cuenta personal.
+                                        Con el creador de CV, puede crear y administrar varios de forma organizada en su propio entorno de cuenta personal.
                                         </div>
                                         
                                     </div>
@@ -357,7 +357,7 @@
                                     <div class="banner-content">
                                         <h3 class="banner-heading font-alt">Aumenta considerablemente tus posibilidades de trabajo</h3>
                                         <div class="banner-decription">
-                                        Con el creador de CV, puede crear rápida y fácilmente un CV distintivo y profesional en 15 minutos que se destaque.
+                                        Con el creador de CV, puede diseñar rápida y fácilmente un CV distintivo y profesional en 15 minutos.
                                         </div>
                                         <div class="local-scroll">
                                             <a href="{{ route('generador.paso1.create') }}" class="btn btn-mod btn-w btn-medium btn-round">Crea tu CV</a>
@@ -386,28 +386,8 @@
                             Portfolio
                         </h2>
                         
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
-                                    
-                                    <div class="section-text align-center mb-70 mb-xs-40">
-                                        In&nbsp;auctor ex&nbsp;id&nbsp;urna faucibus porttitor. Lorem ipsum dolor sit amet, 
-                                        consectetur adipiscing elit. In&nbsp;maximus ligula semper metus pellentesque mattis.  
-                                        Maecenas volutpat, diam enim sagittis quam, id&nbsp;porta quam. Sed id&nbsp;dolor 
-                                        consectetur fermentum nibh volutpat, accumsan purus.
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        
                         <!-- Works Filter -->                    
-                        <div class="works-filter font-alt align-center" role="tablist">
-                            <a href="#" class="filter active" role="tab" aria-selected="true" data-filter="*">All works</a>
-                            <a href="#branding" class="filter" role="tab" aria-selected="false" data-filter=".branding">Branding</a>
-                            <a href="#design" class="filter" role="tab" aria-selected="false" data-filter=".design">Design</a>
-                            <a href="#photography" class="filter" role="tab" aria-selected="false" data-filter=".photography">Photography</a>
-                        </div>                    
+                                           
                         <!-- End Works Filter -->
                         
                         <!-- Works Grid -->
@@ -417,7 +397,7 @@
                             <li class="work-item mix photography">
                                 <a href="images/portfolio/full-project-1.jpg" class="work-lightbox-link mfp-image">
                                     <div class="work-img">
-                                        <img src="images/portfolio/projects-1.jpg" alt="Work" />
+                                        <img src="images/portfolio/Plantillas_cv_1.png" alt="Work" />
                                     </div>
                                     <div class="work-intro">
                                         <h3 class="work-title">Portrait</h3>
@@ -433,7 +413,7 @@
                             <li class="work-item mix branding design">
                                 <a href="portfolio-single-1.html" class="work-ext-link">
                                     <div class="work-img">
-                                        <img class="work-img" src="images/portfolio/projects-2.jpg" alt="Work" />
+                                        <img class="work-img" src="images/portfolio/Plantillas_cv_2.png" alt="Work" />
                                     </div>
                                     <div class="work-intro">
                                         <h3 class="work-title">Vase 3D</h3>
@@ -449,7 +429,7 @@
                             <li class="work-item mix branding">
                                 <a href="portfolio-single-1.html" class="work-ext-link">
                                     <div class="work-img">
-                                        <img class="work-img" src="images/portfolio/projects-3.jpg" alt="Work" />
+                                        <img class="work-img" src="images/portfolio/Plantilla_CV_3.jpg" alt="Work" />
                                     </div>
                                     <div class="work-intro">
                                         <h3 class="work-title">Boy in T-shirt</h3>
@@ -465,7 +445,7 @@
                             <li class="work-item mix design photography">
                                 <a href="portfolio-single-1.html" class="work-ext-link">
                                     <div class="work-img">
-                                        <img class="work-img" src="images/portfolio/projects-4.jpg" alt="Work" />
+                                        <img class="work-img" src="images/portfolio/Plantilla_CV_4.jpg" alt="Work" />
                                     </div>
                                     <div class="work-intro">
                                         <h3 class="work-title">Space</h3>
@@ -481,7 +461,7 @@
                             <li class="work-item mix design">
                                 <a href="portfolio-single-1.html" class="work-ext-link">
                                     <div class="work-img">
-                                        <img class="work-img" src="images/portfolio/projects-5.jpg" alt="Work" />
+                                        <img class="work-img" src="images/portfolio/Plantilla_CV_5.jpg" alt="Work" />
                                     </div>
                                     <div class="work-intro">
                                         <h3 class="work-title">Model</h3>
@@ -497,7 +477,7 @@
                             <li class="work-item mix design branding">
                                 <a href="images/portfolio/full-project-3.jpg" class="work-lightbox-link mfp-image">
                                     <div class="work-img">
-                                        <img src="images/portfolio/projects-6.jpg" alt="Work" />
+                                        <img src="images/portfolio/Plantilla_CV_6.jpg" alt="Work" />
                                     </div>
                                     <div class="work-intro">
                                         <h3 class="work-title">Young Man</h3>
@@ -522,9 +502,9 @@
                     <div class="container relative">
                         
                         <div class="align-center">
-                            <h3 class="banner-heading font-alt">Like Our Creative Works?</h3>
+                            <h3 class="banner-heading font-alt">¿Te gustan nuestros Diseños?</h3>
                             <div class="local-scroll">
-                                <a href="#contact" class="btn btn-mod btn-w btn-medium btn-round">Start Project</a>
+                                <a href="{{ route('generador.paso1.create') }}" class="btn btn-mod btn-w btn-medium btn-round">Crea tu CV</a>
                             </div>
                         </div>
                         
@@ -538,7 +518,7 @@
                     <div class="container relative">
                         
                         <h2 class="section-title font-alt mb-70 mb-sm-40">
-                            Why Choose Us?
+                            ¿Porque elegirnos?
                         </h2>
                         
                         <!-- Features Grid -->
@@ -550,12 +530,8 @@
                                     <div class="alt-features-icon">
                                         <span class="icon-flag"></span>
                                     </div>
-                                    <h3 class="alt-features-title font-alt">We’re Creative</h3>
-                                    <div class="alt-features-descr align-left">
-                                        Lorem ipsum dolor sit amet, c-r adipiscing elit. 
-                                        In maximus ligula semper metus pellentesque mattis. 
-                                        Maecenas  volutpat, diam enim.
-                                    </div>
+                                    <h3 class="alt-features-title font-alt">Somos creativos</h3>
+                                
                                 </div>
                             </div>
                             <!-- End Features Item -->
@@ -566,12 +542,8 @@
                                     <div class="alt-features-icon">
                                         <span class="icon-clock"></span>
                                     </div>
-                                    <h3 class="alt-features-title font-alt">We’re Punctual</h3>
-                                    <div class="alt-features-descr align-left">
-                                        Proin fringilla augue at maximus vestibulum. 
-                                        Nam pulvinar vitae neque et porttitor. Praesent sed 
-                                        nisi eleifend, lorem fermentum orci sit amet, iaculis libero.
-                                    </div>
+                                    <h3 class="alt-features-title font-alt">Somos Puntuales</h3>
+                                    
                                 </div>
                             </div>
                             <!-- End Features Item -->
@@ -582,12 +554,8 @@
                                     <div class="alt-features-icon">
                                         <span class="icon-hotairballoon"></span>
                                     </div>
-                                    <h3 class="alt-features-title font-alt">We have magic</h3>
-                                    <div class="alt-features-descr align-left">
-                                        Curabitur iaculis accumsan augue, nec finibus mauris pretium eu. 
-                                        Duis placerat ex gravida nibh tristique porta. Nulla facilisi. 
-                                        Suspendisse ultricies eros blandit.
-                                    </div>
+                                    <h3 class="alt-features-title font-alt">Tenemos Magia</h3>
+                                    
                                 </div>
                             </div>
                             <!-- End Features Item -->
@@ -598,12 +566,8 @@
                                     <div class="alt-features-icon">
                                         <span class="icon-heart"></span>
                                     </div>
-                                    <h3 class="alt-features-title font-alt">We love minimalism</h3>
-                                    <div class="alt-features-descr align-left">
-                                        Cras luctus interdum sodales. Quisque quis odio dui. Sedes sit 
-                                        amet neque malesuada, lobortis  commodo magna ntesque pharetra 
-                                        metus vivera sagittis.
-                                    </div>
+                                    <h3 class="alt-features-title font-alt">Nos encanta lo Minimalista</h3>
+                                    
                                 </div>
                             </div>
                             <!-- End Features Item -->
@@ -614,12 +578,8 @@
                                     <div class="alt-features-icon">
                                         <span class="icon-linegraph"></span>
                                     </div>
-                                    <h3 class="alt-features-title font-alt">We’re responsible</h3>
-                                    <div class="alt-features-descr align-left">
-                                        Fusce aliquet quam eget neque ultrices elementum. Nulla posuere 
-                                        felis id arcu blandit sagittis. Eleifender vestibulum purus, sit 
-                                        amet vulputate risus.
-                                    </div>
+                                    <h3 class="alt-features-title font-alt">Somos Responsables</h3>
+                                    
                                 </div>
                             </div>
                             <!-- End Features Item -->
@@ -630,12 +590,8 @@
                                     <div class="alt-features-icon">
                                         <span class="icon-chat"></span>
                                     </div>
-                                    <h3 class="alt-features-title font-alt">We're Friendly</h3>
-                                    <div class="alt-features-descr align-left">
-                                        Pulvinar vitae neque et porttitor. Integer non dapibus diam, ac 
-                                        eleifend lectus. Praesent sed nisi eleifend, fermentum orci sit 
-                                        amet, iaculis libero interdum.
-                                    </div>
+                                    <h3 class="alt-features-title font-alt">Somos Amigables</h3>
+                                    
                                 </div>
                             </div>
                             <!-- End Features Item -->
@@ -660,14 +616,13 @@
                                     <div class="section-icon">
                                         <span class="icon-quote"></span>
                                     </div>
-                                    <!-- Section Title --><h3 class="small-title font-alt">What people say?</h3>
+                                    <!-- Section Title --><h3 class="small-title font-alt">¿Que dicen los expertos??</h3>
                                     <blockquote class="testimonial white">
                                         <p>
-                                            Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit. Aenean congue,
-                                            risus utaliquam dapibus. Thanks!
+                                            “Es la combinación entre el talento razonable y la capacidad de perseverar ante el fracaso lo que nos conduce al éxito”.
                                         </p>
                                         <footer class="testimonial-author">
-                                            John Doe, doodle inc.
+                                            Daniel Goleman
                                         </footer>
                                     </blockquote>
                                 </div>
@@ -685,14 +640,13 @@
                                     <div class="section-icon">
                                         <span class="icon-quote"></span>
                                     </div>
-                                    <!-- Section Title --><h3 class="small-title font-alt">What people say?</h3>
+                                    <!-- Section Title --><h3 class="small-title font-alt">¿Que dicen los expertos??</h3>
                                     <blockquote class="testimonial white">
                                         <p>
-                                            Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit. Aenean congue,
-                                            risus utaliquam dapibus. Thanks!
+                                            “El talento debe ser visto como el ingrediente más indispensable para el éxito, pero el éxito también depende de cómo se gestiona ese talento”.
                                         </p>
                                         <footer class="testimonial-author">
-                                            John Doe, doodle inc.
+                                            Allan Schweyer
                                         </footer>
                                     </blockquote>
                                 </div>
@@ -710,14 +664,13 @@
                                     <div class="section-icon">
                                         <span class="icon-quote"></span>
                                     </div>
-                                    <!-- Section Title --><h3 class="small-title font-alt">What people say?</h3>
+                                    <!-- Section Title --><h3 class="small-title font-alt">¿Que dicen los expertos?</h3>
                                     <blockquote class="testimonial white">
                                         <p>
-                                            Phasellus luctus commodo ullamcorper a posuere rhoncus commodo elit. Aenean congue,
-                                            risus utaliquam dapibus. Thanks!
+                                            Todos tienen talento. Lo que es raro es tener el coraje para seguirlo hasta los lugares oscuros a donde conduce”.
                                         </p>
                                         <footer class="testimonial-author">
-                                            John Doe, doodle inc.
+                                            Erica Jong
                                         </footer>
                                     </blockquote>
                                 </div>
@@ -728,108 +681,6 @@
                     
                 </section>
                 <!-- End Testimonials Section -->
-                
-                
-                <!-- Blog Section -->
-                <section class="page-section" id="news">
-                    <div class="container relative">
-                        
-                        <h2 class="section-title font-alt align-left mb-70 mb-sm-40">
-                            Latest News
-                            
-                            <a href="blog-classic-sidebar-right.html" class="section-more right">All News in our blog <i class="fa fa-angle-right"></i></a>
-                            
-                        </h2>
-                        
-                        <div class="row multi-columns-row">
-                            
-                            <!-- Post Item -->
-                            <div class="col-sm-6 col-md-4 col-lg-4 mb-md-50 wow fadeIn" data-wow-delay="0.1s" data-wow-duration="2s">
-                                
-                                <div class="post-prev-img">
-                                    <a href="blog-single-sidebar-right.html"><img src="images/blog/post-prev-1.jpg" alt="" /></a>
-                                </div>
-                                
-                                <div class="post-prev-title font-alt">
-                                    <a href="">New Web Design Trends</a>
-                                </div>
-                                
-                                <div class="post-prev-info font-alt">
-                                    <a href="">John Doe</a> | 10 December
-                                </div>
-                                
-                                <div class="post-prev-text">
-                                    Maecenas  volutpat, diam enim sagittis quam, id porta quam. Sed id dolor 
-                                    consectetur fermentum nibh volutpat, accumsan purus. 
-                                </div>
-                                
-                                <div class="post-prev-more">
-                                    <a href="" class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
-                                </div>
-                                
-                            </div>
-                            <!-- End Post Item -->
-                            
-                            <!-- Post Item -->
-                            <div class="col-sm-6 col-md-4 col-lg-4 mb-md-50 wow fadeIn" data-wow-delay="0.2s" data-wow-duration="2s">
-                                
-                                <div class="post-prev-img">
-                                    <a href="blog-single-sidebar-right.html"><img src="images/blog/post-prev-2.jpg" alt="" /></a>
-                                </div>
-                                
-                                <div class="post-prev-title font-alt">
-                                    <a href="">Minimalistic Design Forever</a>
-                                </div>
-                                
-                                <div class="post-prev-info font-alt">
-                                    <a href="">John Doe</a> | 9 December
-                                </div>
-                                
-                                <div class="post-prev-text">
-                                    Maecenas  volutpat, diam enim sagittis quam, id porta quam. Sed id dolor 
-                                    consectetur fermentum nibh volutpat, accumsan purus. 
-                                </div>
-                                
-                                <div class="post-prev-more">
-                                    <a href="" class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
-                                </div>
-                                
-                            </div>
-                            <!-- End Post Item -->
-                            
-                            <!-- Post Item -->
-                            <div class="col-sm-6 col-md-4 col-lg-4 mb-md-50 wow fadeIn" data-wow-delay="0.3s" data-wow-duration="2s">
-                                
-                                <div class="post-prev-img">
-                                    <a href="blog-single-sidebar-right.html"><img src="images/blog/post-prev-3.jpg" alt="" /></a>
-                                </div>
-                                
-                                <div class="post-prev-title font-alt">
-                                    <a href="">Hipster&rsquo;s Style in&nbsp;Web</a>
-                                </div>
-                                
-                                <div class="post-prev-info font-alt">
-                                    <a href="">John Doe</a> | 7 December
-                                </div>
-                                
-                                <div class="post-prev-text">
-                                    Maecenas  volutpat, diam enim sagittis quam, id porta quam. Sed id dolor 
-                                    consectetur fermentum nibh volutpat, accumsan purus. 
-                                </div>
-                                
-                                <div class="post-prev-more">
-                                    <a href="" class="btn btn-mod btn-gray btn-round">Read More <i class="fa fa-angle-right"></i></a>
-                                </div>
-                                
-                            </div>
-                            <!-- End Post Item -->
-                            
-                        </div>
-                        
-                    </div>
-                </section>
-                <!-- End Blog Section -->
-                
                 
                 <!-- Contact Section -->
                 <section class="page-section" id="contact">

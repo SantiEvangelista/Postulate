@@ -42,87 +42,88 @@ class FillPDFController extends Controller
 
             if ($cv != null) {
 
-                $pdf->Write(0.2, $cv->name . ' ' . $cv->surname);// Nombre y apellido
+                $pdf->Write(3.5, $cv->name . ' ' . $cv->surname);// Nombre y apellido
 
                 $pdf->SetFont('Arial', '', 8);
                 $pdf->SetXY(35, 25); // Telefono
-                $pdf->Write(0.2, $cv->phone);
+                $pdf->Write(3.5, $cv->phone);
 
                 $pdf->SetXY(35, 28); // Email
-                $pdf->Write(0.2, $cv->email);
+                $pdf->Write(3.5, $cv->email);
 
                 $pdf->SetXY(35, 31); // Direccion
-                $pdf->Write(0.2, $cv->adress);
+                $pdf->Write(3.5, $cv->adress);
+
                 $pdf->SetXY(18, 48); // objetivo Profesional
-                $pdf->Write(0.2, $cv->objetivo_profesional);
+                $pdf->Write(3.5, $cv->objetivo_profesional);
 
-                $pdf->SetXY(18, 65); // Formacion Academica
-                $pdf->Write(0.2, $cv->secundario . ' - ' . $cv->orientacion);
+                $pdf->SetXY(18, 68); // Formacion Academica
+                $pdf->Write(3.5, $cv->secundario . ' - Orientacion: ' . $cv->orientacion . ' - Fecha Inicio: ' . $cv->fecha_inicio_secundario . ' -> ' . $cv->fecha_fin_secundario);
 
-                $pdf->SetXY(18, 85); // Formacion Complementaria
-                $pdf->Write(0.2, $cv->terciaria . ' - ' . $cv->orientacion_terciaria);
+                $pdf->SetXY(18, 90); // Formacion Complementaria
+                $pdf->Write(3.5, $cv->terciaria . ' - Orientacion:' . $cv->orientacion_terciaria . ' - Fecha Inicio:' . $cv->fecha_inicio_terciaria . ' -> ' . $cv->fecha_fin_terciaria);
                 
                     $pdf->SetXY(35, 107); //Experiencias Laborales
-                    $pdf->Write(0.2, $empresas[0]->start_date . ' - ' . $empresas[0]->end_date . '  -  ' . $empresas[0]->company_name);
+                    $pdf->Write(3.5, $empresas[0]->start_date . ' - ' . $empresas[0]->end_date . '  -  ' . $empresas[0]->company_name);
 
                     $pdf->SetXY(72, 112.5);
-                    $pdf->Write(0.2, $empresas[0]->charge);
+                    $pdf->Write(3.5, $empresas[0]->charge);
 
                     $pdf->SetXY(35, 121);
-                    $pdf->Write(0.2, $empresas[1]->start_date . ' - ' . $empresas[1]->end_date . '  -  ' . $empresas[1]->company_name);
+                    $pdf->Write(3.5, $empresas[1]->start_date . ' - ' . $empresas[1]->end_date . '  -  ' . $empresas[1]->company_name);
 
                     $pdf->SetXY(72, 127);
-                    $pdf->Write(0.2, $empresas[1]->charge);
+                    $pdf->Write(3.5, $empresas[1]->charge);
  
                     $pdf->SetXY(18, 143); // Informatica
                 foreach ($otros_estudios as $otro_estudio) {
-                    $pdf->Write(0.2, $otro_estudio->nombre);
+                    $pdf->Write(3.5, $otro_estudio->nombre);
                     $pdf->SetXY(30, 143); // Informatica
                 }
 
                 $pdf->SetXY(18, 162); // Idiomas
 
                 foreach ($lenguajes as $idioma) {
-                    $pdf->Write(0.2, $idioma->nombre);
+                    $pdf->Write(3.5, $idioma->nombre);
                     $pdf->SetXY(30, 162);
                 }
 
                 $pdf->SetXY(18, 180); // Otros datos de interes
-                $pdf->Write(0.2, $cv->datos_interes);
+                $pdf->Write(3.5, $cv->datos_interes);
 
             } else {
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetFont('Arial', '', 8);
                 $pdf->SetXY(35, 25); // Telefono
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(35, 28); // Email
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(35, 31); // Direccion
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(18, 48); // objetivo Profesional
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(18, 65); // Formacion Academica
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(35, 107); //Experiencias Laborales
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(72, 112.5);
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(35, 121);
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(72, 127);
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(18, 162); // Idiomas
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
             }
 
             // Preview PDF
@@ -151,83 +152,82 @@ class FillPDFController extends Controller
 
             if ($cv != null) {
 
-                $pdf->Write(0.2, $cv->name . ' ' . $cv->surname);// Nombre y apellido
+                $pdf->Write(3.5, $cv->name . ' ' . $cv->surname);// Nombre y apellido
 
                 $pdf->SetFont('Arial', '', 8);
                 $pdf->SetXY(35, 25); // Telefono
-                $pdf->Write(0.2, $cv->phone);
+                $pdf->Write(3.5, $cv->phone);
 
                 $pdf->SetXY(35, 28); // Email
-                $pdf->Write(0.2, $cv->email);
+                $pdf->Write(3.5, $cv->email);
 
                 $pdf->SetXY(35, 31); // Direccion
-                $pdf->Write(0.2, $cv->adress);
+                $pdf->Write(3.5, $cv->adress);
 
                 $pdf->SetXY(18, 48); // objetivo Profesional
-                $pdf->Write(0.2, $cv->objetivo_profesional);
+                $pdf->Write(3.5, $cv->objetivo_profesional);
 
-                $pdf->SetXY(18, 65); // Formacion Academica
-                $pdf->Write(0.2, $cv->secundario . '-' . $cv->orientacion);
+                $pdf->SetXY(18, 68); // Formacion Academica
+                $pdf->Write(3.5, $cv->secundario . ' - Orientacion: ' . $cv->orientacion . ' - Fecha Inicio: ' . $cv->fecha_inicio_secundario . ' -> ' . $cv->fecha_fin_secundario);
 
-                $pdf->SetXY(18, 85); // Formacion Complementaria
-                $pdf->Write(0.2, $cv->terciaria . ' - ' . $cv->orientacion_terciaria);
-
+                $pdf->SetXY(18, 90); // Formacion Complementaria
+                $pdf->Write(3.5, $cv->terciaria . ' - Orientacion:' . $cv->orientacion_terciaria . ' - Fecha Inicio:' . $cv->fecha_inicio_terciaria . ' -> ' . $cv->fecha_fin_terciaria);
  
                     $pdf->SetXY(35, 107); //Experiencias Laborales
-                    $pdf->Write(0.2, $empresas[0]->start_date . ' - ' . $empresas[0]->end_date . '  -  ' . $empresas[0]->company_name);
+                    $pdf->Write(3.5, $empresas[0]->start_date . ' - ' . $empresas[0]->end_date . '  -  ' . $empresas[0]->company_name);
 
                     $pdf->SetXY(72, 112.5);
-                    $pdf->Write(0.2, $empresas[0]->charge);
+                    $pdf->Write(3.5, $empresas[0]->charge);
                 
 
                 $pdf->SetXY(18, 131); // Informatica
                 foreach ($otros_estudios as $otro_estudio) {
-                    $pdf->Write(0.2, $otro_estudio->nombre);
+                    $pdf->Write(3.5, $otro_estudio->nombre);
                     $pdf->SetXY(30, 131); // Informatica
                 }
 
                 $pdf->SetXY(18, 151); // Idiomas
                 foreach ($lenguajes as $idioma) {
-                    $pdf->Write(0.2, $idioma->nombre);
+                    $pdf->Write(3.5, $idioma->nombre);
                     $pdf->SetXY(30, 151);
                 }
 
                 $pdf->SetXY(18, 167); // Otros datos de interes
-                $pdf->Write(0.2, $cv->datos_interes);
+                $pdf->Write(3.5, $cv->datos_interes);
 
             } else {
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetFont('Arial', '', 8);
                 $pdf->SetXY(35, 25); // Telefono
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(35, 28); // Email
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(35, 31); // Direccion
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(18, 48); // objetivo Profesional
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(18, 65); // Formacion Academica
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(35, 107); //Experiencias Laborales
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(72, 112.5);
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(35, 121);
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(72, 127);
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(18, 162); // Idiomas
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
             }
 
             // Preview PDF
@@ -257,75 +257,75 @@ class FillPDFController extends Controller
 
             if ($cv != null) {
 
-                $pdf->Write(0.2, $cv->name . ' ' . $cv->surname);// Nombre y apellido
+                $pdf->Write(3.5, $cv->name . ' ' . $cv->surname);// Nombre y apellido
 
                 $pdf->SetFont('Arial', '', 8);
                 $pdf->SetXY(35, 25); // Telefono
-                $pdf->Write(0.2, $cv->phone);
+                $pdf->Write(3.5, $cv->phone);
 
                 $pdf->SetXY(35, 28); // Email
-                $pdf->Write(0.2, $cv->email);
+                $pdf->Write(3.5, $cv->email);
 
                 $pdf->SetXY(35, 31); // Direccion
-                $pdf->Write(0.2, $cv->adress);
+                $pdf->Write(3.5, $cv->adress);
 
                 $pdf->SetXY(18, 48); // objetivo Profesional
-                $pdf->Write(0.2, $cv->objetivo_profesional);
+                $pdf->Write(3.5, $cv->objetivo_profesional);
 
                 $pdf->SetXY(18, 68); // Formacion Academica
-                $pdf->Write(0.2, $cv->secundario . '-' . $cv->orientacion);
+                $pdf->Write(3.5, $cv->secundario . ' - Orientacion: ' . $cv->orientacion . ' - Fecha Inicio: ' . $cv->fecha_inicio_secundario . ' -> ' . $cv->fecha_fin_secundario);
 
                 $pdf->SetXY(18, 90); // Formacion Complementaria
-                $pdf->Write(0.2, $cv->terciaria . ' - ' . $cv->orientacion_terciaria);
+                $pdf->Write(3.5, $cv->terciaria . ' - Orientacion:' . $cv->orientacion_terciaria . ' - Fecha Inicio:' . $cv->fecha_inicio_terciaria . ' -> ' . $cv->fecha_fin_terciaria);
 
                 $pdf->SetXY(18, 110); // Informatica
                 foreach ($otros_estudios as $otro_estudio) {
-                    $pdf->Write(0.2, $otro_estudio->nombre);
+                    $pdf->Write(3.5, $otro_estudio->nombre);
                     $pdf->SetXY(30, 110); // Informatica
                 }
 
                 $pdf->SetXY(18, 130); // Idiomas
                 foreach ($lenguajes as $idioma) {
-                    $pdf->Write(0.2, $idioma->nombre);
+                    $pdf->Write(3.5, $idioma->nombre);
                     $pdf->SetXY(30, 130);
                 }
 
                 $pdf->SetXY(18, 148); // Otros datos de interes
-                $pdf->Write(0.2, $cv->datos_interes);
+                $pdf->Write(3.5, $cv->datos_interes);
 
             } else {
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetFont('Arial', '', 8);
                 $pdf->SetXY(35, 25); // Telefono
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(35, 28); // Email
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(35, 31); // Direccion
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(18, 48); // objetivo Profesional
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(18, 65); // Formacion Academica
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(35, 107); //Experiencias Laborales
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(72, 112.5);
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(35, 121);
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(72, 127);
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
 
                 $pdf->SetXY(18, 162); // Idiomas
-                $pdf->Write(0.2, "");
+                $pdf->Write(3.5, "");
             }
 
             // Preview PDF
