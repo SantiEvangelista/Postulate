@@ -11,6 +11,7 @@ use App\Models\Generador;
 use App\Models\Lenguaje;
 use App\Models\Rasgo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class GeneradorController extends Controller
 {
@@ -51,6 +52,114 @@ class GeneradorController extends Controller
         ]);
     }
 
+
+    // vistas POST
+    public function post_paso1(Request $request, Step1FormRequest $validated)
+    {
+        $request->session()->flush();
+        $cv = new Generador($validated->all());
+        $request->session()->put('cv', $cv);
+        
+        return redirect()->route('generador.paso2.create');
+    }
+
+    public function post_paso2(Request $request, Step2FormRequest $validated)
+    {
+        $cv = $request->session()->get('cv');
+        
+        $collection_empresas = collect();
+
+        if ($request->has('addMoreInputFields')) {
+            $collection_empresas = collect($request->addMoreInputFields)->map(function ($puesto) {
+                return new Empresas([
+                    'company_name' => $puesto['nombre'],
+                    'charge' => $puesto['cargo'],
+                    'start_date' => $puesto['fecha_inicio'],
+                    'end_date' => $puesto['fecha_fin'],
+                ]);
+            });
+        }
+
+        $cv->fill([
+            'secundario' => $validated['secundario'],
+            'orientacion' => $validated['orientacion'],
+            'fecha_inicio_secundario' => $validated['fecha_inicio_secundario'],
+            'fecha_fin_secundario' => $validated['fecha_fin_secundario'],
+            'terciaria' => $validated['terciaria'],
+            'orientacion_terciaria' => $validated['orientacion_terciaria'],
+            'fecha_inicio_terciaria' => $validated['fecha_inicio_terciaria'],
+            'fecha_fin_terciaria' => $validated['fecha_fin_terciaria'],
+        ]);
+
+        $request->session()->put('empresas', $collection_empresas);
+        $request->session()->put('cv', $cv);
+        
+        return redirect()->route('generador.paso3.create');
+    }
+
+    public function post_paso3(Request $request, Step3FormRequest $validated)
+    {
+        try {
+            $cv = $request->session()->get('cv');
+            
+            $collection_empresas = $request->session()->get('empresas', collect());
+
+            // Set default values and handle nulls
+            $cv->fecha_fin_secundario = $cv->fecha_fin_secundario ?? 'Sin finalizar';
+            $cv->objetivo_profesional = $validated['objetivo_profesional'];
+            $cv->id = 1;
+            $cv->datos_interes = $validated['datos_interes'];
+
+            // Initialize collections
+            $lenguajes = collect($request->input('lenguajes', []))->map(function ($lenguaje) use ($cv) {
+                return new Lenguaje([
+                    'nombre' => $lenguaje['nombre'],
+                    'generador_id' => $cv->id
+                ]);
+            });
+
+            $rasgos = collect($request->input('rasgos', []))->map(function ($rasgo) use ($cv) {
+                return new Rasgo([
+                    'nombre' => $rasgo['nombre'],
+                    'generador_id' => $cv->id
+                ]);
+            });
+
+            $otros_estudios = collect($request->input('otros_estudios', []))->map(function ($estudio) use ($cv) {
+                return new Otros_estudios([
+                    'nombre' => $estudio['nombre'],
+                    'generador_id' => $cv->id
+                ]);
+            });
+
+            $empresas = $collection_empresas->map(function ($empresa) use ($cv) {
+                $empresa->generador_id = $cv->id;
+                return $empresa;
+            });
+
+            // Store all data in session
+            $request->session()->put([
+                'cv' => $cv,
+                'lenguajes' => $lenguajes,
+                'rasgos' => $rasgos,
+                'empresas' => $empresas,
+                'otros_estudios' => $otros_estudios
+            ]);
+
+            return redirect()->route('generador.success');
+            
+        } catch (\Throwable $th) {
+            dd($th);
+        }
+    }
+
+    public function clearSession(Request $request)
+    {
+        $request->session()->flush();
+        return redirect()->route('generador.paso1.create');
+    }
+
+
     public function success(Request $request)
     {
         $cv = $request->session()->get('cv');
@@ -59,123 +168,6 @@ class GeneradorController extends Controller
         $lenguajes = $request->session()->get('lenguajes');
 
         return view('sucess', ['cv' => $cv]);
-    }
-
-    // vistas POST
-    public function post_paso1(Request $request, Step1FormRequest $validated)
-    {
-        $request->session()->flush();
-
-        if(empty($request->session()->get('cv'))){
-            $cv = new Generador($validated->all());
-            $request->session()->put(['cv'=>$cv]);
-        }else{
-            $request->session()->flush();
-            $cv = new Generador($validated->all());
-            $request->session()->put(['cv'=>$cv]);
-        }
-
-        return redirect()->route('generador.paso2.create'); 
-    }
-
-    public function post_paso2(Request $request, Step2FormRequest $validated)
-    {
-        $cv = $request->session()->get('cv');
-
-        
-            
-        $collection_empresas=collect();
-
-        if(isset($request->addMoreInputFields)){
-            foreach ($request->addMoreInputFields as $puestos) {
-                $empresas= new Empresas ([
-                   'company_name' => $puestos['nombre'],
-                   'charge' => $puestos['cargo'],
-                   'start_date' => $puestos['fecha_inicio'],
-                   'end_date' => $puestos['fecha_fin'],
-                ]);
-                $collection_empresas=$collection_empresas->push($empresas);
-            }
-        }
-
-        $cv->secundario=$validated['secundario'];
-        $cv->orientacion=$validated['orientacion'];
-        $cv->fecha_inicio_secundario=$validated['fecha_inicio_secundario'];
-        $cv->fecha_fin_secundario=$validated['fecha_fin_secundario'];
-
-        $cv->terciaria=$validated['terciaria'];
-        $cv->orientacion_terciaria=$validated['orientacion_terciaria'];
-        $cv->fecha_inicio_terciaria=$validated['fecha_inicio_terciaria'];
-        $cv->fecha_fin_terciaria=$validated['fecha_fin_terciaria'];
-    
-        $request->session()->put(['empresas'=>$collection_empresas]);
-        $request->session()->put(['cv'=>$cv]);
-        return redirect()->route('generador.paso3.create');
-
-    }
-
-    public function post_paso3(Request $request, Step3FormRequest $validated)
-    {
-        $cv = $request->session()->get('cv');
-        $collection_empresas = $request->session()->get('empresas');
-
-        try {
-            
-                if ($cv->fecha_fin_secundario == null) $cv->fecha_fin_secundario='Sin finalizar';
-                $cv->objetivo_profesional=$validated['objetivo_profesional'];
-                $cv->id=1;
-                $cv->datos_interes=$validated['datos_interes'];
-                
-
-                $lenguajes=collect();
-                $rasgos=collect();
-                $empresas=collect();
-                $otros_estudios=collect();
-                
-                foreach ($collection_empresas as $empresa ) {
-                    $empresa->generador_id=$cv->id;
-                    $empresas=$empresas->push($empresa);
-                }
-                foreach ($request->lenguajes as $lenguaje) {
-                    $lenguaje= new Lenguaje([
-                        'nombre' => $lenguaje['nombre'],
-                        'generador_id'=>$cv->id
-                    ]);
-                    $lenguajes=$lenguajes->push($lenguaje);
-                }
-                foreach ($request->rasgos as $rasgo) {
-                    $rasgo=new Rasgo([
-                        'nombre' => $rasgo['nombre'],
-                        'generador_id'=>$cv->id
-                    ]);
-                    $rasgos=$rasgos->push($rasgo);
-                }
-
-                foreach ($request->otros_estudios as $otro_estudio) {
-                    $otro_estudio=new Otros_estudios([
-                        'nombre' => $otro_estudio['nombre'],
-                        'generador_id'=>$cv->id
-                    ]);
-                    $otros_estudios=$otros_estudios->push($otro_estudio);
-                }
-                
-                $request->session()->put(['cv'=>$cv]);
-                $request->session()->put(['lenguajes'=>$lenguajes]);
-                $request->session()->put(['rasgos'=>$rasgos]);
-                $request->session()->put(['empresas'=>$empresas]);
-
-                $request->session()->put(['otros_estudios'=>$otros_estudios]);
-
-                return redirect()->route('generador.success');
-        } catch (\Throwable $th) {
-            return $th;
-        }
-    }
-
-    public function clearSession(Request $request)
-    {
-        $request->session()->flush();
-        return redirect()->route('generador.paso1.create');
     }
 
 }
