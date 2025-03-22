@@ -57,4 +57,20 @@ return [
     'footer.email' => 'contact@postulate.com',
 
     'meta.description' => 'Create your professional CV in 3 simple steps! Design, customize, and download your resume in minutes. The easiest way to land your dream job.',
+
+    // Impact Section
+    'impact.title' => 'Our Impact',
+    'impact.subtitle' => 'Numbers that speak for themselves',
+    'impact.stat1.number' => '95%',
+    'impact.stat1.title' => 'Success Rate',
+    'impact.stat1.text' => 'Of our users have secured job interviews thanks to their professional CVs created with our platform.',
+    'impact.stat2.number' => '+10,000',
+    'impact.stat2.title' => 'CVs Created',
+    'impact.stat2.text' => 'Professionals have trusted our platform to create their resumes and advance their careers.',
+    'impact.stat3.number' => '3',
+    'impact.stat3.title' => 'Average Minutes',
+    'impact.stat3.text' => 'Is all you need to create a professional and attractive CV with our platform.',
+    'impact.stat4.number' => '98%',
+    'impact.stat4.title' => 'Satisfaction',
+    'impact.stat4.text' => 'Of our users recommend our platform to other professionals.',
 ]; 

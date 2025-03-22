@@ -58,4 +58,20 @@ return [
     'footer.email' => 'contacto@postulate.com',
 
     'meta.description' => '¡Crea tu CV profesional en 3 pasos simples! Diseña, personaliza y descarga tu currículum en minutos. La forma más fácil de conseguir tu trabajo soñado.',
+
+    // Impact Section
+    'impact.title' => 'Nuestro Impacto',
+    'impact.subtitle' => 'Cifras que hablan por sí solas',
+    'impact.stat1.number' => '95%',
+    'impact.stat1.title' => 'Tasa de Éxito',
+    'impact.stat1.text' => 'De nuestros usuarios han conseguido entrevistas laborales gracias a sus CVs profesionales creados con nuestra plataforma.',
+    'impact.stat2.number' => '+10,000',
+    'impact.stat2.title' => 'CVs Creados',
+    'impact.stat2.text' => 'Profesionales han confiado en nuestra plataforma para crear sus currículums y avanzar en sus carreras.',
+    'impact.stat3.number' => '3',
+    'impact.stat3.title' => 'Minutos Promedio',
+    'impact.stat3.text' => 'Es todo lo que necesitas para crear un CV profesional y atractivo con nuestra plataforma.',
+    'impact.stat4.number' => '98%',
+    'impact.stat4.title' => 'Satisfacción',
+    'impact.stat4.text' => 'De nuestros usuarios recomiendan nuestra plataforma a otros profesionales.',
 ]; 
