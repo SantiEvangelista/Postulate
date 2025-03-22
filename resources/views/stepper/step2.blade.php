@@ -33,7 +33,6 @@
       padding-bottom: 18px;
       margin-bottom: 35px;
       border-bottom: 1px solid #DDE3EC;
-      overflow-x: auto;
     }
     .formbold-steps ul {
       padding: 0;
@@ -41,7 +40,7 @@
       list-style: none;
       display: flex;
       gap: 20px;
-      min-width: max-content;
+      justify-content: center;
     }
     .formbold-steps li {
       display: flex;
@@ -51,9 +50,8 @@
       font-size: 14px;
       line-height: 20px;
       color: #536387;
-      white-space: nowrap;
     }
-    .formbold-steps li span {
+    .formbold-steps li span.step-number {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -69,7 +67,7 @@
     .formbold-steps li.active {
       color: #07074D;
     }
-    .formbold-steps li.active span {
+    .formbold-steps li.active span.step-number {
       background: #6A64F1;
       color: #FFFFFF;
     }
@@ -202,6 +200,10 @@
         font-size: 18px;
     }
 
+    .formbold-steps li span.step-text {
+      display: inline;
+    }
+
     @media (max-width: 576px) {
       .formbold-main-wrapper {
         padding: 15px;
@@ -232,6 +234,18 @@
       .education-section h3 {
         font-size: 16px;
       }
+
+      .formbold-steps li:not(.active) span.step-text {
+        display: none;
+      }
+
+      .formbold-steps li.active span.step-text {
+        display: inline;
+      }
+
+      .formbold-steps ul {
+        gap: 12px;
+      }
     }
 </style>
 @endsection
@@ -246,16 +260,16 @@
                 <div class="formbold-steps">
                     <ul>
                         <li>
-                            <span>1</span>
-                            {{ __('stepper.steps.personal_info') }}
+                            <span class="step-number">1</span>
+                            <span class="step-text">{{ __('stepper.steps.personal_info') }}</span>
                         </li>
                         <li class="active">
-                            <span>2</span>
-                            {{ __('stepper.steps.education') }}
+                            <span class="step-number">2</span>
+                            <span class="step-text">{{ __('stepper.steps.education') }}</span>
                         </li>
                         <li>
-                            <span>3</span>
-                            {{ __('stepper.steps.experience') }}
+                            <span class="step-number">3</span>
+                            <span class="step-text">{{ __('stepper.steps.experience') }}</span>
                         </li>
                     </ul>
                 </div>
