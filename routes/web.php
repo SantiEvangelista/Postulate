@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {return view('index');})->name('index');
+Route::get('/', [GeneradorController::class, 'index'])->name('home');
 
 //Vista PDF
 Route::get('/generatedPDF',[FillPDFController::class,'Addtopdf'])->name('resultado.pdf');;
@@ -32,11 +32,6 @@ Route::post('/generarCV/paso/1', [GeneradorController::class, 'post_paso1'])->na
 Route::post('/generarCV/paso/2', [GeneradorController::class, 'post_paso2'])->name('generador.paso2.store');
 Route::post('/generarCV/paso/3', [GeneradorController::class, 'post_paso3'])->name('generador.paso3.store');
 
-
-//nuevo front   
-Route::get('/nuevo-front', function () {
-    return view('home');
-});
 
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'es'])) {

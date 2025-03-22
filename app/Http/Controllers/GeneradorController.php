@@ -8,18 +8,16 @@ use App\Models\Generador;
 use App\Models\Lenguaje;
 use App\Models\Rasgo;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class GeneradorController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        return view('home');
     }
 
     // vistas GET
