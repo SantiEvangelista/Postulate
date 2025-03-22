@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Step1FormRequest;
+use App\Http\Requests\Step2FormRequest;
+use App\Http\Requests\Step3FormRequest;
 use App\Models\Empresas;
 use App\Models\Otros_estudios;
 use App\Models\Generador;
@@ -59,44 +62,30 @@ class GeneradorController extends Controller
     }
 
     // vistas POST
-    public function post_paso1(Request $request)
+    public function post_paso1(Request $request, Step1FormRequest $validated)
     {
-        $validated = $request->validate([
-            'name' => 'required|string|regex:/^[a-zA-Z\s]+$/',
-            'surname' => 'required|string|regex:/^[a-zA-Z\s]+$/',
-            'birthday' => 'required|date',
-            'adress' => 'required|string',
-            'email' => 'required|email',
-            'phone' => 'required|string|regex:/^\+?[1-9]\d{1,14}$/',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
         $request->session()->flush();
+
         if(empty($request->session()->get('cv'))){
-            $cv = new Generador($validated);
+            $cv = new Generador($validated->all());
             $request->session()->put(['cv'=>$cv]);
         }else{
             $request->session()->flush();
-            $cv = new Generador($validated);
+            $cv = new Generador($validated->all());
             $request->session()->put(['cv'=>$cv]);
         }
 
         return redirect()->route('generador.paso2.create'); 
     }
 
-    public function post_paso2(Request $request)
+    public function post_paso2(Request $request, Step2FormRequest $validated)
     {
         $cv = $request->session()->get('cv');
 
-        $validated = $request->validate([
-            'secundario' => 'required',
-            'orientacion' => 'required',
-            'fecha_inicio_secundario' => 'required']);
-        $validated = $request->validate([
-            'terciaria' => 'required',
-            'orientacion_terciaria' => 'required',
-            'fecha_inicio_terciaria' => 'required']);
+        
+            
         $collection_empresas=collect();
+
         if(isset($request->addMoreInputFields)){
             foreach ($request->addMoreInputFields as $puestos) {
                 $empresas= new Empresas ([
@@ -109,16 +98,15 @@ class GeneradorController extends Controller
             }
         }
 
-        $cv->secundario=$request->secundario;
-        $cv->orientacion=$request->orientacion;
-        $cv->fecha_inicio_secundario=$request->fecha_inicio_secundario;
-        $cv->fecha_fin_secundario=$request->fecha_fin_secundario;
+        $cv->secundario=$validated['secundario'];
+        $cv->orientacion=$validated['orientacion'];
+        $cv->fecha_inicio_secundario=$validated['fecha_inicio_secundario'];
+        $cv->fecha_fin_secundario=$validated['fecha_fin_secundario'];
 
-            
-        $cv->terciaria=$request->terciaria;
-        $cv->orientacion_terciaria=$request->orientacion_terciaria;
-        $cv->fecha_inicio_terciaria=$request->fecha_inicio_terciaria;
-        $cv->fecha_fin_terciaria=$request->fecha_fin_terciaria;
+        $cv->terciaria=$validated['terciaria'];
+        $cv->orientacion_terciaria=$validated['orientacion_terciaria'];
+        $cv->fecha_inicio_terciaria=$validated['fecha_inicio_terciaria'];
+        $cv->fecha_fin_terciaria=$validated['fecha_fin_terciaria'];
     
         $request->session()->put(['empresas'=>$collection_empresas]);
         $request->session()->put(['cv'=>$cv]);
@@ -126,25 +114,17 @@ class GeneradorController extends Controller
 
     }
 
-    public function post_paso3(Request $request)
+    public function post_paso3(Request $request, Step3FormRequest $validated)
     {
         $cv = $request->session()->get('cv');
         $collection_empresas = $request->session()->get('empresas');
 
-        $validated = $request->validate([
-            'objetivo_profesional' => 'required',
-            'lenguajes' => 'required',
-            'datos_interes' => 'required',
-            'otros_estudios' => 'required',
-            'rasgos' => 'required']);
-            
-        
         try {
             
                 if ($cv->fecha_fin_secundario == null) $cv->fecha_fin_secundario='Sin finalizar';
-                $cv->objetivo_profesional=$request->objetivo_profesional;
+                $cv->objetivo_profesional=$validated['objetivo_profesional'];
                 $cv->id=1;
-                $cv->datos_interes=$request->datos_interes;
+                $cv->datos_interes=$validated['datos_interes'];
                 
 
                 $lenguajes=collect();
