@@ -10,10 +10,9 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-7 py-vh-6 position-relative" data-aos="fade-right">
-                        <h1 class="display-1 fw-bold mt-5">Sell more useless stuff faster!</h1>
-                        <p class="lead">To be honest, this is just a stupid placeholder text. We don´t know how to
-                            sell anything, not even lesser or slower as you.</p>
-                        <a href="#" class="btn btn-dark btn-xl shadow me-3 rounded-0 my-5">Get started free</a>
+                        <h1 class="display-1 fw-bold mt-5">{{ __('messages.hero.title') }}</h1>
+                        <p class="lead">{{ __('messages.hero.subtitle') }}</p>
+                        <a href="#" class="btn btn-dark btn-xl shadow me-3 rounded-0 my-5">{{ __('messages.hero.cta') }}</a>
                     </div>
                 </div>
             </div>
@@ -21,31 +20,22 @@
 
         @include('components.reasons')
 
-
-
         @include('components.stats')
-
-
 
         <div class="container py-vh-4 w-100 overflow-hidden">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-lg-5">
-                    <h3 class="py-5 border-top border-dark" data-aos="fade-right">What our clients say</h3>
+                    <h3 class="py-5 border-top border-dark" data-aos="fade-right">{{ __('messages.testimonials.title') }}</h3>
                 </div>
                 <div class="col-md-7" data-aos="fade-left">
                     <blockquote>
-                        <div class="fs-4 my-3 fw-light pt-4 border-bottom pb-3">"I´am the CEO of this company. So maybe
-                            you think "he will tell us something super awesome about it only". But no. Its a really
-                            strange place to work with creepy people all around.
-                            They do some computer stuff I don´t understand. But I wear expensive Glasses and a Patagonia
-                            Hoodie. So I´am fine with it."</div>
+                        <div class="fs-4 my-3 fw-light pt-4 border-bottom pb-3">{{ __('messages.testimonials.quote1') }}</div>
                         <img src="{{ asset('images/webp/person11.webp') }}" width="64" height="64"
                             class="img-fluid rounded-circle me-3" alt="" data-aos="fade">
-                        <span><span class="fw-bold">John Doe,</span>
-                            CEO of Stride Ltd.</span>
+                        <span><span class="fw-bold">{{ __('messages.testimonials.author1.name') }},</span>
+                            {{ __('messages.testimonials.author1.role') }}</span>
                     </blockquote>
                 </div>
-
             </div>
         </div>
 
@@ -62,9 +52,8 @@
                                 </svg>
                             </div>
                             <div class="col-md-9 flex-fill">
-                                <h3 class="h5 my-2">Delivery Service</h3>
-                                <p>If we had any physical goods we would deliver them to your door steps. Of course in
-                                    time and to the right adress. But we have no products...</p>
+                                <h3 class="h5 my-2">{{ __('messages.features.delivery.title') }}</h3>
+                                <p>{{ __('messages.features.delivery.text') }}</p>
                             </div>
                         </div>
                     </div>
@@ -80,10 +69,8 @@
                                 </svg>
                             </div>
                             <div class="col-md-9 flex-fill">
-                                <h3 class="h5 my-2">Independently Checked</h3>
-                                <p>Maybe we would do something to ensure that you get what you ordered. But you can´t
-                                    order anything here, so we can give you a 100% gurantee that anything would be
-                                    great!</p>
+                                <h3 class="h5 my-2">{{ __('messages.features.quality.title') }}</h3>
+                                <p>{{ __('messages.features.quality.text') }}</p>
                             </div>
                         </div>
                     </div>
@@ -100,26 +87,14 @@
                                 </svg>
                             </div>
                             <div class="col-md-9 flex-fill">
-                                <h3 class="h5 my-2">Online Support</h3>
-                                <p>Okay, we have this crazy online support form. Fill it out and the content will be
-                                    mailed to you as PDF. Print it out. Than send it via Fax to our super duper hidden
-                                    Fax number.</p>
+                                <h3 class="h5 my-2">{{ __('messages.features.support.title') }}</h3>
+                                <p>{{ __('messages.features.support.text') }}</p>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
     </main>
 
     @include('components.footer')

@@ -2,12 +2,10 @@
 
 return [
     // Navigation
-    'nav.services' => 'Servicios',
-    'nav.about' => 'Sobre Nosotros',
-    'nav.numbers' => 'Estadísticas',
-    'nav.gallery' => 'Galería',
-    'nav.careers' => 'Carreras',
-    'nav.testimonials' => 'Testimonios',
+    'nav.objectives' => 'Objetivos',
+    'nav.metrics' => 'Métricas',
+    'nav.about' => 'Sobre el Sistema',
+    
 
     // Hero Section
     'hero.title' => 'Optimiza tu Gestión de RRHH',

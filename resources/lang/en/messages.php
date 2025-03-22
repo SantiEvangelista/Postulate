@@ -2,12 +2,9 @@
 
 return [
     // Navigation
-    'nav.services' => 'Services',
-    'nav.about' => 'About Us',
-    'nav.numbers' => 'Statistics',
-    'nav.gallery' => 'Gallery',
-    'nav.careers' => 'Careers',
-    'nav.testimonials' => 'Testimonials',
+    'nav.objectives' => 'Objectives',
+    'nav.metrics' => 'Metrics',
+    'nav.about' => 'About System',
 
     // Hero Section
     'hero.title' => 'Streamline Your HR Management',
