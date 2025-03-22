@@ -235,6 +235,8 @@
 @endsection
 
 @section('body')
+@include('components.switch-languaje')
+
     <div class="formbold-main-wrapper">
         <div class="formbold-form-wrapper">
             <form action="{{ route('generador.paso3.store') }}" method="POST">

@@ -14,6 +14,7 @@ return [
         'phone' => 'Phone',
         'birth_date' => 'Birth Date',
         'address' => 'Address',
+        'photo' => 'Profile Photo',
     ],
     'education' => [
         'title' => 'Education',

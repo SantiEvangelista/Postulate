@@ -14,6 +14,7 @@ return [
         'phone' => 'Teléfono',
         'birth_date' => 'Fecha de Nacimiento',
         'address' => 'Dirección',
+        'photo' => 'Foto de Perfil',
     ],
     'education' => [
         'title' => 'Educación',

@@ -1,5 +1,6 @@
 <nav id="navScroll" class="navbar navbar-expand-lg navbar-light fixed-top" tabindex="0">
     <div class="container">
+       
         {{-- <a class="navbar-brand pe-4 fs-4" href="/">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
                 class="bi bi-layers-half" viewbox="0 0 16 16">
@@ -33,5 +34,6 @@
                 </li>
             </ul>
         </div>
-    </div>
+        @include('components.switch-languaje')
+    </div>    
 </nav>

@@ -266,6 +266,7 @@
 @section('body')
     <!-- Toast Container -->
 
+    @include('components.switch-languaje')
 
     <div class="formbold-main-wrapper">
         <div class="formbold-form-wrapper">
