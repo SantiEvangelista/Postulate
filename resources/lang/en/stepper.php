@@ -65,7 +65,7 @@ return [
     ],
     'success' => [
         'title' => 'Success!',
-        'subtitle' => 'CV Generated successfully!',
+        'subtitle' => 'CV generated successfully!',
         'view_cv' => 'View my new CV',
     ],
 ]; 

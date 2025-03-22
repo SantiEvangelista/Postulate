@@ -1,5 +1,35 @@
 @extends('layout')
 
+@section('styles')
+<style>
+    .success-section {
+        padding: 120px 0;
+        background-color: #f8f9fa;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .btn-dark {
+        padding: 0.8rem 2rem;
+        border-radius: 0;
+    }
+
+    .btn-dark:hover {
+        background-color: #343a40;
+    }
+
+    .language-selector {
+        z-index: 1000;
+    }
+
+    .lead {
+        font-size: 1.5rem;
+        color: #6c757d;
+    }
+</style>
+@endsection
+
 @section('body')
     <!-- Language Selector -->
     @include('components.switch-languaje')
@@ -19,32 +49,4 @@
         </div>
     </section>
 
-    <style>
-        .success-section {
-            padding: 120px 0;
-            background-color: #f8f9fa;
-            background-image: url('{{ asset('images/construction/bg-5.webp') }}');
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .btn-dark {
-            padding: 0.8rem 2rem;
-            border-radius: 0;
-        }
-
-        .btn-dark:hover {
-            background-color: #343a40;
-        }
-
-        .language-selector {
-            z-index: 1000;
-        }
-
-        .lead {
-            font-size: 1.5rem;
-            color: #6c757d;
-        }
-    </style>
 @endsection

@@ -68,7 +68,7 @@ return [
     ],
     'success' => [
         'title' => '¡Éxito!',
-        'subtitle' => '¡Curriculum Generado correctamente!',
+        'subtitle' => '¡Curriculum generado correctamente!',
         'view_cv' => 'Ver mi nuevo curriculum',
     ],
 ]; 
