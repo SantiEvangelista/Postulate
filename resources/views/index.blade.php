@@ -21,7 +21,7 @@
 
         @include('components.how-it-works')
 
-        @include('components.stats')
+        @include('components.impact')
 
         <div class="container py-vh-4 w-100 overflow-hidden">
             <div class="row d-flex justify-content-center align-items-center">

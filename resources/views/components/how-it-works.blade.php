@@ -1,4 +1,4 @@
-<div class="py-vh-5 w-100 overflow-hidden" id="services">
+<div class="py-vh-5 w-100 overflow-hidden" id="how-it-works">
     <div class="container">
         <div class="row d-flex justify-content-end">
             <div class="col-lg-8" data-aos="fade-down">
