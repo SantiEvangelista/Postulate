@@ -137,8 +137,32 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'name' => [
+            'required' => 'The name field is required',
+            'regex' => 'The name field must contain only letters',
+            'string' => 'The name field must be a string',
+        ],
+        'surname' => [
+            'required' => 'The surname field is required',
+            'regex' => 'The surname field must contain only letters',
+            'string' => 'The surname field must be a string',
+        ],
+        'birthday' => [
+            'required' => 'The birth date is required',
+            'date' => 'The birth date is not a valid date',
+
+        ],
+        'adress' => [
+            'required' => 'The address field is required',
+        ],
+        'email' => [
+            'required' => 'The email field is required',
+            'email' => 'Please enter a valid email address',
+        ],
+        'phone' => [
+            'required' => 'The phone field is required',
+            'regex' => 'The phone field must contain only numbers',
+            'string' => 'The phone field must be a string',
         ],
     ],
 

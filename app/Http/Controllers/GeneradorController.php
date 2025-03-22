@@ -52,23 +52,20 @@ class GeneradorController extends Controller
     // vistas POST
     public function post_paso1(Request $request)
     {
-        $validated = $request->validate(['name' => 'required','surname' => 'required',
-            'birthday' => 'required','adress' => 'required','email' => 'required',
-            'phone' => 'required'],
-            ['name.required' => 'El nombre es requerido',
-            'surname.required' => 'El apellido es requerido',
-            'birthday.required' => 'La fecha de nacimiento es requerida',
-            'adress.required' => 'La dirección es requerida',
-            'email.required' => 'El email es requerido',
-            'phone.required' => 'El teléfono es requerido']
-        );
+        $validated = $request->validate([
+            'name' => 'required|string|regex:/^[a-zA-Z\s]+$/',
+            'surname' => 'required|string|regex:/^[a-zA-Z\s]+$/',
+            'birthday' => 'required|date',
+            'adress' => 'required|string',
+            'email' => 'required|email',
+            'phone' => 'required|string|regex:/^\+?[1-9]\d{1,14}$/',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
-
-            $request->session()->flush();
+        $request->session()->flush();
         if(empty($request->session()->get('cv'))){
             $cv = new Generador($validated);
             $request->session()->put(['cv'=>$cv]);
-
         }else{
             $request->session()->flush();
             $cv = new Generador($validated);
