@@ -23,17 +23,18 @@ class GeneradorController extends Controller
     }
 
     // vistas GET
-    public function create_paso1()
+    public function createPaso1(Request $request)
     {
-        return view('stepper.step1');
+        $sessionData= $request->session()->get('cv');
+        return view('stepper.step1',['sessionData' => $sessionData]);
     }
     
-    public function create_paso2()
+    public function createPaso2()
     {
         return view('stepper.step2');
     }
 
-    public function create_paso3()
+    public function createPaso3()
     {
         return view('stepper.step3');
     }
@@ -53,7 +54,14 @@ class GeneradorController extends Controller
     {
         $validated = $request->validate(['name' => 'required','surname' => 'required',
             'birthday' => 'required','adress' => 'required','email' => 'required',
-            'phone' => 'required']);
+            'phone' => 'required'],
+            ['name.required' => 'El nombre es requerido',
+            'surname.required' => 'El apellido es requerido',
+            'birthday.required' => 'La fecha de nacimiento es requerida',
+            'adress.required' => 'La dirección es requerida',
+            'email.required' => 'El email es requerido',
+            'phone.required' => 'El teléfono es requerido']
+        );
 
 
             $request->session()->flush();
