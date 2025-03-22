@@ -54,6 +54,7 @@
             /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
         }
     </style>
+    @yield('styles')
 
 </head>
 
