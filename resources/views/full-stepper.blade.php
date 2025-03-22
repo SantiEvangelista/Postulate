@@ -175,11 +175,19 @@
       font-weight: 500;
       font-size: 16px;
       line-height: 24px;
-      display: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
     }
-    .formbold-back-btn.active {
-      display: block;
+
+    .formbold-back-btn:hover {
+      background-color: #f3f4f6;
     }
+
     .formbold-btn {
       display: flex;
       align-items: center;
@@ -270,228 +278,5 @@
 @endsection
 
 @section('scripts')
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Almacenamiento de datos del formulario
-    let formData = {
-        step1: {},
-        step2: {},
-        step3: {}
-    };
-
-    // Configuración global de toastr
-    if (typeof toastr !== 'undefined') {
-        toastr.options = {
-            closeButton: true,
-            newestOnTop: true,
-            progressBar: true,
-            positionClass: "toast-top-right",
-            preventDuplicates: false,
-            onclick: null,
-            showDuration: "300",
-            hideDuration: "1000",
-            timeOut: "5000",
-            extendedTimeOut: "1000",
-            showEasing: "swing",
-            hideEasing: "linear",
-            showMethod: "fadeIn",
-            hideMethod: "fadeOut"
-        };
-    }
-
-    let currentStep = 1;
-    loadStep(currentStep);
-
-    function loadStep(step) {
-        const content = document.getElementById('step-content');
-        content.style.display = 'none';
-
-        fetch(`/generador/paso${step}/content`)
-            .then(response => {
-                if (!response.ok) {
-                    return response.json().then(err => Promise.reject(err));
-                }
-                return response.text();
-            })
-            .then(html => {
-                if (content) {
-                    content.innerHTML = html;
-                    content.style.display = 'block';
-                }
-                if (loading) {
-                    loading.style.display = 'none';
-                }
-                initializeFormListeners();
-                updateStepperUI(step);
-                // Rellenar el formulario con datos guardados si existen
-                if (formData[`step${step}`]) {
-                    fillFormWithData(formData[`step${step}`]);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                if (loading) {
-                    loading.style.display = 'none';
-                }
-                if (content) {
-                    content.innerHTML = '<div class="alert alert-danger">Error al cargar el contenido. Por favor, intente de nuevo.</div>';
-                    content.style.display = 'block';
-                }
-                showErrors(error);
-            });
-    }
-
-    function fillFormWithData(data) {
-        const form = document.querySelector('form');
-        if (!form) return;
-
-        Object.keys(data).forEach(key => {
-            const input = form.querySelector(`[name="${key}"]`);
-            if (input) {
-                input.value = data[key];
-            }
-        });
-    }
-
-    function showErrors(response) {
-        if (typeof toastr === 'undefined') {
-            console.error('Toastr no está disponible');
-            return;
-        }
-
-        if (response.errors) {
-            Object.values(response.errors).forEach(error => {
-                if (Array.isArray(error)) {
-                    error.forEach(message => toastr.error(message));
-                } else {
-                    toastr.error(error);
-                }
-            });
-        } else if (response.message) {
-            toastr.error(response.message);
-        }
-    }
-
-    function initializeFormListeners() {
-        const form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                submitForm(this);
-            });
-        }
-    }
-
-    function submitForm(form) {
-        const loading = document.getElementById('loading');
-        if (!loading) return;
-
-        loading.style.display = 'block';
-        const currentFormData = new FormData(form);
-        
-        // Guardar datos del formulario actual
-        const formObject = {};
-        currentFormData.forEach((value, key) => {
-            formObject[key] = value;
-        });
-        formData[`step${currentStep}`] = formObject;
-
-        // Si es el último paso, enviar todos los datos
-        const finalData = new FormData();
-        if (currentStep === 3) {
-            // Agregar datos de todos los pasos
-            Object.keys(formData).forEach(step => {
-                Object.keys(formData[step]).forEach(key => {
-                    finalData.append(key, formData[step][key]);
-                });
-            });
-        } else {
-            // Solo enviar datos del paso actual para validación
-            currentFormData.forEach((value, key) => {
-                finalData.append(key, value);
-            });
-        }
-        
-        // Agregar el token CSRF
-        finalData.append('_token', document.querySelector('meta[name="csrf-token"]').content);
-
-        fetch(form.action, {
-            method: 'POST',
-            body: finalData,
-            headers: {
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-                'Accept': 'application/json'
-            },
-            credentials: 'same-origin'
-        })
-        .then(response => {
-            if (!response.ok) {
-                return response.json().then(err => Promise.reject(err));
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.success) {
-                if (data.message) {
-                    toastr.success(data.message);
-                }
-                if (data.redirect) {
-                    window.location.href = data.redirect;
-                } else {
-                    currentStep++;
-                    loadStep(currentStep);
-                }
-            } else {
-                if (data.errors) {
-                    displayErrors(data.errors);
-                    showErrors(data);
-                }
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            if (error.errors) {
-                displayErrors(error.errors);
-            }
-            
-        })
-        .finally(() => {
-            if (loading) {
-                loading.style.display = 'none';
-            }
-        });
-    }
-
-    function displayErrors(errors) {
-        document.querySelectorAll('.error-message').forEach(el => el.remove());
-        
-        for (const field in errors) {
-            const input = document.querySelector(`[name="${field}"]`);
-            if (input) {
-                const errorDiv = document.createElement('div');
-                errorDiv.className = 'error-message';
-                errorDiv.textContent = errors[field][0];
-                input.parentNode.insertBefore(errorDiv, input.nextSibling);
-                
-                toastr.error(errors[field][0]);
-            }
-        }
-    }
-
-    function updateStepperUI(step) {
-        const stepperItems = document.querySelectorAll('.stepper-item');
-        stepperItems.forEach((item, index) => {
-            if (index + 1 < step) {
-                item.classList.add('completed');
-                item.classList.remove('active');
-            } else if (index + 1 === step) {
-                item.classList.add('active');
-                item.classList.remove('completed');
-            } else {
-                item.classList.remove('active', 'completed');
-            }
-        });
-    }
-});
-</script>
+<script src="{{ asset('js/stepper.js') }}"></script>
 @endsection 
