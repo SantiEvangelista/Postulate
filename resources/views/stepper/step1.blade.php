@@ -1,166 +1,357 @@
 @extends('layout')
 
+@section('styles')
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Inter", sans-serif;
+    }
+    .formbold-main-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+    }
+  
+    .formbold-form-wrapper {
+      margin: 0 auto;
+      max-width: 650px;
+      width: 100%;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+  
+    .formbold-steps {
+      padding-bottom: 18px;
+      margin-bottom: 35px;
+      border-bottom: 1px solid #DDE3EC;
+    }
+    .formbold-steps ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+    .formbold-steps li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: #536387;
+    }
+    .formbold-steps li span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #DDE3EC;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: #536387;
+    }
+    .formbold-steps li.active {
+      color: #07074D;
+    }
+    .formbold-steps li.active span {
+      background: #6A64F1;
+      color: #FFFFFF;
+    }
+  
+    .formbold-input-flex {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+    .formbold-input-flex > div {
+      width: 50%;
+    }
+    .formbold-form-input {
+      width: 100%;
+      padding: 13px 22px;
+      border-radius: 5px;
+      border: 1px solid #DDE3EC;
+      background: #FFFFFF;
+      font-weight: 500;
+      font-size: 16px;
+      color: #536387;
+      outline: none;
+      resize: none;
+    }
+    .formbold-form-input:focus {
+      border-color: #6a64f1;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+    .formbold-form-label {
+      color: #07074D;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      display: block;
+      margin-bottom: 10px;
+    }
+  
+    .formbold-form-file {
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .formbold-form-file input {
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+    
+    .formbold-form-file-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  
+    .formbold-form-btn-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 25px;
+      margin-top: 25px;
+    }
+    .formbold-back-btn {
+      cursor: pointer;
+      background: #FFFFFF;
+      border: none;
+      color: #07074D;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      display: none;
+    }
+    .formbold-back-btn.active {
+      display: block;
+    }
+    .formbold-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 16px;
+      border-radius: 5px;
+      padding: 10px 25px;
+      border: none;
+      font-weight: 500;
+      background-color: #6A64F1;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .formbold-btn:hover {
+      background-color: #5753e4;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
 
-@section('contenido')
+    .form-group {
+      margin-bottom: 20px;
+    }
 
-    <!-- Page Loader -->
-    <div class="page-loader">
-        <div class="loader">Cargando...</div>
-    </div>
-    <!-- End Page Loader -->
+    textarea.formbold-form-input {
+      min-height: 120px;
+    }
 
-    <!-- Skip to Content -->
-    <a href="#main" class="btn skip-to-content">Saltar al contenido</a>
-    <!-- End Skip to Content -->
+    /* Toast Notification Styles */
+    .toast-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+    }
 
-    <!-- Page Wrap -->
-    <div class="page bg-dark light-content" id="top">
+    .toast {
+        background: white;
+        color: #333;
+        padding: 15px 25px 15px 15px;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        min-width: 300px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        animation: slideIn 0.3s ease-in-out;
+        border-bottom: 3px solid #dc3545;
+        opacity: 1;
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    .toast-content {
+        flex-grow: 1;
+        margin-right: 10px;
+    }
+
+    .toast-close {
+        background: none;
+        border: none;
+        color: #666;
+        cursor: pointer;
+        font-size: 18px;
+        padding: 0;
+        line-height: 1;
+        transition: color 0.2s ease;
+    }
+
+    .toast-close:hover {
+        color: #333;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    .toast.removing {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+</style>
+@endsection
+
+@section('body')
+    <!-- Toast Container -->
 
 
-        <main id="main">
-
-            <!-- Home Section -->
-            <section class="small-section bg-dark-alfa-50 bg-scroll light-content" style="background-color: #32a8a6"
-                id="home">
-                <div class="container relative">
-
-                    <div class="row">
-
-                        <div class="col-md-8">
-                            <div class="wow fadeInUpShort" data-wow-delay=".1s">
-                                <h1 class="hs-line-7 mb-20 mb-xs-10">Paso 1</h1>
-                            </div>
-                            <div class="wow fadeInUpShort" data-wow-delay=".2s">
-                                
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </section>
-            <!-- End Home Section -->
-
-
-            <!-- Section -->
-            <section class="page-section bg-dark light-content">
-                <form action="{{ route('generador.paso1.store') }}" method="POST" enctype="multipart/form-data">
+    <div class="formbold-main-wrapper">
+        <div class="formbold-form-wrapper">
+            <form action="{{ route('generador.paso1.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="container relative">
+                <div class="formbold-steps">
+                    <ul>
+                        <li class="active">
+                            <span>1</span>
+                            {{ __('stepper.steps.personal_info') }}
+                        </li>
+                        <li>
+                            <span>2</span>
+                            {{ __('stepper.steps.experience') }}
+                        </li>
+                        <li>
+                            <span>3</span>
+                            {{ __('stepper.steps.education') }}
+                        </li>
+                    </ul>
+                </div>
 
-                    <div class="text-center mb-80 mb-sm-50">
-                        <h2 class="section-title">Datos personales</h2>
-                    </div>
+                <div class="formbold-form-step-1 active">
+                    <h3 class="mb-4">{{ __('stepper.personal_info.title') }}</h3>
 
-                    <!-- Row -->
-                    <div class="row">
-
-                        <!-- Col -->
-                        @if ($errors->any())
-                            <div style="color: #32a8a6 ;background-color: black" class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-
-                        <div class="col-sm-4 mb-40">
-                                <h3>Informacion personal basica</h3>
-                                <div class="mb-20 mb-md-10">
-                                    <!-- Name -->
-                                    <label for="name">Nombre completo</label>
-                                    
-                                    
-                                    <input type="text" autocomplete="off" name="name" value="{{ isset($sessionData) ? $sessionData['name'] : '' }}" id="name"
-                                        class="input-md round form-control" maxlength="30">
-                                </div>
-
-                                <div class="mb-20 mb-md-10">
-                                    <!-- Surname -->
-                                    <label for="surname">Apellido</label>
-                                    <input type="text" autocomplete="off" name="surname" id="surname" value="{{ isset($sessionData) ? $sessionData['surname'] : '' }}"
-                                        class="input-md round form-control" maxlength="30">
-                                </div>
-
-                                <div class="mb-20 mb-md-10">
-                                    <label for="birthday">Fecha de nacimiento</label>
-                                    <!-- Date-->
-                                    <input type="date" name="birthday" id="birthday" value="{{ isset($sessionData) ? $sessionData['birthday'] : '' }}"
-                                        class="input-md round form-control">
-                                </div>
-
-                                <div class="mb-20 mb-md-10">
-                                    <label for="adress">Dirección</label>
-                                    <!-- Date-->
-                                    <input type="text" autocomplete="off" name="adress" id="adress" value="{{ isset($sessionData) ? $sessionData['adress'] : '' }}"
-                                        class="input-md round form-control" maxlength="25">
-                                </div>
+                    <div class="formbold-input-flex">
+                        <div>
+                            <label for="first_name" class="formbold-form-label">{{ __('stepper.personal_info.first_name') }}</label>
+                            <input type="text" name="first_name" id="first_name" class="formbold-form-input" 
+                                placeholder="{{ __('stepper.placeholders.first_name') }}" required>
                         </div>
-
-                        <!-- End Col -->
-
-                        <!-- Col -->
-
-                        <div class="col-sm-4 mb-40">
-
-                            <h3>Información de Contacto</h3>
-                            <div class="mb-20 mb-md-10">
-                                <!-- Email -->
-                                <label for="email">Email</label>
-                                <input  type="email" autocomplete="off" name="email" id="email"  value="{{ isset($sessionData) ? $sessionData['email'] : '' }}"
-                                    class="input-md round form-control" maxlength="25">
-                            </div>
-
-
-                            <div class="mb-20 mb-md-10">
-                                <!-- Phone -->
-                                <label for="phone">Teléfono</label>
-                                <input type="text" name="phone" id="phone" class="input-md round form-control" value="{{ isset($sessionData) ? $sessionData['phone'] : '' }}"
-                                    maxlength="100">
-                            </div>
-
-                            <br>
-                        </div>
-
-                        <!-- End Col -->
-
-                        <!-- Col -->
-                        <div style="padding-left:20px ;background-image: url('https://cdn.pixabay.com/photo/2017/07/25/14/54/rain-2538429_960_720.jpg')"
-                            class="col-sm-4 mb-40"></div>
-                        <!-- End Col -->
-
-                    </div>
-                    <!-- End Row -->
-                    <div>
-                        <div style="width: 100%;text-align: center">
-                            <button class="btn btn-outline-secondary">Siguiente paso</button>
+                        <div>
+                            <label for="last_name" class="formbold-form-label">{{ __('stepper.personal_info.last_name') }}</label>
+                            <input type="text" name="last_name" id="last_name" class="formbold-form-input" 
+                                placeholder="{{ __('stepper.placeholders.last_name') }}" required>
                         </div>
                     </div>
+
+                    <div class="formbold-input-flex">
+                        <div>
+                            <label for="email" class="formbold-form-label">{{ __('stepper.personal_info.email') }}</label>
+                            <input type="email" name="email" id="email" class="formbold-form-input" 
+                                placeholder="{{ __('stepper.placeholders.email') }}" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="formbold-form-label">{{ __('stepper.personal_info.phone') }}</label>
+                            <input type="tel" name="phone" id="phone" class="formbold-form-input" 
+                                placeholder="{{ __('stepper.placeholders.phone') }}" required>
+                        </div>
+                    </div>
+
+                    <div class="formbold-input-flex">
+                        <div>
+                            <label for="birth_date" class="formbold-form-label">{{ __('stepper.personal_info.birth_date') }}</label>
+                            <input type="date" name="birth_date" id="birth_date" class="formbold-form-input" required>
+                        </div>
+                        <div>
+                            <label for="profession" class="formbold-form-label">{{ __('stepper.personal_info.profession') }}</label>
+                            <input type="text" name="profession" id="profession" class="formbold-form-input" 
+                                placeholder="{{ __('stepper.placeholders.profession') }}" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address" class="formbold-form-label">{{ __('stepper.personal_info.address') }}</label>
+                        <input type="text" name="address" id="address" class="formbold-form-input" 
+                            placeholder="{{ __('stepper.placeholders.address') }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="about_me" class="formbold-form-label">{{ __('stepper.personal_info.about_me') }}</label>
+                        <textarea name="about_me" id="about_me" class="formbold-form-input" 
+                            placeholder="{{ __('stepper.placeholders.about_me') }}" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="photo" class="formbold-form-label">{{ __('stepper.personal_info.photo') }}</label>
+                        <div class="formbold-form-file">
+                            <input type="file" name="photo" id="photo" accept="image/*">
+                            <div class="formbold-form-file-wrapper">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.71429 17.8571H13.2857M10 3.92857V14.6429M10 3.92857L6.71429 7.21429M10 3.92857L13.2857 7.21429" stroke="#07074D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span>Choose a file</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formbold-form-btn-wrapper">
+                    <button  class="formbold-btn">
+                        {{ __('stepper.buttons.next') }}
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_1675_1807)">
+                                <path d="M10.7814 7.33312L7.20541 3.75712L8.14808 2.81445L13.3334 7.99979L8.14808 13.1851L7.20541 12.2425L10.7814 8.66645H2.66675V7.33312H10.7814Z" fill="white"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_1675_1807">
+                                    <rect width="16" height="16" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
                 </div>
             </form>
-            </section>
-            <!-- End Section -->
-
-        </main>
-
-
-
+        </div>
     </div>
-    <!-- End Page Wrap -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.0.7/imask.min.js" integrity="sha512-qCt/OTd55ilhuXLRNAp/G8uONXUrpFoDWsXDtyjV4wMbvh46dOEjvHZyWkvnffc6I2g/WHSKsaFUCm0RISxnzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-
-
-        var phoneMask = IMask(
-            document.getElementById("phone"),
-            {
-                mask: "+{000}-(000)-0000000",
-            }
-        );
-    </script>
-
 @endsection
+
+@section('scripts')
+    <script src="{{ asset('js/toastr.js') }}"></script>
+@endsection
+
+</div>
+</section>
+<!-- End Home Section -->

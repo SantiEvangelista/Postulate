@@ -16,13 +16,10 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         <!-- CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }} ">
         <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
         <link rel="stylesheet" href="{{ asset('css/style-responsive.css') }} ">
-        <link rel="stylesheet" href="{{ asset('css/animate.min.css') }} ">
-        <link rel="stylesheet" href="{{ asset('css/vertical-rhythm.min.css') }} ">
-        <link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }} ">
-        <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }} ">
+        
+        
 
         @yield('styles')
     </head>
@@ -30,7 +27,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
         
         @yield('body')
          <!-- Foter -->
-            <footer style="background-color: #111111;color: white" class="page-section footer pb-60">
+            <footer style="background-color: white;color: black" class="page-section footer pb-60">
                 <div class="container">
 
                     <!-- Footer Logo -->
@@ -77,34 +74,22 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
             </footer>
             <!-- End Foter -->        
         <!-- JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>        
-        <script type="text/javascript" src="{{ asset('js/SmoothScroll.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.scrollTo.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.localScroll.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.viewport.mini.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.countTo.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.appear.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.sticky.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.parallax-1.1.3.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.fitvids.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/owl.carousel.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/isotope.pkgd.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/imagesloaded.pkgd.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/wow.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/morphext.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.lazyload.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/all.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/contact-form.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script>  
-              
         
+        
+        <div class="toast-container">
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="toast" role="alert">
+                        <div class="toast-content">
+                            {{ $error }}
+                        </div>
+                        <button type="button" class="toast-close" aria-label="Close">×</button>
+                    </div>
+                @endforeach
+            @endif
+        </div>
+        
+        <script src="{{ asset('js/toastr.js') }}"></script>
         @yield('scripts')
     </body>
 </html>
