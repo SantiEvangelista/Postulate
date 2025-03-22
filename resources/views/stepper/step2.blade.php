@@ -1,270 +1,345 @@
 @extends('layout')
 
-@section('contenido')
+@section('styles')
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Inter", sans-serif;
+    }
+    .formbold-main-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+    }
+  
+    .formbold-form-wrapper {
+      margin: 0 auto;
+      max-width: 650px;
+      width: 100%;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+  
+    .formbold-steps {
+      padding-bottom: 18px;
+      margin-bottom: 35px;
+      border-bottom: 1px solid #DDE3EC;
+    }
+    .formbold-steps ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+    .formbold-steps li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: #536387;
+    }
+    .formbold-steps li span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #DDE3EC;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: #536387;
+    }
+    .formbold-steps li.active {
+      color: #07074D;
+    }
+    .formbold-steps li.active span {
+      background: #6A64F1;
+      color: #FFFFFF;
+    }
+  
+    .formbold-input-flex {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+    .formbold-input-flex > div {
+      width: 50%;
+    }
+    .formbold-form-input {
+      width: 100%;
+      padding: 13px 22px;
+      border-radius: 5px;
+      border: 1px solid #DDE3EC;
+      background: #FFFFFF;
+      font-weight: 500;
+      font-size: 16px;
+      color: #536387;
+      outline: none;
+      resize: none;
+    }
+    .formbold-form-input:focus {
+      border-color: #6a64f1;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+    .formbold-form-label {
+      color: #07074D;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      display: block;
+      margin-bottom: 10px;
+    }
+  
+    .formbold-form-btn-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      margin-top: 25px;
+    }
+    .formbold-back-btn {
+      cursor: pointer;
+      background: #FFFFFF;
+      border: none;
+      color: #07074D;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .formbold-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 16px;
+      border-radius: 5px;
+      padding: 10px 25px;
+      border: none;
+      font-weight: 500;
+      background-color: #6A64F1;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .formbold-btn:hover {
+      background-color: #5753e4;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
 
-    <!-- Page Loader -->
-    <div class="page-loader">
-        <div class="loader">Cargando...</div>
-    </div>
-    <!-- End Page Loader -->
+    .text-danger {
+        color: #dc3545;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+        display: block;
+    }
 
-    <!-- Skip to Content -->
-    <a href="#main" class="btn skip-to-content">Saltar al contenido</a>
-    <!-- End Skip to Content -->
+    .formbold-form-input.error {
+        border-color: #dc3545;
+    }
 
-    <!-- Page Wrap -->
-    <div class="page bg-dark light-content" id="top">
+    .formbold-form-input.error:focus {
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
 
+    .education-section {
+        margin-bottom: 30px;
+    }
 
-        <main id="main">
+    .education-section h3 {
+        margin-bottom: 20px;
+        color: #07074D;
+        font-size: 18px;
+    }
+</style>
+@endsection
 
-            <!-- Home Section -->
-            <section class="small-section bg-dark-alfa-50 bg-scroll light-content" style="background-color: #32a8a6"
-                id="home">
-                <div class="container relative">
-
-                    <div class="row">
-
-                        <div class="col-md-8">
-                            <div class="wow fadeInUpShort" data-wow-delay=".1s">
-                                <h1 class="hs-line-7 mb-20 mb-xs-10">Paso 2</h1>
-                            </div>
-                           
-                        </div>
-
+@section('body')
+    <!-- Toast Container -->
+    <div class="toast-container">
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <div class="toast" role="alert">
+                    <div class="toast-content">
+                        {{ $error }}
                     </div>
-
+                    <button type="button" class="toast-close" aria-label="Close">×</button>
                 </div>
-            </section>
-            <!-- End Home Section -->
+            @endforeach
+        @endif
+    </div>
 
+    <div class="formbold-main-wrapper">
+        <div class="formbold-form-wrapper">
+            <form action="{{ route('generador.paso2.store') }}" method="POST">
+                @csrf
+                <div class="formbold-steps">
+                    <ul>
+                        <li>
+                            <span>1</span>
+                            {{ __('stepper.steps.personal_info') }}
+                        </li>
+                        <li class="active">
+                            <span>2</span>
+                            {{ __('stepper.steps.education') }}
+                        </li>
+                        <li>
+                            <span>3</span>
+                            {{ __('stepper.steps.experience') }}
+                        </li>
+                    </ul>
+                </div>
 
-            <!-- Section -->
-            <section class="page-section bg-dark light-content">
-                <form action="" method="post" enctype="multipart/form-data">
-                    <div class="container relative">
-                        @if ($errors->any())
-                            <div style="color: #32a8a6 ;background-color: black" class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                        <div class="text-center mb-80 mb-sm-50">
-                            <h2 class="section-title">Experiencias laborales</h2>
-                        </div>
-
-                        <!-- Row -->
-                        <div class="row">
-
-                            <!-- Col -->
-
-                            <div class="col-md-10 mb-40">
-
-                                <!-- Form -->
-                                <form method="post" action="{{ route('generador.paso2.store') }}" id="form" class="form">
-                                    @csrf
-                                    <h3>Experiencias previas</h3>
-                                    <div class="mb-20 mb-md-10">
-                                        <div id="pregunta">
-                                            <input style="margin-right: 5px;" type="checkbox" id="tieneExp">
-                                            <label for="tieneExp">¿Tienes experiencia laboral?</label>
-                                        </div>
-                                        <table style="visibility: hidden;border-spacing:0 10px;" id="dynamicAddRemove">
-                                            <tr>
-                                                <th>Nombre de la empresa</th>
-                                                <th>Cargo</th>
-                                                <th>Fecha de inicio</th>
-                                                <th>Fecha de fin</th>
-                                                <th></th>
-                                            </tr>
-                                            <tr style="padding-bottom: 20em;">
-                                                <td style="padding-bottom: 5px"><input
-                                                        style="width: 25rem;margin-right: 5px;" type="text"
-                                                        name="addMoreInputFields[0][nombre]" class="form-control" /></td>
-                                                <td style="padding-bottom: 5px"><input
-                                                        style="width: 15rem;margin-right: 5px;" type="text"
-                                                        name="addMoreInputFields[0][cargo]" class="form-control" /></td>
-                                                <td style="padding-bottom: 5px"><input
-                                                        style="width: 15rem;margin-right: 5px;" type="date"
-                                                        name="addMoreInputFields[0][fecha_inicio]" id="fecha_inicio[0][fecha_inicio]"
-                                                        class="input-md round form-control"></td>
-                                                <td style="padding-bottom: 5px"><input style="width: 15rem" type="date"
-                                                        name="addMoreInputFields[0][fecha_fin]" id="fecha_fin[0][fecha_fin]"
-                                                        class="input-md round form-control"></td>
-                                                <td style="padding-bottom: 5px"><button type="button" name="add"
-                                                        id="dynamic-ar" style="border-color:#32a8a6 ;color: #32a8a6"
-                                                        class="btn btn-outline-primary">+</button></td>
-                                            </tr>
-                                        </table>
-                                    </div>
-
-                                    <div style="display:flex;flex-direction: row" class="mb-20 mb-md-10">
-                                        <div style="padding-right: 2%">
-                                            <label for="secundario">Educación Secundaria</label>
-                                            <input type="text" autocomplete="off" name="secundario" id="secundario"
-                                                class="input-md round form-control" maxlength="100">
-                                        </div>
-                                        <div style="padding-right: 2%">
-                                            <label for="orientacion">Orientación</label>
-                                            <input type="text" autocomplete="off" name="orientacion" id="orientacion"
-                                                class="input-md round form-control" maxlength="100">
-                                        </div>
-                                        <div style="padding-right: 2%">
-                                            <label for="orientacion">Fecha de Inicio</label>
-                                            <input type="date" min='1930-01-01' name="fecha_inicio_secundario" id="fecha_inicio_secundario"
-                                                class="input-md round form-control">
-                                        </div>
-                                        <div style="padding-right: 2%">
-                                            <label for="orientacion">Fecha de Fin</label>
-                                            <input type="date" min="1930-01-01" name="fecha_fin_secundario" id="fecha_fin_secundario"
-                                                class="input-md round form-control">
-                                        </div>
-                                        <input style="margin-right: 5px;" type="checkbox" id="tieneExpSecundario">
-                                        <label for="tieneExp">Aun no termine el secundario</label>
-                                    </div>
-
-                                    <div style="display:flex;flex-direction: row" class="mb-20 mb-md-10">
-                                        <div style="padding-right: 2%">
-                                            <label for="terciaria">Educación Terciaria</label>
-                                            <input type="text" autocomplete="off" name="terciaria" id="terciaria"
-                                                class="input-md round form-control" maxlength="100">
-                                        </div>
-                                        <div style="padding-right: 2%">
-                                            <label for="orientacion">Orientación</label>
-                                            <input type="text" autocomplete="off" name="orientacion_terciaria" id="orientacion_terciaria"
-                                                class="input-md round form-control" maxlength="100">
-                                        </div>
-                                        <div style="padding-right: 2%">
-                                            <label for="orientacion">Fecha de Inicio</label>
-                                            <input type="date" min='1930-01-01' name="fecha_inicio_terciaria" id="fecha_inicio_terciaria"
-                                                class="input-md round form-control">
-                                        </div>
-                                        <div style="padding-right: 2%">
-                                            <label for="orientacion">Fecha de Fin</label>
-                                            <input type="date" min="1930-01-01" name="fecha_fin_terciaria" id="fecha_fin_terciaria"
-                                                class="input-md round form-control">
-                                        </div>
-                                        
-                                                <input style="margin-right: 5px;" type="checkbox" id="tieneExpterciariaTerciaria">
-                                                <label for="tieneExp"> Aun no termine </label>
-                                        
-                                    </div>
-
-
-                                </form>
-                                <!-- End Form -->
-
-                            </div>
-
-                            <!-- End Col -->
-
-                            <!-- Col -->
-
-                            <div class="col-sm-4 mb-40"></div>
-
-                            <!-- End Col -->
-
-                            <!-- Col -->
-                            <!-- End Col -->
-
-                        </div>
-                        <!-- End Row -->
+                <div class="education-section">
+                    <h3>{{ __('stepper.education.secondary.title') }}</h3>
+                    <div class="formbold-input-flex">
                         <div>
-                            <div style="width: 100%;text-align: center">
-                                <button class="btn btn-outline-secondary">Siguiente paso</button>
-                            </div>
-
-                            <a href="{{ route('generador.paso1.create') }}">Volver</a>
+                            <label for="secundario" class="formbold-form-label">{{ __('stepper.education.secondary.school') }}</label>
+                            <input type="text" 
+                                name="secundario" 
+                                id="secundario" 
+                                class="formbold-form-input @error('secundario') error @enderror"
+                                value="{{ old('secundario') }}"
+                                placeholder="{{ __('stepper.placeholders.school') }}" 
+                                required>
+                            @error('secundario')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div>
+                            <label for="orientacion" class="formbold-form-label">{{ __('stepper.education.secondary.orientation') }}</label>
+                            <input type="text" 
+                                name="orientacion" 
+                                id="orientacion" 
+                                class="formbold-form-input @error('orientacion') error @enderror"
+                                value="{{ old('orientacion') }}"
+                                placeholder="{{ __('stepper.placeholders.orientation') }}" 
+                                required>
+                            @error('orientacion')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
-                </form>
 
+                    <div class="formbold-input-flex">
+                        <div>
+                            <label for="fecha_inicio_secundario" class="formbold-form-label">{{ __('stepper.education.secondary.start_date') }}</label>
+                            <input type="date" 
+                                name="fecha_inicio_secundario" 
+                                id="fecha_inicio_secundario" 
+                                class="formbold-form-input @error('fecha_inicio_secundario') error @enderror"
+                                value="{{ old('fecha_inicio_secundario') }}"
+                                required>
+                            @error('fecha_inicio_secundario')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div>
+                            <label for="fecha_fin_secundario" class="formbold-form-label">{{ __('stepper.education.secondary.end_date') }}</label>
+                            <input type="date" 
+                                name="fecha_fin_secundario" 
+                                id="fecha_fin_secundario" 
+                                class="formbold-form-input"
+                                value="{{ old('fecha_fin_secundario') }}">
+                        </div>
+                    </div>
+                </div>
 
-            </section>
-            <!-- End Section -->
+                <div class="education-section">
+                    <h3>{{ __('stepper.education.tertiary.title') }}</h3>
+                    <div class="formbold-input-flex">
+                        <div>
+                            <label for="terciaria" class="formbold-form-label">{{ __('stepper.education.tertiary.school') }}</label>
+                            <input type="text" 
+                                name="terciaria" 
+                                id="terciaria" 
+                                class="formbold-form-input @error('terciaria') error @enderror"
+                                value="{{ old('terciaria') }}"
+                                placeholder="{{ __('stepper.placeholders.school') }}" 
+                                required>
+                            @error('terciaria')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div>
+                            <label for="orientacion_terciaria" class="formbold-form-label">{{ __('stepper.education.tertiary.orientation') }}</label>
+                            <input type="text" 
+                                name="orientacion_terciaria" 
+                                id="orientacion_terciaria" 
+                                class="formbold-form-input @error('orientacion_terciaria') error @enderror"
+                                value="{{ old('orientacion_terciaria') }}"
+                                placeholder="{{ __('stepper.placeholders.orientation') }}" 
+                                required>
+                            @error('orientacion_terciaria')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
 
-        </main>
+                    <div class="formbold-input-flex">
+                        <div>
+                            <label for="fecha_inicio_terciaria" class="formbold-form-label">{{ __('stepper.education.tertiary.start_date') }}</label>
+                            <input type="date" 
+                                name="fecha_inicio_terciaria" 
+                                id="fecha_inicio_terciaria" 
+                                class="formbold-form-input @error('fecha_inicio_terciaria') error @enderror"
+                                value="{{ old('fecha_inicio_terciaria') }}"
+                                required>
+                            @error('fecha_inicio_terciaria')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div>
+                            <label for="fecha_fin_terciaria" class="formbold-form-label">{{ __('stepper.education.tertiary.end_date') }}</label>
+                            <input type="date" 
+                                name="fecha_fin_terciaria" 
+                                id="fecha_fin_terciaria" 
+                                class="formbold-form-input"
+                                value="{{ old('fecha_fin_terciaria') }}">
+                        </div>
+                    </div>
+                </div>
 
-
-
+                <div class="formbold-form-btn-wrapper">
+                    <a href="{{ route('generador.paso1.create') }}" class="formbold-back-btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.21875 7.33312L8.79475 3.75712L7.85208 2.81445L2.66675 7.99979L7.85208 13.1851L8.79475 12.2425L5.21875 8.66645H13.3334V7.33312H5.21875Z" fill="#07074D"/>
+                        </svg>
+                        {{ __('stepper.buttons.back') }}
+                    </a>
+                    <button type="submit" class="formbold-btn">
+                        {{ __('stepper.buttons.next') }}
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_1675_1807)">
+                                <path d="M10.7814 7.33312L7.20541 3.75712L8.14808 2.81445L13.3334 7.99979L8.14808 13.1851L7.20541 12.2425L10.7814 8.66645H2.66675V7.33312H10.7814Z" fill="white"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_1675_1807">
+                                    <rect width="16" height="16" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <!-- End Page Wrap -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+@endsection
 
-    <script type="text/javascript">
-        var i = 0;
-        $("#dynamic-ar").click(function() {
-            ++i;
-            $("#dynamicAddRemove").append(
-                '<tr style="padding-bottom: 20rem;"><td style="padding-bottom: 5px"><input style="width: 25rem;margin-right: 5px" type="text" name="addMoreInputFields[' +
-                i +
-                '][nombre]" class="form-control" /></td><td style="padding-bottom: 5px"><input style="width: 15rem;margin-right: 5px;" type="text" name="addMoreInputFields[' +
-                i +
-                '][cargo]" class="form-control" /></td><td style="padding-bottom: 5px"><input style="width: 15rem;margin-right: 5px;" type="date" name="addMoreInputFields[' +i +'][fecha_inicio]" id="fecha_inicio[' +
-                i +
-                '][fecha_inicio]" class="input-md round form-control"></td><td style="padding-bottom: 5px"><input style="width: 15rem" type="date" name="addMoreInputFields[' +i +'][fecha_fin]" id="fecha_fin[' +
-                i +
-                '][fecha_fin]" class="input-md round form-control"></td><td style="padding-bottom: 5px"><button type="button" class="btn btn-outline-danger remove-input-field">Quitar</button></td></tr>'
-                );
-        });
-        
-        $(document).on('click', '.remove-input-field', function() {
-            $(this).parents('tr').remove();
-        });
-
-        $("#tieneExp").click(function() {
-
-            if ($('#tieneExp').is(':checked')) {
-                $("#dynamicAddRemove").css({
-                    'visibility': 'visible'
-                });
-            } else {
-                $("#dynamicAddRemove").css({
-                    'visibility': 'hidden'
-                });
-            }
-        });
-
-        $("#tieneExpSecundario").click(function() {
-
-            if ($('#tieneExpSecundario').is(':checked')) {
-                $("#fecha_fin_secundario").prop('disabled', true);
-            } else {
-                $("#fecha_fin_secundario").prop('disabled', false);
-            }
-        });
-
-        $("#tieneExpterciariaTerciaria").click(function() {
-
-            if ($('#tieneExpterciariaTerciaria').is(':checked')) {
-                $("#fecha_fin_terciaria").prop('disabled', true);
-            } else {
-                $("#fecha_fin_terciaria").prop('disabled', false);
-            }
-            });
-
-        var today = new Date();
-        var dd = today.getDate();
-        var mm = today.getMonth() + 1; //January is 0!
-        var yyyy = today.getFullYear();
-
-        if (dd < 10) {
-            dd = '0' + dd;
-        }
-
-        if (mm < 10) {
-            mm = '0' + mm;
-        }
-
-        today = yyyy + '-' + mm + '-' + dd;
-        document.getElementById("fecha_inicio_secundario").setAttribute("max", today);
-        document.getElementById("fecha_fin_secundario").setAttribute("max", today);
-
-        document.getElementById("fecha_inicio_terciaria").setAttribute("max", today);
-        document.getElementById("fecha_fin_terciaria").setAttribute("max", today);
-    </script>
-
+@section('scripts')
+    <script src="{{ asset('js/toastr.js') }}"></script>
 @endsection

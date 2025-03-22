@@ -150,10 +150,10 @@ return [
         'birthday' => [
             'required' => 'The birth date is required',
             'date' => 'The birth date is not a valid date',
-
         ],
         'adress' => [
             'required' => 'The address field is required',
+            'string' => 'The address field must be a string',
         ],
         'email' => [
             'required' => 'The email field is required',
@@ -163,6 +163,30 @@ return [
             'required' => 'The phone field is required',
             'regex' => 'The phone field must contain only numbers',
             'string' => 'The phone field must be a string',
+        ],
+        'secundario' => [
+            'required' => 'The secondary school name is required',
+            'string' => 'The secondary school name must be a string',
+        ],
+        'orientacion' => [
+            'required' => 'The orientation field is required',
+            'string' => 'The orientation field must be a string',
+        ],
+        'fecha_inicio_secundario' => [
+            'required' => 'The start date is required',
+            'date' => 'The start date is not a valid date',
+        ],
+        'terciaria' => [
+            'required' => 'The tertiary institution name is required',
+            'string' => 'The tertiary institution name must be a string',
+        ],
+        'orientacion_terciaria' => [
+            'required' => 'The degree field is required',
+            'string' => 'The degree field must be a string',
+        ],
+        'fecha_inicio_terciaria' => [
+            'required' => 'The start date is required',
+            'date' => 'The start date is not a valid date',
         ],
     ],
 

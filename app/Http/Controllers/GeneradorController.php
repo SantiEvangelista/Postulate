@@ -88,7 +88,7 @@ class GeneradorController extends Controller
             'orientacion_terciaria' => 'required',
             'fecha_inicio_terciaria' => 'required']);
         $collection_empresas=collect();
-        if($request->addMoreInputFields[0]['nombre']!=null and $request->addMoreInputFields[0]['cargo']!=null){
+        if(isset($request->addMoreInputFields)){
             foreach ($request->addMoreInputFields as $puestos) {
                 $empresas= new Empresas ([
                    'company_name' => $puestos['nombre'],

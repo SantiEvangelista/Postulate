@@ -2,34 +2,47 @@
 
 return [
     'steps' => [
-        'personal_info' => 'Datos Personales',
+        'personal_info' => 'Información Personal',
         'experience' => 'Experiencia',
-        'education' => 'Educación'
+        'education' => 'Educación',
     ],
     'personal_info' => [
         'title' => 'Información Personal',
         'first_name' => 'Nombre',
         'last_name' => 'Apellido',
-        'email' => 'Correo Electrónico',
+        'email' => 'Email',
         'phone' => 'Teléfono',
-        'address' => 'Dirección',
         'birth_date' => 'Fecha de Nacimiento',
-        'profession' => 'Profesión',
-        'about_me' => 'Sobre Mí',
-        'photo' => 'Foto'
+        'address' => 'Dirección',
+    ],
+    'education' => [
+        'title' => 'Educación',
+        'secondary' => [
+            'title' => 'Educación Secundaria',
+            'school' => 'Nombre del Instituto',
+            'orientation' => 'Orientación',
+            'start_date' => 'Fecha de Inicio',
+            'end_date' => 'Fecha de Finalización',
+        ],
+        'tertiary' => [
+            'title' => 'Educación Terciaria',
+            'school' => 'Nombre de la Institución',
+            'orientation' => 'Carrera',
+            'start_date' => 'Fecha de Inicio',
+            'end_date' => 'Fecha de Finalización',
+        ],
+    ],
+    'placeholders' => [
+        'first_name' => 'Ingrese su nombre',
+        'last_name' => 'Ingrese su apellido',
+        'email' => 'Ingrese su email',
+        'phone' => 'Ingrese su teléfono',
+        'address' => 'Ingrese su dirección',
+        'school' => 'Ingrese el nombre de la institución',
+        'orientation' => 'Ingrese la orientación/carrera',
     ],
     'buttons' => [
         'next' => 'Siguiente',
-        'back' => 'Atrás',
-        'save' => 'Guardar'
+        'back' => 'Anterior',
     ],
-    'placeholders' => [
-        'first_name' => 'Ej: Juan',
-        'last_name' => 'Ej: Pérez',
-        'email' => 'Ej: juan.perez@email.com',
-        'phone' => 'Ej: +54 9 11 1234-5678',
-        'address' => 'Ej: Calle 123, Ciudad',
-        'profession' => 'Ej: Desarrollador Web',
-        'about_me' => 'Escribe una breve descripción sobre ti...'
-    ]
 ]; 
