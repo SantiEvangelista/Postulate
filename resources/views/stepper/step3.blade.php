@@ -504,68 +504,66 @@
     </div>
 @endsection
 
-@section('scripts')
-    <script>
-        let languageCount = 1;
-        let traitCount = 1;
-        let studyCount = 1;
+<script>
+    let languageCount = 1;
+    let traitCount = 1;
+    let studyCount = 1;
 
-        function addLanguage() {
-            const container = document.getElementById('languages-container');
-            const div = document.createElement('div');
-            div.className = 'dynamic-list-item';
-            div.innerHTML = `
-                <select name="lenguajes[${languageCount}][nombre]" class="formbold-form-input">
-                    <option value="">{{ __('stepper.placeholders.language') }}</option>
-                    <option value="Ingles">Inglés</option>
-                    <option value="Espanol">Español</option>
-                    <option value="Portuges">Portugués</option>
-                    <option value="Frances">Francés</option>
-                    <option value="Chino">Chino</option>
-                    <option value="Aleman">Alemán</option>
-                </select>
-                <button type="button" class="remove-item" onclick="this.parentElement.remove()">{{ __('stepper.buttons.remove') }}</button>
-            `;
-            container.appendChild(div);
-            languageCount++;
-        }
+    function addLanguage() {
+        const container = document.getElementById('languages-container');
+        const div = document.createElement('div');
+        div.className = 'dynamic-list-item';
+        div.innerHTML = `
+            <select name="lenguajes[${languageCount}][nombre]" class="formbold-form-input">
+                <option value="">{{ __('stepper.placeholders.language') }}</option>
+                <option value="Ingles">Inglés</option>
+                <option value="Espanol">Español</option>
+                <option value="Portuges">Portugués</option>
+                <option value="Frances">Francés</option>
+                <option value="Chino">Chino</option>
+                <option value="Aleman">Alemán</option>
+            </select>
+            <button type="button" class="remove-item" onclick="this.parentElement.remove()">{{ __('stepper.buttons.remove') }}</button>
+        `;
+        container.appendChild(div);
+        languageCount++;
+    }
 
-        function addTrait() {
-            const container = document.getElementById('traits-container');
-            const div = document.createElement('div');
-            div.className = 'dynamic-list-item';
-            div.innerHTML = `
-                <select name="rasgos[${traitCount}][nombre]" class="formbold-form-input">
-                    <option value="">{{ __('stepper.placeholders.trait') }}</option>
-                    <option value="Extrovertido">Extrovertido</option>
-                    <option value="Introvertido">Introvertido</option>
-                    <option value="Amable">Amable</option>
-                    <option value="Sensible">Sensible</option>
-                    <option value="Amistoso">Amistoso</option>
-                    <option value="Inteligente">Inteligente</option>
-                </select>
-                <button type="button" class="remove-item" onclick="this.parentElement.remove()">{{ __('stepper.buttons.remove') }}</button>
-            `;
-            container.appendChild(div);
-            traitCount++;
-        }
+    function addTrait() {
+        const container = document.getElementById('traits-container');
+        const div = document.createElement('div');
+        div.className = 'dynamic-list-item';
+        div.innerHTML = `
+            <select name="rasgos[${traitCount}][nombre]" class="formbold-form-input">
+                <option value="">{{ __('stepper.placeholders.trait') }}</option>
+                <option value="Extrovertido">Extrovertido</option>
+                <option value="Introvertido">Introvertido</option>
+                <option value="Amable">Amable</option>
+                <option value="Sensible">Sensible</option>
+                <option value="Amistoso">Amistoso</option>
+                <option value="Inteligente">Inteligente</option>
+            </select>
+            <button type="button" class="remove-item" onclick="this.parentElement.remove()">{{ __('stepper.buttons.remove') }}</button>
+        `;
+        container.appendChild(div);
+        traitCount++;
+    }
 
-        function addStudy() {
-            const container = document.getElementById('studies-container');
-            const div = document.createElement('div');
-            div.className = 'dynamic-list-item';
-            div.innerHTML = `
-                <select name="otros_estudios[${studyCount}][nombre]" class="formbold-form-input">
-                    <option value="">{{ __('stepper.placeholders.study') }}</option>
-                    <option value="Python">Python</option>
-                    <option value="Excel">Excel</option>
-                    <option value="PHP">PHP</option>
-                    <option value="Laravel">Laravel</option>
-                </select>
-                <button type="button" class="remove-item" onclick="this.parentElement.remove()">{{ __('stepper.buttons.remove') }}</button>
-            `;
-            container.appendChild(div);
-            studyCount++;
-        }
-    </script>
-@endsection
+    function addStudy() {
+        const container = document.getElementById('studies-container');
+        const div = document.createElement('div');
+        div.className = 'dynamic-list-item';
+        div.innerHTML = `
+            <select name="otros_estudios[${studyCount}][nombre]" class="formbold-form-input">
+                <option value="">{{ __('stepper.placeholders.study') }}</option>
+                <option value="Python">Python</option>
+                <option value="Excel">Excel</option>
+                <option value="PHP">PHP</option>
+                <option value="Laravel">Laravel</option>
+            </select>
+            <button type="button" class="remove-item" onclick="this.parentElement.remove()">{{ __('stepper.buttons.remove') }}</button>
+        `;
+        container.appendChild(div);
+        studyCount++;
+    }
+</script>
