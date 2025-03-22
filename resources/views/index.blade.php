@@ -33,7 +33,7 @@
                                 width="64" 
                                 height="64" 
                                 class="img-fluid rounded-circle me-3" 
-                                style="object-fit: cover; width: 104px; height: 104px;"
+                                style="object-fit: cover; width: 114px; height: 114px;"
                                 alt="Testimonial author photo" 
                                 data-aos="fade">
                             <span>
