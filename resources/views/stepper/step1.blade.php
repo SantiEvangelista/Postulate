@@ -252,66 +252,6 @@
       }
     }
 
-    /* Toast Notification Styles */
-    .toast-container {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 9999;
-    }
-
-    .toast {
-        background: white;
-        color: #333;
-        padding: 15px 25px 15px 15px;
-        border-radius: 4px;
-        margin-bottom: 10px;
-        min-width: 300px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        animation: slideIn 0.3s ease-in-out;
-        border-bottom: 3px solid #dc3545;
-        opacity: 1;
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    }
-
-    .toast-content {
-        flex-grow: 1;
-        margin-right: 10px;
-    }
-
-    .toast-close {
-        background: none;
-        border: none;
-        color: #666;
-        cursor: pointer;
-        font-size: 18px;
-        padding: 0;
-        line-height: 1;
-        transition: color 0.2s ease;
-    }
-
-    .toast-close:hover {
-        color: #333;
-    }
-
-    @keyframes slideIn {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-
-    .toast.removing {
-        transform: translateX(100%);
-        opacity: 0;
-    }
 </style>
 @endsection
 
@@ -472,8 +412,3 @@
     </div>
 @endsection
 
-
-
-</div>
-</section>
-<!-- End Home Section -->

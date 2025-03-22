@@ -14,6 +14,7 @@
     <meta name="HandheldFriendly" content="true">
     <title>{{ config('app.name', 'Postulate!') }}</title>
     <link rel="stylesheet" href="{{ asset('css/theme.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/toastr.css') }}">
 
 
     <style>
@@ -62,8 +63,22 @@
 
     @yield('body')
 
+    <div class="toast-container">
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <div class="toast" role="alert">
+                        <div class="toast-content">
+                            {{ $error }}
+                        </div>
+                        <button type="button" class="toast-close" aria-label="Close">×</button>
+                    </div>
+                @endforeach
+            @endif
+        </div>
+
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/aos.js') }}"></script>
+    <script src="{{ asset('js/toastr.js') }}"></script>
     <script>
         AOS.init({
             duration: 800,
