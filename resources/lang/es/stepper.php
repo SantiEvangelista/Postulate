@@ -65,4 +65,9 @@ return [
         'add' => 'Agregar',
         'remove' => 'Eliminar',
     ],
+    'success' => [
+        'title' => '¡Éxito!',
+        'subtitle' => '¡Curriculum Generado correctamente!',
+        'view_cv' => 'Ver mi nuevo curriculum',
+    ],
 ]; 

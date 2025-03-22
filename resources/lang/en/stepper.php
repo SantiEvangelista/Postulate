@@ -62,4 +62,9 @@ return [
         'add' => 'Add',
         'remove' => 'Remove',
     ],
+    'success' => [
+        'title' => 'Success!',
+        'subtitle' => 'CV Generated successfully!',
+        'view_cv' => 'View my new CV',
+    ],
 ]; 
