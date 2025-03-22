@@ -12,6 +12,7 @@
                     <div class="col-lg-7 py-vh-6 position-relative" data-aos="fade-right">
                         <h1 class="display-1 fw-bold mt-5">{{ __('messages.hero.title') }}</h1>
                         <p class="lead">{{ __('messages.hero.subtitle') }}</p>
+                        <p class="lead" style="font-size: 1.5rem; font-weight: 500;">{{ __('messages.hero.subtitle2') }}</p>
                         <a href="#" class="btn btn-dark btn-xl shadow me-3 rounded-0 my-5">{{ __('messages.hero.cta') }}</a>
                     </div>
                 </div>

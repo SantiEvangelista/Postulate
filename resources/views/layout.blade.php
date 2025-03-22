@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <meta name="description" content="A growing collection of ready to use components for the CSS framework Bootstrap 5">
+    <meta name="description" content="{{ config('app.description', 'Postulate!') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
@@ -12,7 +12,7 @@
     <meta name="author" content="Holger Koenemann">
     <meta name="generator" content="Eleventy v2.0.0">
     <meta name="HandheldFriendly" content="true">
-    <title>Stride HTML Template - Frontpage one</title>
+    <title>{{ config('app.name', 'Postulate!') }}</title>
     <link rel="stylesheet" href="{{ asset('css/theme.min.css') }}">
 
 
