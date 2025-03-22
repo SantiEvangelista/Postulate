@@ -43,6 +43,14 @@ return [
         'add_more' => 'Add more experience',
         'remove' => 'Remove',
         'no_experience' => 'I have no work experience',
+        'professional_objective' => 'Professional Objective',
+        'languages' => 'Languages',
+        'personality_traits' => 'Personality Traits',
+        'other_studies' => 'Other Studies',
+        'interesting_data' => 'Interesting Data',
+        'add_language' => 'Add Language',
+        'add_trait' => 'Add Trait',
+        'add_study' => 'Add Study'
     ],
     'placeholders' => [
         'first_name' => 'Enter your first name',
@@ -55,6 +63,11 @@ return [
         'company' => 'Enter company name',
         'position' => 'Enter position',
         'description' => 'Describe your responsibilities and achievements',
+        'professional_objective' => 'Describe your career goals and aspirations',
+        'language' => 'Select a language',
+        'trait' => 'Select a personality trait',
+        'study' => 'Select a study or certification',
+        'interesting_data' => 'Add any additional relevant information'
     ],
     'buttons' => [
         'next' => 'Next',
