@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
     <meta name="description" content="{{ config('app.description', 'Postulate!') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
@@ -85,25 +86,8 @@
         });
     </script>
 
-    <script>
-        let scrollpos = window.scrollY
-        const header = document.querySelector(".navbar")
-        const header_height = header.offsetHeight
 
-        const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm")
-        const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm")
-
-        window.addEventListener('scroll', function() {
-            scrollpos = window.scrollY;
-
-            if (scrollpos >= header_height) {
-                add_class_on_scroll()
-            } else {
-                remove_class_on_scroll()
-            }
-
-        })
-    </script>
+    @yield('scripts')
 
 </body>
 
