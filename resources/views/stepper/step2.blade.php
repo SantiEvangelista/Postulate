@@ -15,7 +15,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 48px;
+      padding: 20px;
+      width: 100%;
     }
   
     .formbold-form-wrapper {
@@ -23,7 +24,7 @@
       max-width: 650px;
       width: 100%;
       background: white;
-      padding: 30px;
+      padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
@@ -32,22 +33,25 @@
       padding-bottom: 18px;
       margin-bottom: 35px;
       border-bottom: 1px solid #DDE3EC;
+      overflow-x: auto;
     }
     .formbold-steps ul {
       padding: 0;
       margin: 0;
       list-style: none;
       display: flex;
-      gap: 40px;
+      gap: 20px;
+      min-width: max-content;
     }
     .formbold-steps li {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 8px;
       font-weight: 500;
-      font-size: 16px;
-      line-height: 24px;
+      font-size: 14px;
+      line-height: 20px;
       color: #536387;
+      white-space: nowrap;
     }
     .formbold-steps li span {
       display: flex;
@@ -55,11 +59,11 @@
       justify-content: center;
       background: #DDE3EC;
       border-radius: 50%;
-      width: 36px;
-      height: 36px;
+      width: 28px;
+      height: 28px;
       font-weight: 500;
-      font-size: 16px;
-      line-height: 24px;
+      font-size: 14px;
+      line-height: 20px;
       color: #536387;
     }
     .formbold-steps li.active {
@@ -72,11 +76,13 @@
   
     .formbold-input-flex {
       display: flex;
+      flex-wrap: wrap;
       gap: 20px;
       margin-bottom: 22px;
     }
     .formbold-input-flex > div {
-      width: 50%;
+      flex: 1 1 250px;
+      min-width: 0;
     }
     .formbold-form-input {
       width: 100%;
@@ -105,9 +111,10 @@
   
     .formbold-form-btn-wrapper {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 25px;
+      gap: 15px;
       margin-top: 25px;
     }
 
@@ -148,6 +155,7 @@
       display: flex;
       align-items: center;
       gap: 5px;
+      white-space: nowrap;
     }
     .formbold-btn {
       display: flex;
@@ -162,6 +170,7 @@
       color: white;
       cursor: pointer;
       transition: all 0.3s ease;
+      white-space: nowrap;
     }
     .formbold-btn:hover {
       background-color: #5753e4;
@@ -192,6 +201,38 @@
         color: #07074D;
         font-size: 18px;
     }
+
+    @media (max-width: 576px) {
+      .formbold-main-wrapper {
+        padding: 15px;
+      }
+      
+      .formbold-form-wrapper {
+        padding: 15px;
+      }
+
+      .formbold-input-flex > div {
+        width: 100%;
+      }
+
+      .formbold-form-btn-wrapper {
+        flex-direction: column-reverse;
+        align-items: stretch;
+      }
+
+      .formbold-left-buttons {
+        justify-content: center;
+      }
+
+      .formbold-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .education-section h3 {
+        font-size: 16px;
+      }
+    }
 </style>
 @endsection
 
@@ -200,7 +241,7 @@
 
     <div class="formbold-main-wrapper">
         <div class="formbold-form-wrapper">
-            <form action="{{ route('generador.paso2.store') }}" method="POST">
+            <form action="{{ route('generador.paso2.store') }}" method="POST" class="needs-validation" novalidate>
                 @csrf
                 <div class="formbold-steps">
                     <ul>
