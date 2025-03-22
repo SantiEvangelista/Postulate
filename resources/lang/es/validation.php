@@ -55,6 +55,50 @@ return [
             'required' => 'La fecha de inicio es requerida',
             'date' => 'La fecha de inicio no es válida',
         ],
+        'objetivo_profesional' => [
+            'required' => 'El objetivo profesional es requerido',
+            'string' => 'El objetivo profesional debe ser una cadena de texto',
+        ],
+        'datos_interes' => [
+            'required' => 'Los datos de interés son requeridos',
+            'string' => 'Los datos de interés deben ser una cadena de texto',
+        ],
+        'lenguajes' => [
+            'required' => 'Debe seleccionar al menos un idioma',
+        ],
+        'lenguajes.*.nombre' => [
+            'required' => 'El idioma es requerido',
+            'string' => 'El idioma debe ser una cadena de texto',
+        ],
+        'otros_estudios' => [
+            'required' => 'Debe seleccionar al menos un estudio adicional',
+        ],
+        'otros_estudios.*.nombre' => [
+            'required' => 'El estudio es requerido',
+            'string' => 'El estudio debe ser una cadena de texto',
+        ],
+        'rasgos' => [
+            'required' => 'Debe seleccionar al menos un rasgo de personalidad',
+        ],
+        'rasgos.*.nombre' => [
+            'required' => 'El rasgo es requerido',
+            'string' => 'El rasgo debe ser una cadena de texto',
+        ],
+        'addMoreInputFields.*.nombre' => [
+            'required' => 'El nombre de la empresa es requerido',
+            'string' => 'El nombre de la empresa debe ser una cadena de texto',
+        ],
+        'addMoreInputFields.*.cargo' => [
+            'required' => 'El cargo es requerido',
+            'string' => 'El cargo debe ser una cadena de texto',
+        ],
+        'addMoreInputFields.*.fecha_inicio' => [
+            'required' => 'La fecha de inicio es requerida',
+            'date' => 'La fecha de inicio no es válida',
+        ],
+        'addMoreInputFields.*.fecha_fin' => [
+            'date' => 'La fecha de fin no es válida',
+        ],
     ],
 
     

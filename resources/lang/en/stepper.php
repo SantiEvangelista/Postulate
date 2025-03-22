@@ -32,6 +32,17 @@ return [
             'end_date' => 'End Date',
         ],
     ],
+    'experience' => [
+        'title' => 'Work Experience',
+        'company' => 'Company Name',
+        'position' => 'Position',
+        'start_date' => 'Start Date',
+        'end_date' => 'End Date',
+        'description' => 'Job Description',
+        'add_more' => 'Add more experience',
+        'remove' => 'Remove',
+        'no_experience' => 'I have no work experience',
+    ],
     'placeholders' => [
         'first_name' => 'Enter your first name',
         'last_name' => 'Enter your last name',
@@ -40,9 +51,14 @@ return [
         'address' => 'Enter your address',
         'school' => 'Enter institution name',
         'orientation' => 'Enter orientation/degree',
+        'company' => 'Enter company name',
+        'position' => 'Enter position',
+        'description' => 'Describe your responsibilities and achievements',
     ],
     'buttons' => [
         'next' => 'Next',
         'back' => 'Back',
+        'add' => 'Add',
+        'remove' => 'Remove',
     ],
 ]; 

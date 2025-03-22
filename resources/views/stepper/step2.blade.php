@@ -169,19 +169,6 @@
 @endsection
 
 @section('body')
-    <!-- Toast Container -->
-    <div class="toast-container">
-        @if ($errors->any())
-            @foreach ($errors->all() as $error)
-                <div class="toast" role="alert">
-                    <div class="toast-content">
-                        {{ $error }}
-                    </div>
-                    <button type="button" class="toast-close" aria-label="Close">×</button>
-                </div>
-            @endforeach
-        @endif
-    </div>
 
     <div class="formbold-main-wrapper">
         <div class="formbold-form-wrapper">

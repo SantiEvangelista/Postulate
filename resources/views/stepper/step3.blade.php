@@ -1,234 +1,406 @@
 @extends('layout')
 
-@section('contenido')
+@section('styles')
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Inter", sans-serif;
+    }
+    .formbold-main-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+    }
+  
+    .formbold-form-wrapper {
+      margin: 0 auto;
+      max-width: 650px;
+      width: 100%;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+  
+    .formbold-steps {
+      padding-bottom: 18px;
+      margin-bottom: 35px;
+      border-bottom: 1px solid #DDE3EC;
+    }
+    .formbold-steps ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+    .formbold-steps li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: #536387;
+    }
+    .formbold-steps li span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #DDE3EC;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: #536387;
+    }
+    .formbold-steps li.active {
+      color: #07074D;
+    }
+    .formbold-steps li.active span {
+      background: #6A64F1;
+      color: #FFFFFF;
+    }
+  
+    .formbold-input-flex {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+    .formbold-input-flex > div {
+      width: 50%;
+    }
+    .formbold-form-input {
+      width: 100%;
+      padding: 13px 22px;
+      border-radius: 5px;
+      border: 1px solid #DDE3EC;
+      background: #FFFFFF;
+      font-weight: 500;
+      font-size: 16px;
+      color: #536387;
+      outline: none;
+      resize: none;
+    }
+    .formbold-form-input:focus {
+      border-color: #6a64f1;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
+    .formbold-form-label {
+      color: #07074D;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      display: block;
+      margin-bottom: 10px;
+    }
+  
+    .formbold-form-btn-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      margin-top: 25px;
+    }
+    .formbold-back-btn {
+      cursor: pointer;
+      background: #FFFFFF;
+      border: none;
+      color: #07074D;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .formbold-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 16px;
+      border-radius: 5px;
+      padding: 10px 25px;
+      border: none;
+      font-weight: 500;
+      background-color: #6A64F1;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .formbold-btn:hover {
+      background-color: #5753e4;
+      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+    }
 
-    <!-- Page Loader -->
-    <div class="page-loader">
-        <div class="loader">Cargando...</div>
-    </div>
-    <!-- End Page Loader -->
+    .text-danger {
+        color: #dc3545;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+        display: block;
+    }
 
-    <!-- Skip to Content -->
-    <a href="#main" class="btn skip-to-content">Saltar al contenido</a>
-    <!-- End Skip to Content -->
+    .formbold-form-input.error {
+        border-color: #dc3545;
+    }
 
-    <!-- Page Wrap -->
-    <div class="page bg-dark light-content" id="top">
+    .formbold-form-input.error:focus {
+        box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
 
+    .section {
+        margin-bottom: 30px;
+    }
 
-        <main id="main">
+    .section h3 {
+        margin-bottom: 20px;
+        color: #07074D;
+        font-size: 18px;
+    }
 
-            <!-- Home Section -->
-            <section class="small-section bg-dark-alfa-50 bg-scroll light-content" style="background-color: #32a8a6"
-                id="home">
-                <div class="container relative">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="wow fadeInUpShort" data-wow-delay=".1s">
-                                <h1 class="hs-line-7 mb-20 mb-xs-10">Paso 3</h1>
-                            </div>
+    .dynamic-list {
+        margin-bottom: 15px;
+    }
+
+    .dynamic-list-item {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .dynamic-list-item select {
+        flex: 1;
+    }
+
+    .remove-item {
+        color: #dc3545;
+        cursor: pointer;
+        padding: 5px 10px;
+        border-radius: 4px;
+    }
+
+    .remove-item:hover {
+        background-color: #fee2e2;
+    }
+
+    .add-item-btn {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-bottom: 15px;
+    }
+
+    .add-item-btn:hover {
+        background-color: #218838;
+    }
+</style>
+@endsection
+
+@section('body')
+    <div class="formbold-main-wrapper">
+        <div class="formbold-form-wrapper">
+            <form action="{{ route('generador.paso3.store') }}" method="POST">
+                @csrf
+                <div class="formbold-steps">
+                    <ul>
+                        <li>
+                            <span>1</span>
+                            {{ __('stepper.steps.personal_info') }}
+                        </li>
+                        <li>
+                            <span>2</span>
+                            {{ __('stepper.steps.education') }}
+                        </li>
+                        <li class="active">
+                            <span>3</span>
+                            {{ __('stepper.steps.experience') }}
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3>{{ __('stepper.experience.professional_objective') }}</h3>
+                    <textarea name="objetivo_profesional" 
+                        class="formbold-form-input @error('objetivo_profesional') error @enderror"
+                        placeholder="{{ __('stepper.placeholders.professional_objective') }}"
+                        rows="4">{{ old('objetivo_profesional') }}</textarea>
+                    @error('objetivo_profesional')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <div class="section">
+                    <h3>{{ __('stepper.experience.languages') }}</h3>
+                    <div id="languages-container">
+                        <div class="dynamic-list-item">
+                            <select name="lenguajes[0][nombre]" class="formbold-form-input @error('lenguajes.0.nombre') error @enderror">
+                                <option value="">{{ __('stepper.placeholders.language') }}</option>
+                                <option value="Ingles" {{ old('lenguajes.0.nombre') == 'Ingles' ? 'selected' : '' }}>Inglés</option>
+                                <option value="Espanol" {{ old('lenguajes.0.nombre') == 'Espanol' ? 'selected' : '' }}>Español</option>
+                                <option value="Portuges" {{ old('lenguajes.0.nombre') == 'Portuges' ? 'selected' : '' }}>Portugués</option>
+                                <option value="Frances" {{ old('lenguajes.0.nombre') == 'Frances' ? 'selected' : '' }}>Francés</option>
+                                <option value="Chino" {{ old('lenguajes.0.nombre') == 'Chino' ? 'selected' : '' }}>Chino</option>
+                                <option value="Aleman" {{ old('lenguajes.0.nombre') == 'Aleman' ? 'selected' : '' }}>Alemán</option>
+                            </select>
                         </div>
                     </div>
-
+                    <button type="button" class="add-item-btn" onclick="addLanguage()">{{ __('stepper.experience.add_language') }}</button>
+                    @error('lenguajes')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
-            </section>
-            <!-- End Home Section -->
 
-
-            <!-- Section -->
-            <section class="page-section bg-dark light-content">
-                <form action="" method="post" action="{{ route('generador.paso3.store') }}">
-                    @csrf
-                    <div class="container relative">
-                        @if ($errors->any())
-                            <div style="color: #32a8a6 ;background-color: black" class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                        <div class="text-center mb-80 mb-sm-50">
-                            <h2 class="section-title">Habilidades y Rasgos</h2>
+                <div class="section">
+                    <h3>{{ __('stepper.experience.personality_traits') }}</h3>
+                    <div id="traits-container">
+                        <div class="dynamic-list-item">
+                            <select name="rasgos[0][nombre]" class="formbold-form-input @error('rasgos.0.nombre') error @enderror">
+                                <option value="">{{ __('stepper.placeholders.trait') }}</option>
+                                <option value="Extrovertido" {{ old('rasgos.0.nombre') == 'Extrovertido' ? 'selected' : '' }}>Extrovertido</option>
+                                <option value="Introvertido" {{ old('rasgos.0.nombre') == 'Introvertido' ? 'selected' : '' }}>Introvertido</option>
+                                <option value="Amable" {{ old('rasgos.0.nombre') == 'Amable' ? 'selected' : '' }}>Amable</option>
+                                <option value="Sensible" {{ old('rasgos.0.nombre') == 'Sensible' ? 'selected' : '' }}>Sensible</option>
+                                <option value="Amistoso" {{ old('rasgos.0.nombre') == 'Amistoso' ? 'selected' : '' }}>Amistoso</option>
+                                <option value="Inteligente" {{ old('rasgos.0.nombre') == 'Inteligente' ? 'selected' : '' }}>Inteligente</option>
+                            </select>
                         </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addTrait()">{{ __('stepper.experience.add_trait') }}</button>
+                    @error('rasgos')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
 
-                        <!-- Row -->
-                        <div class="row">
-
-                            <!-- Col -->
-
-                            <div class="col-md-10 mb-40">
-
-                                <!-- Form -->
-                                <form method="post" action="{{ route('generador.paso2.store') }}" id="form"
-                                    class="form">
-                                    @csrf
-                                    <div class="container relative">
-                                        <!-- Row -->
-                                        <div class="row">                                           
-                                            <div class="col-sm-4 mb-40">
-                                                
-                                                <div class="mb-20 mb-md-10">
-                                                    <!-- Name -->
-                                                    <label for="name">Objetivo Profesional</label>
-                                                    <textarea name="objetivo_profesional" id="objetivo_profesional"
-                                                        cols="30" rows="5"
-                                                        style="resize:none;width: -webkit-fill-available;"></textarea>
-                                                    
-                                                    <label for="name">Otros Datos de interes</label>
-                                                    <textarea name="datos_interes" id="datos_interes"
-                                                        cols="30" rows="5"
-                                                        style="resize:none;width: -webkit-fill-available;"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4 mb-40">
-
-                                                
-                                                <div class="mb-20 mb-md-10">
-                                                    <table style="width:-webkit-fill-available;border-spacing:0 10px;"
-                                                        id="Lenguajes">
-                                                        <tr>
-                                                            <th>Lenguajes que maneja</th>
-                                                            <th></th>
-                                                        </tr>
-                                                        <tr style="padding-bottom: 20em;">
-                                                            <td style="padding-bottom: 5px">
-                                                                <select style="width: -webkit-fill-available;height: 2rem;"
-                                                                    name="lenguajes[0][nombre]" id="lenguajes[0]">
-                                                                    <option value="Ingles">Ingles</option>
-                                                                    <option value="Espanol">Español</option>
-                                                                    <option value="Portuges">Portuges</option>
-                                                                    <option value="Frances">Frances</option>
-                                                                    <option value="Chino">Chino</option>
-                                                                    <option value="Aleman">Aleman</option>
-                                                                </select>
-                                                            </td>
-                                                            <td style="padding-bottom: 5px">
-                                                                <button type="button" name="add"
-                                                                    id="Agregar_lenguajes_button"
-                                                                    style="border-color:#32a8a6 ;color: #32a8a6"
-                                                                    class="btn btn-outline-primary">+</button>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-
-                                                <table style="width:-webkit-fill-available;border-spacing:0 10px;"
-                                                    id="Rasgos">
-                                                    <tr>
-                                                        <th>Rasgos de personalidad</th>
-                                                        <th></th>
-                                                    </tr>
-                                                    <tr style="padding-bottom: 20em;">
-                                                        <td style="padding-bottom: 5px">
-                                                            <select style="width: -webkit-fill-available;height: 2rem;"
-                                                                name="rasgos[i][nombre]" id="rasgos[i]">
-                                                                <option value="Extrovertido">Extrovertido</option>
-                                                                <option value="Introvertido">Introvertido</option>
-                                                                <option value="Amable">Amable</option>
-                                                                <option value="Sensible">Sensible</option>
-                                                                <option value="Amistoso">Amistoso</option>
-                                                                <option value="Inteligente">Inteligente</option>
-                                                            </select>
-                                                        </td>
-                                                        <td style="padding-bottom: 5px">
-                                                            <button type="button" name="add" id="Agregar_Rasgos_button"
-                                                                style="border-color:#32a8a6 ;color: #32a8a6"
-                                                                class="btn btn-outline-primary">+</button>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <br>
-                                            </div>
-
-                                            <h3>Otros Estudios</h3>
-                                                <div class="mb-20 mb-md-10">
-                                                    <table style="width:-webkit-fill-available;border-spacing:0 10px;"
-                                                        id="otros_estudios">
-                                                        <tr>
-                                                            <th>Otros Estudios</th>
-                                                            <th></th>
-                                                        </tr>
-                                                        <tr style="padding-bottom: 20em;">
-                                                            <td style="padding-bottom: 5px">
-                                                                <select style="width: -webkit-fill-available;height: 2rem;"
-                                                                    name="otros_estudios[0][nombre]" id="otros_estudios[0]">
-                                                                    <option value="Python">Python</option>
-                                                                    <option value="Excel">Excel</option>
-                                                                    <option value="PHP">PHP</option>
-                                                                    <option value="Laravel">Laravel</option>
-                                                                </select>
-
-                                                            </td>
-                                                            <td style="padding-bottom: 5px">
-                                                                <button type="button" name="add"
-                                                                    id="Agregar_otros_estudios_button"
-                                                                    style="border-color:#32a8a6 ;color: #32a8a6"
-                                                                    class="btn btn-outline-primary">+</button>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div>
-                                <div style="width: 100%;text-align: center">
-                                    <button class="btn btn-outline-secondary">Generar CV</button>
-                                </div>
-                                
-
-                                <a href="{{ route('generador.paso2.create') }}">Volver</a>
-                            </div>
+                <div class="section">
+                    <h3>{{ __('stepper.experience.other_studies') }}</h3>
+                    <div id="studies-container">
+                        <div class="dynamic-list-item">
+                            <select name="otros_estudios[0][nombre]" class="formbold-form-input @error('otros_estudios.0.nombre') error @enderror">
+                                <option value="">{{ __('stepper.placeholders.study') }}</option>
+                                <option value="Python" {{ old('otros_estudios.0.nombre') == 'Python' ? 'selected' : '' }}>Python</option>
+                                <option value="Excel" {{ old('otros_estudios.0.nombre') == 'Excel' ? 'selected' : '' }}>Excel</option>
+                                <option value="PHP" {{ old('otros_estudios.0.nombre') == 'PHP' ? 'selected' : '' }}>PHP</option>
+                                <option value="Laravel" {{ old('otros_estudios.0.nombre') == 'Laravel' ? 'selected' : '' }}>Laravel</option>
+                            </select>
                         </div>
-                </form>
-            </section>
-        </main>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addStudy()">{{ __('stepper.experience.add_study') }}</button>
+                    @error('otros_estudios')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
 
+                <div class="section">
+                    <h3>{{ __('stepper.experience.interesting_data') }}</h3>
+                    <textarea name="datos_interes" 
+                        class="formbold-form-input @error('datos_interes') error @enderror"
+                        placeholder="{{ __('stepper.placeholders.interesting_data') }}"
+                        rows="4">{{ old('datos_interes') }}</textarea>
+                    @error('datos_interes')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
 
-
+                <div class="formbold-form-btn-wrapper">
+                    <a href="{{ route('generador.paso2.create') }}" class="formbold-back-btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.21875 7.33312L8.79475 3.75712L7.85208 2.81445L2.66675 7.99979L7.85208 13.1851L8.79475 12.2425L5.21875 8.66645H13.3334V7.33312H5.21875Z" fill="#07074D"/>
+                        </svg>
+                        {{ __('stepper.buttons.back') }}
+                    </a>
+                    <button type="submit" class="formbold-btn">
+                        {{ __('stepper.buttons.next') }}
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_1675_1807)">
+                                <path d="M10.7814 7.33312L7.20541 3.75712L8.14808 2.81445L13.3334 7.99979L8.14808 13.1851L7.20541 12.2425L10.7814 8.66645H2.66675V7.33312H10.7814Z" fill="white"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_1675_1807">
+                                    <rect width="16" height="16" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
-    <!-- End Page Wrap -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript">
-        var i = 0;
-        $("#Agregar_Rasgos_button").click(function() {
-            ++i;
-            $("#Rasgos").append(
-                '<tr style="padding-bottom: 20rem;"><td style="padding-bottom: 5px"><select style="width: -webkit-fill-available;height: 2rem;" name="rasgos[' +
-                i + '][nombre]" id="rasgos[' + i +
-                ']"><option value="Extrovertido">Extrovertido</option><option value="Introvertido">Introvertido</option><option value="Amable">Amable</option><option value="Sensible">Sensible</option><option value="Amistoso">Amistoso</option><option value="Inteligente">Inteligente</option></select></td></td><td style="padding-bottom: 5px"><button type="button" class="btn btn-outline-danger remove-input-field">Quitar</button></td></tr>'
-            );
-        });
+@endsection
 
-        $(document).on('click', '.remove-input-field', function() {
-            $(this).parents('tr').remove();
-        });
+@section('scripts')
+    <script>
+        let languageCount = 1;
+        let traitCount = 1;
+        let studyCount = 1;
 
-        var j = 0;
-        $("#Agregar_lenguajes_button").click(function() {
-            ++j;
-            $("#Lenguajes").append(
-                '<tr style="padding-bottom: 20rem;"><td style="padding-bottom: 5px"><select style="width: -webkit-fill-available;height: 2rem;" name="lenguajes[' +
-                j + '][nombre]" id="lenguajes[' + j +
-                ']"><option value="Ingles">Ingles</option><option value="Espanol">Español</option><option value="Portuges">Portuges</option><option value="Frances">Frances</option><option value="Chino">Chino</option><option value="Aleman">Aleman</option></select></td></td><td style="padding-bottom: 5px"><button type="button" class="btn btn-outline-danger remove-input-field">Quitar</button></td></tr>'
-            );
-        });
+        function addLanguage() {
+            const container = document.getElementById('languages-container');
+            const div = document.createElement('div');
+            div.className = 'dynamic-list-item';
+            div.innerHTML = `
+                <select name="lenguajes[${languageCount}][nombre]" class="formbold-form-input">
+                    <option value="">{{ __('stepper.placeholders.language') }}</option>
+                    <option value="Ingles">Inglés</option>
+                    <option value="Espanol">Español</option>
+                    <option value="Portuges">Portugués</option>
+                    <option value="Frances">Francés</option>
+                    <option value="Chino">Chino</option>
+                    <option value="Aleman">Alemán</option>
+                </select>
+                <button type="button" class="remove-item" onclick="this.parentElement.remove()">{{ __('stepper.buttons.remove') }}</button>
+            `;
+            container.appendChild(div);
+            languageCount++;
+        }
 
-        var k = 0;
-        $("#Agregar_otros_estudios_button").click(function() {
-            ++k;
-            $("#otros_estudios").append(
-                '<tr style="padding-bottom: 20rem;"><td style="padding-bottom: 5px"><select style="width: -webkit-fill-available;height: 2rem;" name="otros_estudios[' +
-                 k + '][nombre]" id="otros_estudios[' + k +
-                 ']"><option value="Python">Python</option><option value="Excel">Excel</option><option value="PHP">PHP</option><option value="Laravel">Laravel</option></select></td></td><td style="padding-bottom: 5px"><button type="button" class="btn btn-outline-danger remove-input-field">Quitar</button></td></tr>'
-            );
-        }); 
+        function addTrait() {
+            const container = document.getElementById('traits-container');
+            const div = document.createElement('div');
+            div.className = 'dynamic-list-item';
+            div.innerHTML = `
+                <select name="rasgos[${traitCount}][nombre]" class="formbold-form-input">
+                    <option value="">{{ __('stepper.placeholders.trait') }}</option>
+                    <option value="Extrovertido">Extrovertido</option>
+                    <option value="Introvertido">Introvertido</option>
+                    <option value="Amable">Amable</option>
+                    <option value="Sensible">Sensible</option>
+                    <option value="Amistoso">Amistoso</option>
+                    <option value="Inteligente">Inteligente</option>
+                </select>
+                <button type="button" class="remove-item" onclick="this.parentElement.remove()">{{ __('stepper.buttons.remove') }}</button>
+            `;
+            container.appendChild(div);
+            traitCount++;
+        }
 
-        $(document).on('click', '.remove-input-field', function() {
-            $(this).parents('tr').remove();
-        });
+        function addStudy() {
+            const container = document.getElementById('studies-container');
+            const div = document.createElement('div');
+            div.className = 'dynamic-list-item';
+            div.innerHTML = `
+                <select name="otros_estudios[${studyCount}][nombre]" class="formbold-form-input">
+                    <option value="">{{ __('stepper.placeholders.study') }}</option>
+                    <option value="Python">Python</option>
+                    <option value="Excel">Excel</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Laravel">Laravel</option>
+                </select>
+                <button type="button" class="remove-item" onclick="this.parentElement.remove()">{{ __('stepper.buttons.remove') }}</button>
+            `;
+            container.appendChild(div);
+            studyCount++;
+        }
     </script>
-
+    <script src="{{ asset('js/toastr.js') }}"></script>
 @endsection

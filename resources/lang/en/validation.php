@@ -139,21 +139,21 @@ return [
     'custom' => [
         'name' => [
             'required' => 'The name field is required',
-            'regex' => 'The name field must contain only letters',
-            'string' => 'The name field must be a string',
+            'string' => 'The name must be a string',
+            'regex' => 'The name must contain only letters',
         ],
         'surname' => [
             'required' => 'The surname field is required',
-            'regex' => 'The surname field must contain only letters',
-            'string' => 'The surname field must be a string',
+            'string' => 'The surname must be a string',
+            'regex' => 'The surname must contain only letters',
         ],
         'birthday' => [
             'required' => 'The birth date is required',
-            'date' => 'The birth date is not a valid date',
+            'date' => 'The birth date is not valid',
         ],
         'adress' => [
             'required' => 'The address field is required',
-            'string' => 'The address field must be a string',
+            'string' => 'The address must be a string',
         ],
         'email' => [
             'required' => 'The email field is required',
@@ -161,32 +161,47 @@ return [
         ],
         'phone' => [
             'required' => 'The phone field is required',
-            'regex' => 'The phone field must contain only numbers',
-            'string' => 'The phone field must be a string',
+            'regex' => 'The phone must contain only numbers',
+            'string' => 'The phone must be a string',
         ],
         'secundario' => [
             'required' => 'The secondary school name is required',
-            'string' => 'The secondary school name must be a string',
+            'string' => 'The school name must be a string',
         ],
         'orientacion' => [
-            'required' => 'The orientation field is required',
-            'string' => 'The orientation field must be a string',
+            'required' => 'The orientation is required',
+            'string' => 'The orientation must be a string',
         ],
         'fecha_inicio_secundario' => [
             'required' => 'The start date is required',
-            'date' => 'The start date is not a valid date',
+            'date' => 'The start date is not valid',
         ],
         'terciaria' => [
             'required' => 'The tertiary institution name is required',
-            'string' => 'The tertiary institution name must be a string',
+            'string' => 'The institution name must be a string',
         ],
         'orientacion_terciaria' => [
-            'required' => 'The degree field is required',
-            'string' => 'The degree field must be a string',
+            'required' => 'The degree is required',
+            'string' => 'The degree must be a string',
         ],
         'fecha_inicio_terciaria' => [
             'required' => 'The start date is required',
-            'date' => 'The start date is not a valid date',
+            'date' => 'The start date is not valid',
+        ],
+        'addMoreInputFields.*.nombre' => [
+            'required' => 'The company name is required',
+            'string' => 'The company name must be a string',
+        ],
+        'addMoreInputFields.*.cargo' => [
+            'required' => 'The position is required',
+            'string' => 'The position must be a string',
+        ],
+        'addMoreInputFields.*.fecha_inicio' => [
+            'required' => 'The start date is required',
+            'date' => 'The start date is not valid',
+        ],
+        'addMoreInputFields.*.fecha_fin' => [
+            'date' => 'The end date is not valid',
         ],
     ],
 
