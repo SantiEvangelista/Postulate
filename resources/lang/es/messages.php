@@ -13,6 +13,17 @@ return [
     'hero.subtitle2' => '¡Tu próximo trabajo está más cerca de lo que imaginas!',
     'hero.cta' => 'Empieza ahora',
 
+    // How It Works Section
+    'how_it_works.title' => '¡Crea tu CV en 3 pasos simples!',
+    'how_it_works.subtitle' => 'Diseñado para ser rápido, fácil y efectivo. No necesitas ser un experto en diseño para crear un CV profesional.',
+    'how_it_works.step1.title' => 'Completa tu Información',
+    'how_it_works.step1.text' => 'Solo necesitas llenar 3 formularios simples con tu información personal, experiencia laboral y educación. ¡Sin complicaciones!',
+    'how_it_works.step2.title' => 'Personaliza tu Diseño',
+    'how_it_works.step2.text' => 'Elige entre nuestras plantillas profesionales y personaliza colores, fuentes y secciones. ¡Haz que tu CV destaque!',
+    'how_it_works.step3.title' => 'Descarga y Comparte',
+    'how_it_works.step3.text' => 'Descarga tu CV en PDF y compártelo con los reclutadores. ¡Listo para conseguir tu trabajo soñado!',
+    'how_it_works.cta' => '¡Comenzar Ahora!',
+
     // Services Section
     'services.title' => '¿Por qué elegir nuestra plataforma?',
     'services.reason1.title' => 'Rápido y Fácil',

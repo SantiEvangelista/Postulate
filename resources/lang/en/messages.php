@@ -7,10 +7,21 @@ return [
     'nav.about' => 'About Us',
 
     // Hero Section
-    'hero.title' => 'A professional CV in 3 steps!',
+    'hero.title' => 'Create Your Professional CV in 3 Steps!',
     'hero.subtitle' => 'Say goodbye to CV creation headaches. With our platform, you\'ll create a professional and attractive resume in minutes, not hours.',
     'hero.subtitle2' => 'Your dream job is closer than you think!',
     'hero.cta' => 'Start Now',
+
+    // How It Works Section
+    'how_it_works.title' => 'Create Your CV in 3 Simple Steps!',
+    'how_it_works.subtitle' => 'Designed to be fast, easy, and effective. No design expertise needed to create a professional CV.',
+    'how_it_works.step1.title' => 'Fill in Your Information',
+    'how_it_works.step1.text' => 'Just complete 3 simple forms with your personal details, work experience, and education. No complications!',
+    'how_it_works.step2.title' => 'Customize Your Design',
+    'how_it_works.step2.text' => 'Choose from our professional templates and customize colors, fonts, and sections. Make your CV stand out!',
+    'how_it_works.step3.title' => 'Download and Share',
+    'how_it_works.step3.text' => 'Download your CV in PDF and share it with recruiters. Ready to land your dream job!',
+    'how_it_works.cta' => 'Start Now!',
 
     // Services Section
     'services.title' => 'Why Choose Our Platform?',
