@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use setasign\Fpdi\Fpdi;
 
+
+
 class FillPDFController extends Controller
 {
     public function Addtopdf(Request $request)
@@ -331,5 +333,122 @@ class FillPDFController extends Controller
             // Preview PDF
             $pdf->Output('I', "Curriculum-Generado.pdf");
         }
+    }
+
+    public function IAGeneratedPdf(Request $request)
+    {
+        // Obtener datos de la sesión
+        $cv = $request->session()->get('cv');
+        $empresas = $request->session()->get('empresas');
+        $rasgos = $request->session()->get('rasgos');
+        $lenguajes = $request->session()->get('lenguajes');
+        $otros_estudios = $request->session()->get('otros_estudios');
+
+
+        //CV CON SOLO 1 EXPERIENCIA
+            //REVISAR LAS POSICIONES
+        
+        $pdf = new Fpdi();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 14);
+
+        
+
+            //CV SIN EXPERIENCIA
+            //REVISAR LAS POSICIONES
+
+            $path = public_path("Pdf/mini-proyect-16_04.pdf");
+
+            $pdf->setSourceFile($path);
+
+            // import page 1
+            $tplId = $pdf->importPage(1);
+
+
+            // use the imported page and place it at point 10,10 with a width of 100 mm
+            $pdf->useTemplate($tplId, null, null, null, 210, true);
+
+            $pdf->SetXY(10, 10); // Nombre y apellido
+
+            $empresas = $request->session()->get('empresas');
+            $rasgos = $request->session()->get('rasgos');
+            $lenguajes = $request->session()->get('lenguajes');
+
+
+            if ($cv != null) {
+
+                $pdf->Write(3.5, $cv->name . ' ' . $cv->surname);// Nombre y apellido
+
+                $pdf->SetFont('Arial', '', 8);
+                $pdf->SetXY(35, 25); // Telefono
+                $pdf->Write(3.5, $cv->phone);
+
+                $pdf->SetXY(35, 28); // Email
+                $pdf->Write(3.5, $cv->email);
+
+                $pdf->SetXY(35, 31); // Direccion
+                $pdf->Write(3.5, $cv->adress);
+
+                $pdf->SetXY(18, 48); // objetivo Profesional
+                $pdf->Write(3.5, $cv->objetivo_profesional);
+
+                $pdf->SetXY(18, 68); // Formacion Academica
+                $pdf->Write(3.5, $cv->secundario . ' - Orientacion: ' . $cv->orientacion . ' - Fecha Inicio: ' . $cv->fecha_inicio_secundario . ' -> ' . $cv->fecha_fin_secundario);
+
+                $pdf->SetXY(18, 90); // Formacion Complementaria
+                $pdf->Write(3.5, $cv->terciaria . ' - Orientacion:' . $cv->orientacion_terciaria . ' - Fecha Inicio:' . $cv->fecha_inicio_terciaria . ' -> ' . $cv->fecha_fin_terciaria);
+
+                $pdf->SetXY(18, 110); // Informatica
+                foreach ($otros_estudios as $otro_estudio) {
+                    $pdf->Write(3.5, $otro_estudio->nombre);
+                    $pdf->SetXY(30, 110); // Informatica
+                }
+
+                $pdf->SetXY(18, 130); // Idiomas
+                foreach ($lenguajes as $idioma) {
+                    $pdf->Write(3.5, $idioma->nombre);
+                    $pdf->SetXY(30, 130);
+                }
+
+                $pdf->SetXY(18, 148); // Otros datos de interes
+                $pdf->Write(3.5, $cv->datos_interes);
+
+            } else {
+                $pdf->Write(3.5, "");
+
+                $pdf->SetFont('Arial', '', 8);
+                $pdf->SetXY(35, 25); // Telefono
+                $pdf->Write(3.5, "");
+
+                $pdf->SetXY(35, 28); // Email
+                $pdf->Write(3.5, "");
+
+                $pdf->SetXY(35, 31); // Direccion
+                $pdf->Write(3.5, "");
+
+                $pdf->SetXY(18, 48); // objetivo Profesional
+                $pdf->Write(3.5, "");
+
+                $pdf->SetXY(18, 65); // Formacion Academica
+                $pdf->Write(3.5, "");
+
+                $pdf->SetXY(35, 107); //Experiencias Laborales
+                $pdf->Write(3.5, "");
+
+                $pdf->SetXY(72, 112.5);
+                $pdf->Write(3.5, "");
+
+                $pdf->SetXY(35, 121);
+                $pdf->Write(3.5, "");
+
+                $pdf->SetXY(72, 127);
+                $pdf->Write(3.5, "");
+
+                $pdf->SetXY(18, 162); // Idiomas
+                $pdf->Write(3.5, "");
+            }
+
+            // Preview PDF
+            $pdf->Output('I', "Curriculum-Generado.pdf");
     }
 }

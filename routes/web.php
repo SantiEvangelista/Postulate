@@ -19,6 +19,8 @@ Route::get('/', [GeneradorController::class, 'index'])->name('home');
 
 //Vista PDF
 Route::get('/generatedPDF',[FillPDFController::class,'Addtopdf'])->name('resultado.pdf');;
+Route::get('/generar-pdf-ia', [FillPDFController::class, 'IAGeneratedPdf'])->name('generar.pdf.ia');
+
 
 // Vistas GET
 Route::get('/generarCV/paso/1', [GeneradorController::class, 'createPaso1'])->name('generador.paso1.create');
