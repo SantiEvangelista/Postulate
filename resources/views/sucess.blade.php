@@ -41,7 +41,7 @@
                 <div class="col-lg-8 text-center">
                     <h1 class="display-1 fw-bold mb-4">{{ __('stepper.success.title') }}</h1>
                     <p class="lead mb-5">{{ __('stepper.success.subtitle') }}</p>
-                    <a href="{{ route('generar.pdf.ia',['generador'=>$cv]) }}" target="_blank" class="btn btn-dark btn-lg">
+                    <a href="{{ route('generar.cv.moderno',['generador'=>$cv]) }}" target="_blank" class="btn btn-dark btn-lg">
                         {{ __('stepper.success.view_cv') }}
                     </a>
                 </div>

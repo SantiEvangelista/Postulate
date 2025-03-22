@@ -34,6 +34,7 @@ Route::post('/generarCV/paso/1', [GeneradorController::class, 'post_paso1'])->na
 Route::post('/generarCV/paso/2', [GeneradorController::class, 'post_paso2'])->name('generador.paso2.store');
 Route::post('/generarCV/paso/3', [GeneradorController::class, 'post_paso3'])->name('generador.paso3.store');
 
+Route::get('/generar-cv-moderno', [FillPDFController::class, 'generateModernPDF'])->name('generar.cv.moderno');
 
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'es'])) {
