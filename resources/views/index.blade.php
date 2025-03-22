@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        @include('components.reasons')
+        @include('components.how-it-works')
 
         @include('components.stats')
 

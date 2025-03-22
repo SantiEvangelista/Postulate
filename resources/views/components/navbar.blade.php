@@ -17,17 +17,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#objectives" aria-label="{{ __('messages.nav.objectives') }}">
+                    <a class="nav-link" href="#how-it-works" aria-label="{{ __('messages.nav.objectives') }}">
                         {{ __('messages.nav.objectives') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#metrics" aria-label="{{ __('messages.nav.metrics') }}">
+                    <a class="nav-link" href="#impact" aria-label="{{ __('messages.nav.metrics') }}">
                         {{ __('messages.nav.metrics') }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about" aria-label="{{ __('messages.nav.about') }}">
+                    <a class="nav-link" href="#aboutUs" aria-label="{{ __('messages.nav.about') }}">
                         {{ __('messages.nav.about') }}
                     </a>
                 </li>
