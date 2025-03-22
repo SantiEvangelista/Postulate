@@ -1,4 +1,3 @@
-// Toast notification functionality
 class ToastManager {
     constructor() {
         this.toastContainer = document.querySelector('.toast-container');

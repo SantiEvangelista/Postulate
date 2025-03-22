@@ -194,4 +194,10 @@ class GeneradorController extends Controller
         }
     }
 
+    public function clearSession(Request $request)
+    {
+        $request->session()->flush();
+        return redirect()->route('generador.paso1.create');
+    }
+
 }

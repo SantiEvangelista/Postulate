@@ -44,3 +44,5 @@ Route::get('language/{locale}', function ($locale) {
     }
     return redirect()->back();
 })->name('language.switch');
+
+Route::get('/generador/clear-session', [GeneradorController::class, 'clearSession'])->name('generador.clearSession');

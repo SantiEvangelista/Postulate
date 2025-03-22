@@ -129,10 +129,37 @@
     .formbold-form-btn-wrapper {
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: space-between;
       gap: 25px;
       margin-top: 25px;
     }
+
+    .formbold-left-buttons {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .formbold-clear-btn {
+      cursor: pointer;
+      background: #FFFFFF;
+      border: none;
+      color: #DC3545;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .formbold-clear-btn:hover {
+      background-color: #fee2e2;
+    }
+
     .formbold-back-btn {
       cursor: pointer;
       background: #FFFFFF;
@@ -351,12 +378,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="about_me" class="formbold-form-label">{{ __('stepper.personal_info.about_me') }}</label>
-                        <textarea name="about_me" id="about_me" class="formbold-form-input" 
-                            placeholder="{{ __('stepper.placeholders.about_me') }}" required>{{ old('about_me', $sessionData->about_me ?? '') }}</textarea>
-                    </div>
-
-                    <div class="form-group">
                         <label for="photo" class="formbold-form-label">{{ __('stepper.personal_info.photo') }}</label>
                         <div class="formbold-form-file">
                             <input type="file" name="photo" id="photo" accept="image/*">
@@ -371,6 +392,14 @@
                 </div>
 
                 <div class="formbold-form-btn-wrapper">
+                    <div class="formbold-left-buttons">
+                        <a href="{{ route('generador.clearSession') }}" class="formbold-clear-btn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.3334 4L12.3934 4.94L11.4534 4L10.5134 4.94L9.57341 4L8.63341 4.94L7.69341 4L6.75341 4.94L5.81341 4L4.87341 4.94L3.93341 4L3 4.94V13.3333H13.3334V4ZM5.81341 11.3333H4.87341V9.45333H5.81341V11.3333ZM8.63341 11.3333H7.69341V9.45333H8.63341V11.3333ZM11.4534 11.3333H10.5134V9.45333H11.4534V11.3333Z" fill="#DC3545"/>
+                            </svg>
+                            {{ __('stepper.buttons.clear') }}
+                        </a>
+                    </div>
                     <button type="submit" class="formbold-btn">
                         {{ __('stepper.buttons.next') }}
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -390,9 +419,7 @@
     </div>
 @endsection
 
-@section('scripts')
-    <script src="{{ asset('js/toastr.js') }}"></script>
-@endsection
+
 
 </div>
 </section>

@@ -58,6 +58,7 @@ return [
     'buttons' => [
         'next' => 'Next',
         'back' => 'Back',
+        'clear' => 'Clear All',
         'add' => 'Add',
         'remove' => 'Remove',
     ],

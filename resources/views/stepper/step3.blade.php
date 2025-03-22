@@ -110,6 +110,33 @@
       gap: 25px;
       margin-top: 25px;
     }
+
+    .formbold-left-buttons {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .formbold-clear-btn {
+      cursor: pointer;
+      background: #FFFFFF;
+      border: none;
+      color: #DC3545;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .formbold-clear-btn:hover {
+      background-color: #fee2e2;
+    }
+
     .formbold-back-btn {
       cursor: pointer;
       background: #FFFFFF;
@@ -362,12 +389,20 @@
                 </div>
 
                 <div class="formbold-form-btn-wrapper">
-                    <a href="{{ route('generador.paso2.create') }}" class="formbold-back-btn">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5.21875 7.33312L8.79475 3.75712L7.85208 2.81445L2.66675 7.99979L7.85208 13.1851L8.79475 12.2425L5.21875 8.66645H13.3334V7.33312H5.21875Z" fill="#07074D"/>
-                        </svg>
-                        {{ __('stepper.buttons.back') }}
-                    </a>
+                    <div class="formbold-left-buttons">
+                        <a href="{{ route('generador.clearSession') }}" class="formbold-clear-btn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.3334 4L12.3934 4.94L11.4534 4L10.5134 4.94L9.57341 4L8.63341 4.94L7.69341 4L6.75341 4.94L5.81341 4L4.87341 4.94L3.93341 4L3 4.94V13.3333H13.3334V4ZM5.81341 11.3333H4.87341V9.45333H5.81341V11.3333ZM8.63341 11.3333H7.69341V9.45333H8.63341V11.3333ZM11.4534 11.3333H10.5134V9.45333H11.4534V11.3333Z" fill="#DC3545"/>
+                            </svg>
+                            {{ __('stepper.buttons.clear') }}
+                        </a>
+                        <a href="{{ route('generador.paso2.create') }}" class="formbold-back-btn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.21875 7.33312L8.79475 3.75712L7.85208 2.81445L2.66675 7.99979L7.85208 13.1851L8.79475 12.2425L5.21875 8.66645H13.3334V7.33312H5.21875Z" fill="#07074D"/>
+                            </svg>
+                            {{ __('stepper.buttons.back') }}
+                        </a>
+                    </div>
                     <button type="submit" class="formbold-btn">
                         {{ __('stepper.buttons.next') }}
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -451,5 +486,4 @@
             studyCount++;
         }
     </script>
-    <script src="{{ asset('js/toastr.js') }}"></script>
 @endsection

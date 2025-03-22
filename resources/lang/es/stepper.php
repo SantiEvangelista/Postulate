@@ -61,6 +61,7 @@ return [
     'buttons' => [
         'next' => 'Siguiente',
         'back' => 'Anterior',
+        'clear' => 'Limpiar Todo',
         'add' => 'Agregar',
         'remove' => 'Eliminar',
     ],
