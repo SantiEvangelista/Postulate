@@ -234,7 +234,7 @@
                     <textarea name="objetivo_profesional" 
                         class="formbold-form-input @error('objetivo_profesional') error @enderror"
                         placeholder="{{ __('stepper.placeholders.professional_objective') }}"
-                        rows="4">{{ old('objetivo_profesional') }}</textarea>
+                        rows="4">{{ old('objetivo_profesional', $sessionData->objetivo_profesional ?? '') }}</textarea>
                     @error('objetivo_profesional')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
@@ -243,17 +243,34 @@
                 <div class="section">
                     <h3>{{ __('stepper.experience.languages') }}</h3>
                     <div id="languages-container">
-                        <div class="dynamic-list-item">
-                            <select name="lenguajes[0][nombre]" class="formbold-form-input @error('lenguajes.0.nombre') error @enderror">
-                                <option value="">{{ __('stepper.placeholders.language') }}</option>
-                                <option value="Ingles" {{ old('lenguajes.0.nombre') == 'Ingles' ? 'selected' : '' }}>Inglés</option>
-                                <option value="Espanol" {{ old('lenguajes.0.nombre') == 'Espanol' ? 'selected' : '' }}>Español</option>
-                                <option value="Portuges" {{ old('lenguajes.0.nombre') == 'Portuges' ? 'selected' : '' }}>Portugués</option>
-                                <option value="Frances" {{ old('lenguajes.0.nombre') == 'Frances' ? 'selected' : '' }}>Francés</option>
-                                <option value="Chino" {{ old('lenguajes.0.nombre') == 'Chino' ? 'selected' : '' }}>Chino</option>
-                                <option value="Aleman" {{ old('lenguajes.0.nombre') == 'Aleman' ? 'selected' : '' }}>Alemán</option>
-                            </select>
-                        </div>
+                        @if($lenguajes->isNotEmpty())
+                            @foreach($lenguajes as $index => $lenguaje)
+                                <div class="dynamic-list-item">
+                                    <select name="lenguajes[{{ $index }}][nombre]" class="formbold-form-input @error('lenguajes.' . $index . '.nombre') error @enderror">
+                                        <option value="">{{ __('stepper.placeholders.language') }}</option>
+                                        <option value="Ingles" {{ old('lenguajes.' . $index . '.nombre', $lenguaje->nombre) == 'Ingles' ? 'selected' : '' }}>Inglés</option>
+                                        <option value="Espanol" {{ old('lenguajes.' . $index . '.nombre', $lenguaje->nombre) == 'Espanol' ? 'selected' : '' }}>Español</option>
+                                        <option value="Portuges" {{ old('lenguajes.' . $index . '.nombre', $lenguaje->nombre) == 'Portuges' ? 'selected' : '' }}>Portugués</option>
+                                        <option value="Frances" {{ old('lenguajes.' . $index . '.nombre', $lenguaje->nombre) == 'Frances' ? 'selected' : '' }}>Francés</option>
+                                        <option value="Chino" {{ old('lenguajes.' . $index . '.nombre', $lenguaje->nombre) == 'Chino' ? 'selected' : '' }}>Chino</option>
+                                        <option value="Aleman" {{ old('lenguajes.' . $index . '.nombre', $lenguaje->nombre) == 'Aleman' ? 'selected' : '' }}>Alemán</option>
+                                    </select>
+                                    <button type="button" class="remove-item" onclick="this.parentElement.remove()">{{ __('stepper.buttons.remove') }}</button>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="dynamic-list-item">
+                                <select name="lenguajes[0][nombre]" class="formbold-form-input @error('lenguajes.0.nombre') error @enderror">
+                                    <option value="">{{ __('stepper.placeholders.language') }}</option>
+                                    <option value="Ingles" {{ old('lenguajes.0.nombre') == 'Ingles' ? 'selected' : '' }}>Inglés</option>
+                                    <option value="Espanol" {{ old('lenguajes.0.nombre') == 'Espanol' ? 'selected' : '' }}>Español</option>
+                                    <option value="Portuges" {{ old('lenguajes.0.nombre') == 'Portuges' ? 'selected' : '' }}>Portugués</option>
+                                    <option value="Frances" {{ old('lenguajes.0.nombre') == 'Frances' ? 'selected' : '' }}>Francés</option>
+                                    <option value="Chino" {{ old('lenguajes.0.nombre') == 'Chino' ? 'selected' : '' }}>Chino</option>
+                                    <option value="Aleman" {{ old('lenguajes.0.nombre') == 'Aleman' ? 'selected' : '' }}>Alemán</option>
+                                </select>
+                            </div>
+                        @endif
                     </div>
                     <button type="button" class="add-item-btn" onclick="addLanguage()">{{ __('stepper.experience.add_language') }}</button>
                     @error('lenguajes')
@@ -264,17 +281,34 @@
                 <div class="section">
                     <h3>{{ __('stepper.experience.personality_traits') }}</h3>
                     <div id="traits-container">
-                        <div class="dynamic-list-item">
-                            <select name="rasgos[0][nombre]" class="formbold-form-input @error('rasgos.0.nombre') error @enderror">
-                                <option value="">{{ __('stepper.placeholders.trait') }}</option>
-                                <option value="Extrovertido" {{ old('rasgos.0.nombre') == 'Extrovertido' ? 'selected' : '' }}>Extrovertido</option>
-                                <option value="Introvertido" {{ old('rasgos.0.nombre') == 'Introvertido' ? 'selected' : '' }}>Introvertido</option>
-                                <option value="Amable" {{ old('rasgos.0.nombre') == 'Amable' ? 'selected' : '' }}>Amable</option>
-                                <option value="Sensible" {{ old('rasgos.0.nombre') == 'Sensible' ? 'selected' : '' }}>Sensible</option>
-                                <option value="Amistoso" {{ old('rasgos.0.nombre') == 'Amistoso' ? 'selected' : '' }}>Amistoso</option>
-                                <option value="Inteligente" {{ old('rasgos.0.nombre') == 'Inteligente' ? 'selected' : '' }}>Inteligente</option>
-                            </select>
-                        </div>
+                        @if($rasgos->isNotEmpty())
+                            @foreach($rasgos as $index => $rasgo)
+                                <div class="dynamic-list-item">
+                                    <select name="rasgos[{{ $index }}][nombre]" class="formbold-form-input @error('rasgos.' . $index . '.nombre') error @enderror">
+                                        <option value="">{{ __('stepper.placeholders.trait') }}</option>
+                                        <option value="Extrovertido" {{ old('rasgos.' . $index . '.nombre', $rasgo->nombre) == 'Extrovertido' ? 'selected' : '' }}>Extrovertido</option>
+                                        <option value="Introvertido" {{ old('rasgos.' . $index . '.nombre', $rasgo->nombre) == 'Introvertido' ? 'selected' : '' }}>Introvertido</option>
+                                        <option value="Amable" {{ old('rasgos.' . $index . '.nombre', $rasgo->nombre) == 'Amable' ? 'selected' : '' }}>Amable</option>
+                                        <option value="Sensible" {{ old('rasgos.' . $index . '.nombre', $rasgo->nombre) == 'Sensible' ? 'selected' : '' }}>Sensible</option>
+                                        <option value="Amistoso" {{ old('rasgos.' . $index . '.nombre', $rasgo->nombre) == 'Amistoso' ? 'selected' : '' }}>Amistoso</option>
+                                        <option value="Inteligente" {{ old('rasgos.' . $index . '.nombre', $rasgo->nombre) == 'Inteligente' ? 'selected' : '' }}>Inteligente</option>
+                                    </select>
+                                    <button type="button" class="remove-item" onclick="this.parentElement.remove()">{{ __('stepper.buttons.remove') }}</button>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="dynamic-list-item">
+                                <select name="rasgos[0][nombre]" class="formbold-form-input @error('rasgos.0.nombre') error @enderror">
+                                    <option value="">{{ __('stepper.placeholders.trait') }}</option>
+                                    <option value="Extrovertido" {{ old('rasgos.0.nombre') == 'Extrovertido' ? 'selected' : '' }}>Extrovertido</option>
+                                    <option value="Introvertido" {{ old('rasgos.0.nombre') == 'Introvertido' ? 'selected' : '' }}>Introvertido</option>
+                                    <option value="Amable" {{ old('rasgos.0.nombre') == 'Amable' ? 'selected' : '' }}>Amable</option>
+                                    <option value="Sensible" {{ old('rasgos.0.nombre') == 'Sensible' ? 'selected' : '' }}>Sensible</option>
+                                    <option value="Amistoso" {{ old('rasgos.0.nombre') == 'Amistoso' ? 'selected' : '' }}>Amistoso</option>
+                                    <option value="Inteligente" {{ old('rasgos.0.nombre') == 'Inteligente' ? 'selected' : '' }}>Inteligente</option>
+                                </select>
+                            </div>
+                        @endif
                     </div>
                     <button type="button" class="add-item-btn" onclick="addTrait()">{{ __('stepper.experience.add_trait') }}</button>
                     @error('rasgos')
@@ -285,15 +319,30 @@
                 <div class="section">
                     <h3>{{ __('stepper.experience.other_studies') }}</h3>
                     <div id="studies-container">
-                        <div class="dynamic-list-item">
-                            <select name="otros_estudios[0][nombre]" class="formbold-form-input @error('otros_estudios.0.nombre') error @enderror">
-                                <option value="">{{ __('stepper.placeholders.study') }}</option>
-                                <option value="Python" {{ old('otros_estudios.0.nombre') == 'Python' ? 'selected' : '' }}>Python</option>
-                                <option value="Excel" {{ old('otros_estudios.0.nombre') == 'Excel' ? 'selected' : '' }}>Excel</option>
-                                <option value="PHP" {{ old('otros_estudios.0.nombre') == 'PHP' ? 'selected' : '' }}>PHP</option>
-                                <option value="Laravel" {{ old('otros_estudios.0.nombre') == 'Laravel' ? 'selected' : '' }}>Laravel</option>
-                            </select>
-                        </div>
+                        @if($otrosEstudios->isNotEmpty())
+                            @foreach($otrosEstudios as $index => $estudio)
+                                <div class="dynamic-list-item">
+                                    <select name="otros_estudios[{{ $index }}][nombre]" class="formbold-form-input @error('otros_estudios.' . $index . '.nombre') error @enderror">
+                                        <option value="">{{ __('stepper.placeholders.study') }}</option>
+                                        <option value="Python" {{ old('otros_estudios.' . $index . '.nombre', $estudio->nombre) == 'Python' ? 'selected' : '' }}>Python</option>
+                                        <option value="Excel" {{ old('otros_estudios.' . $index . '.nombre', $estudio->nombre) == 'Excel' ? 'selected' : '' }}>Excel</option>
+                                        <option value="PHP" {{ old('otros_estudios.' . $index . '.nombre', $estudio->nombre) == 'PHP' ? 'selected' : '' }}>PHP</option>
+                                        <option value="Laravel" {{ old('otros_estudios.' . $index . '.nombre', $estudio->nombre) == 'Laravel' ? 'selected' : '' }}>Laravel</option>
+                                    </select>
+                                    <button type="button" class="remove-item" onclick="this.parentElement.remove()">{{ __('stepper.buttons.remove') }}</button>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="dynamic-list-item">
+                                <select name="otros_estudios[0][nombre]" class="formbold-form-input @error('otros_estudios.0.nombre') error @enderror">
+                                    <option value="">{{ __('stepper.placeholders.study') }}</option>
+                                    <option value="Python" {{ old('otros_estudios.0.nombre') == 'Python' ? 'selected' : '' }}>Python</option>
+                                    <option value="Excel" {{ old('otros_estudios.0.nombre') == 'Excel' ? 'selected' : '' }}>Excel</option>
+                                    <option value="PHP" {{ old('otros_estudios.0.nombre') == 'PHP' ? 'selected' : '' }}>PHP</option>
+                                    <option value="Laravel" {{ old('otros_estudios.0.nombre') == 'Laravel' ? 'selected' : '' }}>Laravel</option>
+                                </select>
+                            </div>
+                        @endif
                     </div>
                     <button type="button" class="add-item-btn" onclick="addStudy()">{{ __('stepper.experience.add_study') }}</button>
                     @error('otros_estudios')
@@ -306,7 +355,7 @@
                     <textarea name="datos_interes" 
                         class="formbold-form-input @error('datos_interes') error @enderror"
                         placeholder="{{ __('stepper.placeholders.interesting_data') }}"
-                        rows="4">{{ old('datos_interes') }}</textarea>
+                        rows="4">{{ old('datos_interes', $sessionData->datos_interes ?? '') }}</textarea>
                     @error('datos_interes')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror

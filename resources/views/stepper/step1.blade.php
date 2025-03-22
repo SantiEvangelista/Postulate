@@ -271,7 +271,7 @@
                                 name="name" 
                                 id="name" 
                                 class="formbold-form-input @error('name') error @enderror" 
-                                value="{{ old('name') }}"
+                                value="{{ old('name', $sessionData->name ?? '') }}"
                                 placeholder="{{ __('stepper.placeholders.first_name') }}" 
                                 required>
                             @error('name')
@@ -284,7 +284,7 @@
                                 name="surname" 
                                 id="surname" 
                                 class="formbold-form-input @error('surname') error @enderror"
-                                value="{{ old('surname') }}"
+                                value="{{ old('surname', $sessionData->surname ?? '') }}"
                                 placeholder="{{ __('stepper.placeholders.last_name') }}" 
                                 required>
                             @error('surname')
@@ -300,7 +300,7 @@
                                 name="email" 
                                 id="email" 
                                 class="formbold-form-input @error('email') error @enderror"
-                                value="{{ old('email') }}"
+                                value="{{ old('email', $sessionData->email ?? '') }}"
                                 placeholder="{{ __('stepper.placeholders.email') }}" 
                                 required>
                             @error('email')
@@ -313,7 +313,7 @@
                                 name="phone" 
                                 id="phone" 
                                 class="formbold-form-input @error('phone') error @enderror"
-                                value="{{ old('phone') }}"
+                                value="{{ old('phone', $sessionData->phone ?? '') }}"
                                 placeholder="{{ __('stepper.placeholders.phone') }}" 
                                 required>
                             @error('phone')
@@ -329,7 +329,7 @@
                                 name="birthday" 
                                 id="birthday" 
                                 class="formbold-form-input @error('birthday') error @enderror"
-                                value="{{ old('birthday') }}"
+                                value="{{ old('birthday', $sessionData->birthday ?? '') }}"
                                 required>
                             @error('birthday')
                                 <span class="text-danger">{{ $message }}</span>
@@ -341,7 +341,7 @@
                                 name="adress" 
                                 id="adress" 
                                 class="formbold-form-input @error('adress') error @enderror"
-                                value="{{ old('adress') }}"
+                                value="{{ old('adress', $sessionData->adress ?? '') }}"
                                 placeholder="{{ __('stepper.placeholders.address') }}" 
                                 required>
                             @error('adress')
@@ -353,7 +353,7 @@
                     <div class="form-group">
                         <label for="about_me" class="formbold-form-label">{{ __('stepper.personal_info.about_me') }}</label>
                         <textarea name="about_me" id="about_me" class="formbold-form-input" 
-                            placeholder="{{ __('stepper.placeholders.about_me') }}" required></textarea>
+                            placeholder="{{ __('stepper.placeholders.about_me') }}" required>{{ old('about_me', $sessionData->about_me ?? '') }}</textarea>
                     </div>
 
                     <div class="form-group">

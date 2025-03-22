@@ -25,28 +25,39 @@ class GeneradorController extends Controller
     // vistas GET
     public function createPaso1(Request $request)
     {
-        $sessionData= $request->session()->get('cv');
-        return view('stepper.step1',['sessionData' => $sessionData]);
+        $sessionData = $request->session()->get('cv');
+        return view('stepper.step1', ['sessionData' => $sessionData]);
     }
     
-    public function createPaso2()
+    public function createPaso2(Request $request)
     {
-        return view('stepper.step2');
+        $sessionData = $request->session()->get('cv');
+        return view('stepper.step2', ['sessionData' => $sessionData]);
     }
 
-    public function createPaso3()
+    public function createPaso3(Request $request)
     {
-        return view('stepper.step3');
+        $sessionData = $request->session()->get('cv');
+        $lenguajes = $request->session()->get('lenguajes', collect());
+        $rasgos = $request->session()->get('rasgos', collect());
+        $otrosEstudios = $request->session()->get('otros_estudios', collect());
+        
+        return view('stepper.step3', [
+            'sessionData' => $sessionData,
+            'lenguajes' => $lenguajes,
+            'rasgos' => $rasgos,
+            'otrosEstudios' => $otrosEstudios
+        ]);
     }
 
     public function success(Request $request)
     {
-        $cv=$request->session()->get('cv');
-        $empresas=$request->session()->get('empresas');
-        $rasgos=$request->session()->get('rasgos');
-        $lenguajes=$request->session()->get('lenguajes');
+        $cv = $request->session()->get('cv');
+        $empresas = $request->session()->get('empresas');
+        $rasgos = $request->session()->get('rasgos');
+        $lenguajes = $request->session()->get('lenguajes');
 
-        return view('sucess',['cv' => $cv]);
+        return view('sucess', ['cv' => $cv]);
     }
 
     // vistas POST

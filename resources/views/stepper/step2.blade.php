@@ -200,7 +200,7 @@
                                 name="secundario" 
                                 id="secundario" 
                                 class="formbold-form-input @error('secundario') error @enderror"
-                                value="{{ old('secundario') }}"
+                                value="{{ old('secundario', $sessionData->secundario ?? '') }}"
                                 placeholder="{{ __('stepper.placeholders.school') }}" 
                                 required>
                             @error('secundario')
@@ -213,7 +213,7 @@
                                 name="orientacion" 
                                 id="orientacion" 
                                 class="formbold-form-input @error('orientacion') error @enderror"
-                                value="{{ old('orientacion') }}"
+                                value="{{ old('orientacion', $sessionData->orientacion ?? '') }}"
                                 placeholder="{{ __('stepper.placeholders.orientation') }}" 
                                 required>
                             @error('orientacion')
@@ -229,7 +229,7 @@
                                 name="fecha_inicio_secundario" 
                                 id="fecha_inicio_secundario" 
                                 class="formbold-form-input @error('fecha_inicio_secundario') error @enderror"
-                                value="{{ old('fecha_inicio_secundario') }}"
+                                value="{{ old('fecha_inicio_secundario', $sessionData->fecha_inicio_secundario ?? '') }}"
                                 required>
                             @error('fecha_inicio_secundario')
                                 <span class="text-danger">{{ $message }}</span>
@@ -241,7 +241,7 @@
                                 name="fecha_fin_secundario" 
                                 id="fecha_fin_secundario" 
                                 class="formbold-form-input"
-                                value="{{ old('fecha_fin_secundario') }}">
+                                value="{{ old('fecha_fin_secundario', $sessionData->fecha_fin_secundario ?? '') }}">
                         </div>
                     </div>
                 </div>
@@ -255,7 +255,7 @@
                                 name="terciaria" 
                                 id="terciaria" 
                                 class="formbold-form-input @error('terciaria') error @enderror"
-                                value="{{ old('terciaria') }}"
+                                value="{{ old('terciaria', $sessionData->terciaria ?? '') }}"
                                 placeholder="{{ __('stepper.placeholders.school') }}" 
                                 required>
                             @error('terciaria')
@@ -268,7 +268,7 @@
                                 name="orientacion_terciaria" 
                                 id="orientacion_terciaria" 
                                 class="formbold-form-input @error('orientacion_terciaria') error @enderror"
-                                value="{{ old('orientacion_terciaria') }}"
+                                value="{{ old('orientacion_terciaria', $sessionData->orientacion_terciaria ?? '') }}"
                                 placeholder="{{ __('stepper.placeholders.orientation') }}" 
                                 required>
                             @error('orientacion_terciaria')
@@ -284,7 +284,7 @@
                                 name="fecha_inicio_terciaria" 
                                 id="fecha_inicio_terciaria" 
                                 class="formbold-form-input @error('fecha_inicio_terciaria') error @enderror"
-                                value="{{ old('fecha_inicio_terciaria') }}"
+                                value="{{ old('fecha_inicio_terciaria', $sessionData->fecha_inicio_terciaria ?? '') }}"
                                 required>
                             @error('fecha_inicio_terciaria')
                                 <span class="text-danger">{{ $message }}</span>
@@ -296,7 +296,7 @@
                                 name="fecha_fin_terciaria" 
                                 id="fecha_fin_terciaria" 
                                 class="formbold-form-input"
-                                value="{{ old('fecha_fin_terciaria') }}">
+                                value="{{ old('fecha_fin_terciaria', $sessionData->fecha_fin_terciaria ?? '') }}">
                         </div>
                     </div>
                 </div>
