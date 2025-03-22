@@ -34,10 +34,10 @@ return [
     'services.reason3.text' => 'Adapta tu CV a cada oferta de trabajo. Añade, modifica o elimina secciones según tus necesidades. ¡Tu CV, tu estilo!',
 
     // Testimonials
-    'testimonials.title' => 'Historias de Éxito',
-    'testimonials.quote1' => '"Gracias a esta plataforma, pude crear un CV profesional en minutos. El resultado fue impresionante y conseguí varias entrevistas en poco tiempo. ¡Totalmente recomendado!"',
-    'testimonials.author1.name' => 'Ana Martínez',
-    'testimonials.author1.role' => 'Desarrolladora de Software',
+    
+    'testimonials.quote1' => '"Crear un CV profesional y atractivo sera rápido y sencillo. Sin tener que lidiar con programas complicados.Con solo unos clics, tendrás un currículum listo para enviar, optimizando tu tiempo y esfuerzo"',
+    'testimonials.author1.name' => 'Santiago Evangelista',
+    'testimonials.author1.role' => 'Ingeriero Informático',
 
     // Features
     'features.delivery.title' => 'Instantáneo',

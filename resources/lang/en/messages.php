@@ -33,10 +33,10 @@ return [
     'services.reason3.text' => 'Adapt your CV to each job opportunity. Add, modify, or remove sections as needed. Your CV, your style!',
 
     // Testimonials
-    'testimonials.title' => 'Success Stories',
-    'testimonials.quote1' => '"Thanks to this platform, I was able to create a professional CV in minutes. The result was impressive and I got several interviews in no time. Highly recommended!"',
-    'testimonials.author1.name' => 'Sarah Johnson',
-    'testimonials.author1.role' => 'Software Developer',
+    
+    'testimonials.quote1' => '"The idea of creating a professional CV seemed too complicated to me, so I developed this web application that allows me to create a CV in 3 simple steps and customize it according to my needs."',
+    'testimonials.author1.name' => 'Santiago Evangelista',
+    'testimonials.author1.role' => 'Software Engineer',
 
     // Features
     'features.delivery.title' => 'Instant',
