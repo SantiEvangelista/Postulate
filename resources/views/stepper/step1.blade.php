@@ -266,46 +266,88 @@
 
                     <div class="formbold-input-flex">
                         <div>
-                            <label for="first_name" class="formbold-form-label">{{ __('stepper.personal_info.first_name') }}</label>
-                            <input type="text" name="first_name" id="first_name" class="formbold-form-input" 
-                                placeholder="{{ __('stepper.placeholders.first_name') }}" required>
+                            <label for="name" class="formbold-form-label">{{ __('stepper.personal_info.first_name') }}</label>
+                            <input type="text" 
+                                name="name" 
+                                id="name" 
+                                class="formbold-form-input @error('name') error @enderror" 
+                                value="{{ old('name') }}"
+                                placeholder="{{ __('stepper.placeholders.first_name') }}" 
+                                required>
+                            @error('name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div>
-                            <label for="last_name" class="formbold-form-label">{{ __('stepper.personal_info.last_name') }}</label>
-                            <input type="text" name="last_name" id="last_name" class="formbold-form-input" 
-                                placeholder="{{ __('stepper.placeholders.last_name') }}" required>
+                            <label for="surname" class="formbold-form-label">{{ __('stepper.personal_info.last_name') }}</label>
+                            <input type="text" 
+                                name="surname" 
+                                id="surname" 
+                                class="formbold-form-input @error('surname') error @enderror"
+                                value="{{ old('surname') }}"
+                                placeholder="{{ __('stepper.placeholders.last_name') }}" 
+                                required>
+                            @error('surname')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="formbold-input-flex">
                         <div>
                             <label for="email" class="formbold-form-label">{{ __('stepper.personal_info.email') }}</label>
-                            <input type="email" name="email" id="email" class="formbold-form-input" 
-                                placeholder="{{ __('stepper.placeholders.email') }}" required>
+                            <input type="email" 
+                                name="email" 
+                                id="email" 
+                                class="formbold-form-input @error('email') error @enderror"
+                                value="{{ old('email') }}"
+                                placeholder="{{ __('stepper.placeholders.email') }}" 
+                                required>
+                            @error('email')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div>
                             <label for="phone" class="formbold-form-label">{{ __('stepper.personal_info.phone') }}</label>
-                            <input type="tel" name="phone" id="phone" class="formbold-form-input" 
-                                placeholder="{{ __('stepper.placeholders.phone') }}" required>
+                            <input type="tel" 
+                                name="phone" 
+                                id="phone" 
+                                class="formbold-form-input @error('phone') error @enderror"
+                                value="{{ old('phone') }}"
+                                placeholder="{{ __('stepper.placeholders.phone') }}" 
+                                required>
+                            @error('phone')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="formbold-input-flex">
                         <div>
-                            <label for="birth_date" class="formbold-form-label">{{ __('stepper.personal_info.birth_date') }}</label>
-                            <input type="date" name="birth_date" id="birth_date" class="formbold-form-input" required>
+                            <label for="birthday" class="formbold-form-label">{{ __('stepper.personal_info.birth_date') }}</label>
+                            <input type="date" 
+                                name="birthday" 
+                                id="birthday" 
+                                class="formbold-form-input @error('birthday') error @enderror"
+                                value="{{ old('birthday') }}"
+                                required>
+                            @error('birthday')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div>
-                            <label for="profession" class="formbold-form-label">{{ __('stepper.personal_info.profession') }}</label>
-                            <input type="text" name="profession" id="profession" class="formbold-form-input" 
-                                placeholder="{{ __('stepper.placeholders.profession') }}" required>
+                            <label for="adress" class="formbold-form-label">{{ __('stepper.personal_info.address') }}</label>
+                            <input type="text" 
+                                name="adress" 
+                                id="adress" 
+                                class="formbold-form-input @error('adress') error @enderror"
+                                value="{{ old('adress') }}"
+                                placeholder="{{ __('stepper.placeholders.address') }}" 
+                                required>
+                            @error('adress')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="address" class="formbold-form-label">{{ __('stepper.personal_info.address') }}</label>
-                        <input type="text" name="address" id="address" class="formbold-form-input" 
-                            placeholder="{{ __('stepper.placeholders.address') }}" required>
                     </div>
 
                     <div class="form-group">
@@ -329,7 +371,7 @@
                 </div>
 
                 <div class="formbold-form-btn-wrapper">
-                    <button  class="formbold-btn">
+                    <button type="submit" class="formbold-btn">
                         {{ __('stepper.buttons.next') }}
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_1675_1807)">
