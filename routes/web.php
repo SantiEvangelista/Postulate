@@ -42,6 +42,4 @@ Route::get('language/{locale}', function ($locale) {
 
 Route::get('/generador/clear-session', [GeneradorController::class, 'clearSession'])->name('generador.clearSession');
 
-Route::get('/nuevo-front', function () {
-    return view('template.index');
-});
+
