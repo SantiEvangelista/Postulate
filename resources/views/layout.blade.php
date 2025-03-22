@@ -26,32 +26,7 @@ You can find the code of your language here - https://www.w3schools.com/tags/ref
     </head>
     <body class="appear-animate">
         
-                    <!-- Navigation panel -->
-                    <nav class="main-nav dark transparent stick-fixed">
-                        <div class="full-wrapper relative clearfix">
-                            <!-- Logo ( * your text or image into link tag *) -->
-                            <div class="nav-logo-wrap local-scroll">
-                                <a href="#top" class="logo">
-                                    <img src="{{ asset('images/logo-white.png') }}" alt="Company logo" />
-                                </a>
-                            </div>
-                            <div class="mobile-nav" role="button" tabindex="0">
-                                <i class="fa fa-bars"></i>
-                                <span class="sr-only">Menu</span>
-                            </div>
-                            <!-- Main Menu -->
-                            <div class="inner-nav desktop-nav">
-                                <ul class="clearlist scroll-nav local-scroll">
-                                    <li class="active"><a href="{{route('index')}}">Home</a></li>
-                                    <li><a href="{{ route('generador.paso1.create') }}">Servicio</a></li>
-                                    
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-                    <!-- End Navigation panel -->
-
-        @yield('contenido')
+        @yield('body')
          <!-- Foter -->
             <footer style="background-color: #111111;color: white" class="page-section footer pb-60">
                 <div class="container">
