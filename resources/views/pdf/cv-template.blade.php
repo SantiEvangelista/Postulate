@@ -78,7 +78,7 @@
     </div>
     @endif
 
-    @if(count($empresas) > 0)
+    @if(isset($empresas) && $empresas->isNotEmpty())
     <div class="section">
         <div class="section-title">Experiencia Profesional</div>
         @foreach($empresas as $empresa)
@@ -107,7 +107,7 @@
         @endif
     </div>
 
-    @if(count($rasgos) > 0)
+    @if(isset($rasgos))
     <div class="section">
         <div class="section-title">Habilidades</div>
         <div class="skills">
@@ -118,7 +118,7 @@
     </div>
     @endif
 
-    @if(count($lenguajes) > 0 || count($otros_estudios) > 0 || $cv->datos_interes)
+    @if(isset($lenguajes) || isset($otros_estudios) || isset($cv->datos_interes))
     <div class="section">
         <div class="section-title">Información Adicional</div>
         @if(count($lenguajes) > 0)

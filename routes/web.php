@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FillPDFController;
 use App\Http\Controllers\GeneradorController;
+use App\Http\Controllers\StepperAjaxController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,5 +45,12 @@ Route::get('language/{locale}', function ($locale) {
 })->name('language.switch');
 
 Route::get('/generador/clear-session', [GeneradorController::class, 'clearSession'])->name('generador.clearSession');
+
+// Nueva ruta para el stepper dinámico
+Route::get('/generador/full-stepper', [StepperAjaxController::class, 'index'])->name('generador.full-stepper');
+Route::get('/generador/paso{step}/content', [StepperAjaxController::class, 'getStepContent'])->name('stepper.ajax.content');
+Route::post('/generador/paso1/submit', [StepperAjaxController::class, 'submitStep1'])->name('stepper.ajax.submit.step1');
+Route::post('/generador/paso2/submit', [StepperAjaxController::class, 'submitStep2'])->name('stepper.ajax.submit.step2');
+Route::post('/generador/paso3/submit', [StepperAjaxController::class, 'submitStep3'])->name('stepper.ajax.submit.step3');
 
 

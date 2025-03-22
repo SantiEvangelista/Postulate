@@ -23,10 +23,10 @@ class Step3FormRequest extends FormRequest
     {
         return [
             'objetivo_profesional' => 'required',
-            'lenguajes' => 'required',
-            'datos_interes' => 'required',
-            'otros_estudios' => 'required',
-            'rasgos' => 'required'
+            'lenguajes' => 'sometimes   ',
+            'datos_interes' => 'sometimes',
+            'otros_estudios' => 'sometimes',
+            'rasgos' => 'sometimes'
         ];
     }
 }

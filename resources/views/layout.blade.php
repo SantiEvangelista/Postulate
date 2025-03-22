@@ -15,7 +15,7 @@
     <meta name="HandheldFriendly" content="true">
     <title>{{ config('app.name', 'Postulate!') }}</title>
     <link rel="stylesheet" href="{{ asset('css/theme.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/toastr.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 
     <style>
@@ -77,9 +77,10 @@
             @endif
         </div>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="{{ asset('js/aos.js') }}"></script>
-    <script src="{{ asset('js/toastr.js') }}"></script>
     <script>
         AOS.init({
             duration: 800,
