@@ -23,10 +23,7 @@ class StepperAjaxController extends Controller
 
     public function getStepContent($step)
     {
-        $viewPath = "stepper.step{$step}-content";
-        
-        
-
+        $viewPath = "stepper.step{$step}-content";  
         return View::make($viewPath)->render();
     }
 
@@ -67,57 +64,8 @@ class StepperAjaxController extends Controller
             $cv = new Generador($request->all());
                 //'datos_interes' => $request->input('datos_interes'),
             
-            $cv->save();
-
-            // Crear empresas
-            // if ($request->has('empresas')) {
-            //     foreach ($request->input('empresas') as $empresa) {
-            //         Empresas::create([
-            //             'generador_id' => $cv->id,
-            //             'company_name' => $empresa['nombre'],
-            //             'charge' => $empresa['cargo'],
-            //             'start_date' => $empresa['fecha_inicio'],
-            //             'end_date' => $empresa['fecha_fin'],
-            //         ]);
-            //     }
-            // }
-
-            // Crear lenguajes
-            // if ($request->has('lenguajes')) {
-            //     foreach ($request->input('lenguajes') as $lenguaje) {
-            //         Lenguaje::create([
-            //             'generador_id' => $cv->id,
-            //             'nombre' => $lenguaje['nombre']
-            //         ]);
-            //     }
-            // }
-
-            // Crear rasgos
-            // if ($request->has('rasgos')) {
-            //     foreach ($request->input('rasgos') as $rasgo) {
-            //         Rasgo::create([
-            //             'generador_id' => $cv->id,
-            //             'nombre' => $rasgo['nombre']
-            //         ]);
-            //     }
-            // }
-
-            // Crear otros estudios
-            //if ($request->has('otros_estudios')) {
-            //     foreach ($request->input('otros_estudios') as $estudio) {
-            //         Otros_estudios::create([
-            //             'generador_id' => $cv->id,
-            //             'nombre' => $estudio['nombre']
-            //         ]);
-            //     }
-            // }
-
-            return response()->json([
-                'success' => true,
-                'message' => 'CV generado correctamente',
-                'redirect' => route('generador.success'),
-                'cv' => $cv
-            ]);
+            return redirect()->route('generador.success');
+            
         } catch (\Exception $e) {
             Log::error('Error en submitStep3: ' . $e->getMessage());
             return response()->json([
