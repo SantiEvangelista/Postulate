@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\FillPDFController;
 use App\Http\Controllers\GeneradorController;
-use App\Http\Controllers\StepperAjaxController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +35,7 @@ Route::post('/generarCV/paso/1', [GeneradorController::class, 'post_paso1'])->na
 Route::post('/generarCV/paso/2', [GeneradorController::class, 'post_paso2'])->name('generador.paso2.store');
 Route::post('/generarCV/paso/3', [GeneradorController::class, 'post_paso3'])->name('generador.paso3.store');
 
-Route::get('/generar-cv-moderno', [FillPDFController::class, 'generateModernPDF'])->name('generar.cv.moderno');
+Route::get('/generar-cv-moderno', [FillPDFController::class, 'finalPDF'])->name('generar.cv.moderno');
 
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, ['en', 'es'])) {
@@ -45,12 +45,5 @@ Route::get('language/{locale}', function ($locale) {
 })->name('language.switch');
 
 Route::get('/generador/clear-session', [GeneradorController::class, 'clearSession'])->name('generador.clearSession');
-
-// Nueva ruta para el stepper dinámico
-Route::get('/generador/full-stepper', [StepperAjaxController::class, 'index'])->name('generador.full-stepper');
-Route::get('/generador/paso{step}/content', [StepperAjaxController::class, 'getStepContent'])->name('stepper.ajax.content');
-Route::post('/generador/paso1/submit', [StepperAjaxController::class, 'submitStep1'])->name('stepper.ajax.submit.step1');
-Route::post('/generador/paso2/submit', [StepperAjaxController::class, 'submitStep2'])->name('stepper.ajax.submit.step2');
-Route::post('/generador/paso3/submit', [StepperAjaxController::class, 'submitStep3'])->name('stepper.ajax.submit.step3');
 
 
