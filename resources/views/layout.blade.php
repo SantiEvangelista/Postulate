@@ -26,9 +26,6 @@
             font-weight: 300;
             font-display: swap;
             src: local(''),
-                url('./fonts/inter-v12-latin-300.woff2') format('woff2'),
-                /* Chrome 26+, Opera 23+, Firefox 39+ */
-                url('./fonts/inter-v12-latin-300.woff') format('woff');
             /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
         }
 
