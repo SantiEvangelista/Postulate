@@ -452,4 +452,19 @@ class FillPDFController extends Controller
             $pdf->Output('I', "Curriculum-Generado.pdf");
     }
 
+    public function finalPDF(Request $request)
+    {
+        $cv = $request->session()->get('cv');
+        $empresas = $request->session()->get('empresas');
+        $rasgos = $request->session()->get('rasgos');
+        $lenguajes = $request->session()->get('lenguajes');
+        $otros_estudios = $request->session()->get('otros_estudios');
+        
+        $data = compact('cv', 'empresas', 'rasgos', 'lenguajes', 'otros_estudios');
+        
+        $pdf = PDF::loadView('pdf.cv-template', $data);
+        $pdf->setPaper('A4', 'portrait');
+        
+        return $pdf->stream('cv.pdf');
+    }
 }
