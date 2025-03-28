@@ -23,7 +23,7 @@
 
         @include('components.impact')
 
-        <div class="container py-vh-4 w-100 overflow-hidden">
+        <div id="objectives" class="container py-vh-4 w-100 overflow-hidden">
             <div class="row d-flex justify-content-center align-items-center">
                 <div class="col-md-7" data-aos="fade-left">
                     <blockquote>

@@ -4,7 +4,7 @@ return [
     // Navigation
     'nav.objectives' => '¿Cómo Funciona?',
     'nav.metrics' => 'Impacto',
-    'nav.about' => 'Sobre Nosotros',
+    'nav.about' => 'Objetivos',
     
 
     // Hero Section

@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#aboutUs" aria-label="{{ __('messages.nav.about') }}">
+                    <a class="nav-link" href="#objectives" aria-label="{{ __('messages.nav.about') }}">
                         {{ __('messages.nav.about') }}
                     </a>
                 </li>

@@ -4,7 +4,7 @@ return [
     // Navigation
     'nav.objectives' => 'How It Works',
     'nav.metrics' => 'Impact',
-    'nav.about' => 'About Us',
+    'nav.about' => 'Objectives',
 
     // Hero Section
     'hero.title' => 'Create Your Professional CV in 3 Steps!',
