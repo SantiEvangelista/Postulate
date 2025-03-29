@@ -11,7 +11,6 @@ use App\Models\Generador;
 use App\Models\Lenguaje;
 use App\Models\Rasgo;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class GeneradorController extends Controller
 {
@@ -54,7 +53,7 @@ class GeneradorController extends Controller
 
 
     // vistas POST
-    public function post_paso1(Request $request, Step1FormRequest $validated)
+    public function postPaso1(Request $request, Step1FormRequest $validated)
     {
         $request->session()->flush();
         $cv = new Generador($validated->all());
@@ -63,8 +62,9 @@ class GeneradorController extends Controller
         return redirect()->route('generador.paso2.create');
     }
 
-    public function post_paso2(Request $request, Step2FormRequest $validated)
+    public function postPaso2(Request $request, Step2FormRequest $validated)
     {
+
         $cv = $request->session()->get('cv');
         
         $collection_empresas = collect();
@@ -91,60 +91,50 @@ class GeneradorController extends Controller
             'fecha_fin_terciaria' => $validated['fecha_fin_terciaria'],
         ]);
 
-        $request->session()->put('empresas', $collection_empresas);
+        
+        $cv->setRelation('empresas', $collection_empresas);
         $request->session()->put('cv', $cv);
         
         return redirect()->route('generador.paso3.create');
     }
 
-    public function post_paso3(Request $request, Step3FormRequest $validated)
+    public function postPaso3(Request $request, Step3FormRequest $validated)
     {
         try {
             $cv = $request->session()->get('cv');
             
-            $collection_empresas = $request->session()->get('empresas', collect());
-
             // Set default values and handle nulls
             $cv->fecha_fin_secundario = $cv->fecha_fin_secundario ?? 'Sin finalizar';
             $cv->objetivo_profesional = $validated['objetivo_profesional'];
-            $cv->id = 1;
             $cv->datos_interes = $validated['datos_interes'];
 
             // Initialize collections
             $lenguajes = collect($request->input('lenguajes', []))->map(function ($lenguaje) use ($cv) {
                 return new Lenguaje([
                     'nombre' => $lenguaje['nombre'],
-                    'generador_id' => $cv->id
                 ]);
             });
 
             $rasgos = collect($request->input('rasgos', []))->map(function ($rasgo) use ($cv) {
                 return new Rasgo([
                     'nombre' => $rasgo['nombre'],
-                    'generador_id' => $cv->id
                 ]);
             });
 
             $otros_estudios = collect($request->input('otros_estudios', []))->map(function ($estudio) use ($cv) {
                 return new Otros_estudios([
                     'nombre' => $estudio['nombre'],
-                    'generador_id' => $cv->id
                 ]);
             });
 
-            $empresas = $collection_empresas->map(function ($empresa) use ($cv) {
-                $empresa->generador_id = $cv->id;
-                return $empresa;
-            });
+
+            // Save all data without persisting it to the database
+            $cv->setRelation('lenguajes', $lenguajes);
+            $cv->setRelation('rasgos', $rasgos);
+            $cv->setRelation('otros_estudios', $otros_estudios);
 
             // Store all data in session
-            $request->session()->put([
-                'cv' => $cv,
-                'lenguajes' => $lenguajes,
-                'rasgos' => $rasgos,
-                'empresas' => $empresas,
-                'otros_estudios' => $otros_estudios
-            ]);
+            $request->session()->put(['cv' => $cv]);
 
             return redirect()->route('generador.success');
             
@@ -163,9 +153,6 @@ class GeneradorController extends Controller
     public function success(Request $request)
     {
         $cv = $request->session()->get('cv');
-        $empresas = $request->session()->get('empresas');
-        $rasgos = $request->session()->get('rasgos');
-        $lenguajes = $request->session()->get('lenguajes');
 
         return view('sucess', ['cv' => $cv]);
     }
