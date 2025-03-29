@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>CV - {{ $cv->name }} {{ $cv->surname }}</title>
+    <title>CV - {{ $cv['name'] }} {{ $cv['surname'] }}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -65,27 +65,27 @@
 </head>
 <body>
     <div class="header">
-        <div class="name">{{ $cv->name }} {{ $cv->surname }}</div>
+        <div class="name">{{ $cv['name'] }} {{ $cv['surname'] }}</div>
         <div class="contact-info">
-            {{ $cv->adress }} • {{ $cv->phone }} • {{ $cv->email }}
+            {{ $cv['adress'] }} • {{ $cv['phone'] }} • {{ $cv['email'] }}
         </div>
     </div>
 
-    @if($cv->objetivo_profesional)
+    @if(!empty($cv['objetivo_profesional']))
     <div class="section">
         <div class="section-title">Perfil Profesional</div>
-        <p>{{ $cv->objetivo_profesional }}</p>
+        <p>{{ $cv['objetivo_profesional'] }}</p>
     </div>
     @endif
 
-    @if(isset($empresas) && $cv->empresas->isNotEmpty())
+    @if(!empty($cv['empresas']))
     <div class="section">
         <div class="section-title">Experiencia Profesional</div>
-        @foreach($empresas as $empresa)
+        @foreach($cv['empresas'] as $empresa)
         <div class="experience-item">
-            <div class="company-name">{{ $empresa->company_name }}</div>
-            <div class="position">{{ $empresa->charge }}</div>
-            <div class="date">{{ $empresa->start_date }} - {{ $empresa->end_date }}</div>
+            <div class="company-name">{{ $empresa['company_name'] }}</div>
+            <div class="position">{{ $empresa['charge'] }}</div>
+            <div class="date">{{ $empresa['start_date'] }} - {{ $empresa['end_date'] }}</div>
         </div>
         @endforeach
     </div>
@@ -94,50 +94,50 @@
     <div class="section">
         <div class="section-title">Educación</div>
         <div class="education-item">
-            <div class="institution">{{ $cv->secundario }}</div>
-            <div class="degree">Orientación: {{ $cv->orientacion }}</div>
-            <div class="date">{{ $cv->fecha_inicio_secundario }} - {{ $cv->fecha_fin_secundario }}</div>
+            <div class="institution">{{ $cv['secundario'] }}</div>
+            <div class="degree">Orientación: {{ $cv['orientacion'] }}</div>
+            <div class="date">{{ $cv['fecha_inicio_secundario'] }} - {{ $cv['fecha_fin_secundario'] }}</div>
         </div>
-        @if($cv->terciaria)
+        @if(!empty($cv['terciaria']))
         <div class="education-item">
-            <div class="institution">{{ $cv->terciaria }}</div>
-            <div class="degree">Orientación: {{ $cv->orientacion_terciaria }}</div>
-            <div class="date">{{ $cv->fecha_inicio_terciaria }} - {{ $cv->fecha_fin_terciaria }}</div>
+            <div class="institution">{{ $cv['terciaria'] }}</div>
+            <div class="degree">Orientación: {{ $cv['orientacion_terciaria'] }}</div>
+            <div class="date">{{ $cv['fecha_inicio_terciaria'] }} - {{ $cv['fecha_fin_terciaria'] }}</div>
         </div>
         @endif
     </div>
 
-    @if(isset($rasgos))
+    @if(!empty($cv['rasgos']))
     <div class="section">
         <div class="section-title">Habilidades</div>
         <div class="skills">
-            @foreach($rasgos as $rasgo)
-            <span class="skill-item">{{ $rasgo->nombre }}</span>
+            @foreach($cv['rasgos'] as $rasgo)
+            <span class="skill-item">{{ $rasgo['nombre'] }}</span>
             @endforeach
         </div>
     </div>
     @endif
 
-    @if(isset($cv->lenguajes))
+    @if(!empty($cv['lenguajes']) || !empty($cv['otros_estudios']) || !empty($cv['datos_interes']))
     <div class="section">
         <div class="section-title">Información Adicional</div>
-        @if(count($cv->lenguajes) > 0)
+        @if(!empty($cv['lenguajes']))
         <p><strong>Idiomas:</strong> 
-            {{ implode(', ', $cv->lenguajes->pluck('nombre')->toArray()) }}
+            {{ implode(', ', array_column($cv['lenguajes'],'nombre')) }}
         </p>
         @endif
         
-        @if(count($cv->otros_estudios) > 0)
+        @if(!empty($cv['otros_estudios']))
         <p><strong>Formación Complementaria:</strong> 
-            {{ implode(', ', $cv->otros_estudios->pluck('nombre')->toArray()) }}
+            {{ implode(', ', array_column($cv['otros_estudios'], 'nombre')) }}
         </p>
         @endif
         
-        @if($cv->datos_interes)
+        @if(!empty($cv['datos_interes']))
         <p><strong>Otros datos de interés:</strong><br>
-        {{ $cv->datos_interes }}</p>
+        {{ $cv['datos_interes'] }}</p>
         @endif
     </div>
     @endif
 </body>
-</html> 
+</html>

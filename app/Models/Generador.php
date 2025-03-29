@@ -24,4 +24,13 @@ class Generador extends Model
     {
         return $this->hasMany(Rasgo::class);
     }
+
+    public function toArray()
+    {
+        $array = parent::toArray();
+        $array['empresas'] = $this->empresas->toArray();
+        $array['lenguajes'] = $this->lenguajes->toArray();
+        $array['rasgos'] = $this->rasgos->toArray();
+        return $array;
+    }
 }
