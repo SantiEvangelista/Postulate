@@ -78,7 +78,7 @@
     </div>
     @endif
 
-    @if(isset($empresas) && $empresas->isNotEmpty())
+    @if(isset($empresas) && $cv->empresas->isNotEmpty())
     <div class="section">
         <div class="section-title">Experiencia Profesional</div>
         @foreach($empresas as $empresa)
@@ -118,18 +118,18 @@
     </div>
     @endif
 
-    @if(isset($lenguajes) || isset($otros_estudios) || isset($cv->datos_interes))
+    @if(isset($cv->lenguajes))
     <div class="section">
         <div class="section-title">Información Adicional</div>
-        @if(count($lenguajes) > 0)
+        @if(count($cv->lenguajes) > 0)
         <p><strong>Idiomas:</strong> 
-            {{ implode(', ', $lenguajes->pluck('nombre')->toArray()) }}
+            {{ implode(', ', $cv->lenguajes->pluck('nombre')->toArray()) }}
         </p>
         @endif
         
-        @if(count($otros_estudios) > 0)
+        @if(count($cv->otros_estudios) > 0)
         <p><strong>Formación Complementaria:</strong> 
-            {{ implode(', ', $otros_estudios->pluck('nombre')->toArray()) }}
+            {{ implode(', ', $cv->otros_estudios->pluck('nombre')->toArray()) }}
         </p>
         @endif
         
