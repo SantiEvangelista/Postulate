@@ -28,6 +28,12 @@
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
+
+    @media (min-width: 1200px) {
+      .formbold-form-wrapper {
+        max-width: 50%;
+      }
+    }
   
     .formbold-steps {
       padding-bottom: 18px;
