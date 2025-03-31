@@ -147,59 +147,6 @@
       align-items: center;
     }
 
-    .formbold-clear-btn {
-      cursor: pointer;
-      background: #FFFFFF;
-      border: none;
-      color: #DC3545;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 24px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 8px 16px;
-      border-radius: 5px;
-      transition: all 0.3s ease;
-    }
-
-    .formbold-clear-btn:hover {
-      background-color: #fee2e2;
-    }
-
-    .formbold-back-btn {
-      cursor: pointer;
-      background: #FFFFFF;
-      border: none;
-      color: #07074D;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 24px;
-      display: none;
-    }
-    .formbold-back-btn.active {
-      display: block;
-    }
-    .formbold-btn {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 16px;
-      border-radius: 5px;
-      padding: 10px 25px;
-      border: none;
-      font-weight: 500;
-      background-color: #6A64F1;
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-    }
-    .formbold-btn:hover {
-      background-color: #5753e4;
-      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
-    }
-
     .form-group {
       margin-bottom: 20px;
     }
@@ -386,12 +333,7 @@
 
                 <div class="formbold-form-btn-wrapper">
                     <div class="formbold-left-buttons">
-                        <a href="{{ route('generador.clearSession') }}" class="formbold-clear-btn">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13.3334 4L12.3934 4.94L11.4534 4L10.5134 4.94L9.57341 4L8.63341 4.94L7.69341 4L6.75341 4.94L5.81341 4L4.87341 4.94L3.93341 4L3 4.94V13.3333H13.3334V4ZM5.81341 11.3333H4.87341V9.45333H5.81341V11.3333ZM8.63341 11.3333H7.69341V9.45333H8.63341V11.3333ZM11.4534 11.3333H10.5134V9.45333H11.4534V11.3333Z" fill="#DC3545"/>
-                            </svg>
-                            {{ __('stepper.buttons.clear') }}
-                        </a>
+                        @include('components.clear-session')
                     </div>
                     <button type="submit" class="formbold-btn">
                         {{ __('stepper.buttons.next') }}
