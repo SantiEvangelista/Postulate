@@ -333,13 +333,8 @@
 
                 <div class="formbold-form-btn-wrapper">
                     <div class="formbold-left-buttons">
-                        @include('components.clear-session')
-                        <a href="{{ route('generador.paso1.create') }}" class="formbold-back-btn">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5.21875 7.33312L8.79475 3.75712L7.85208 2.81445L2.66675 7.99979L7.85208 13.1851L8.79475 12.2425L5.21875 8.66645H13.3334V7.33312H5.21875Z" fill="#07074D"/>
-                            </svg>
-                            {{ __('stepper.buttons.back') }}
-                        </a>
+                      @include('components.back-button')
+                      @include('components.clear-session')
                     </div>
                     <button type="submit" class="formbold-btn">
                         {{ __('stepper.buttons.next') }}

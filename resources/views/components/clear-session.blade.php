@@ -29,19 +29,6 @@
       transform: scale(1.1);
     }
 
-    .formbold-back-btn {
-      cursor: pointer;
-      background: #FFFFFF;
-      border: none;
-      color: #07074D;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 24px;
-      display: none;
-    }
-    .formbold-back-btn.active {
-      display: block;
-    }
     .formbold-btn {
       display: flex;
       align-items: center;
