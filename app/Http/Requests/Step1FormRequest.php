@@ -28,7 +28,7 @@ class Step1FormRequest extends FormRequest
                 'birthday' => 'required|date',
                 'adress' => 'required|string',
                 'email' => 'required|email',
-                'phone' => 'required|string|regex:/^\+?[1-9]\d{1,14}$/',
+                'phone' => 'required|string',
                 'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ];
     }
