@@ -22,14 +22,24 @@ class Step1FormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            
                 'name' => 'required|string|regex:/^[a-zA-Z\s]+$/',
                 'surname' => 'required|string|regex:/^[a-zA-Z\s]+$/',
-                'birthday' => 'required|date',
+                'birthday' => 'required|date|before:' . now()->subYears(16)->format('Y-m-d'),
                 'adress' => 'required|string',
                 'email' => 'required|email',
                 'phone' => 'required|string',
                 'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.regex' => 'El nombre debe contener solo letras.',
+            'surname.regex' => 'El apellido debe contener solo letras.',
+            'email.email' => 'El email no es valido.',
+            'phone.regex' => 'El telefono no es valido.',
+            'birthday.before' => 'Debes tener al menos 16 años para crear un CV.',
+        ];
     }
 }
