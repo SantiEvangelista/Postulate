@@ -31,6 +31,15 @@ class Generador extends Model
         $array['empresas'] = $this->empresas->toArray();
         $array['lenguajes'] = $this->lenguajes->toArray();
         $array['rasgos'] = $this->rasgos->toArray();
+        $array['otros_estudios'] = $this->otros_estudios->toArray();
+        
+        // Ensure all fillable attributes are included
+        foreach ($this->fillable as $attribute) {
+            if (!isset($array[$attribute])) {
+                $array[$attribute] = $this->$attribute;
+            }
+        }
+        
         return $array;
     }
 }
