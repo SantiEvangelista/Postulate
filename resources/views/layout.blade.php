@@ -61,19 +61,6 @@
 
     @yield('body')
 
-    <div class="toast-container">
-            @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    <div class="toast" role="alert">
-                        <div class="toast-content">
-                            {{ $error }}
-                        </div>
-                        <button type="button" class="toast-close" aria-label="Close">×</button>
-                    </div>
-                @endforeach
-            @endif
-        </div>
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -82,8 +69,43 @@
         AOS.init({
             duration: 800,
         });
-    </script>
 
+        // Configuración de toastr
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        // Mostrar errores de validación
+        @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                toastr.error('{{ $error }}');
+            @endforeach
+        @endif
+
+        // Mostrar mensajes de éxito
+        @if (session('success'))
+            toastr.success('{{ session('success') }}');
+        @endif
+
+        // Mostrar mensajes de error
+        @if (session('error'))
+            toastr.error('{{ session('error') }}');
+        @endif
+    </script>
 
     @yield('scripts')
 
