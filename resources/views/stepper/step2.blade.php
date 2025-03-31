@@ -333,7 +333,7 @@
 
                 <div class="formbold-form-btn-wrapper">
                     <div class="formbold-left-buttons">
-                      @include('components.back-button')
+                      @include('components.back-button', ['route' => 'generador.paso1.create'])
                       @include('components.clear-session')
                     </div>
                     <button type="submit" class="formbold-btn">
